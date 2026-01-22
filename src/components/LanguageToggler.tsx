@@ -4,47 +4,49 @@ import { LANGUAGES } from "@/i18n/languages";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Check, ChevronDown } from "lucide-react";
 
-export default function ModeToggle() {
+const LanguageToggler = () => {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const selectedLanguage = LANGUAGES.find(
-    (language) => language.locale === locale
+    (language) => language.locale === locale,
   )!;
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="flex items-center gap-1 py-1 px-2">
-          <span dangerouslySetInnerHTML={{ __html: selectedLanguage.flag }} />
-          {selectedLanguage.label}
+        <div className="cursor-pointer flex items-center text-[13px] text-white">
+          {selectedLanguage.locale.toUpperCase()}
+          <ChevronDown size={16} />
           <span className="sr-only">Toggle language</span>
-        </Button>
+        </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {LANGUAGES.map((language) => (
           <DropdownMenuItem
-            className={`${
-              language.locale === locale &&
-              "bg-gray-300 hover:bg-gray-300 data-highlighted:bg-gray-300"
-            }`}
+            className="flex items-center justify-between"
             key={language.locale}
             onClick={() =>
               router.replace({ pathname }, { locale: language.locale })
             }
           >
-            <span dangerouslySetInnerHTML={{ __html: language.flag }} />
-            {language.label}
+            <div className="flex items-center gap-1.5">
+              <span dangerouslySetInnerHTML={{ __html: language.flag }} />
+              {language.label}
+            </div>
+            {language.locale === locale && <Check />}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );
-}
+};
+
+export default LanguageToggler;

@@ -1,19 +1,25 @@
+// LOCALIZATION
 import { NextIntlClientProvider } from "next-intl";
 import { useLocale } from "next-intl";
 
+// THEMING
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 import type { Metadata } from "next";
-import { Open_Sans, Tajawal } from "next/font/google";
-import "./globals.css";
+import { Geist, Tajawal } from "next/font/google";
+import "@/styles/globals.css";
 
-const openSans = Open_Sans({
+// LAYOUT COMPONENTS
+import Header from "@/components/Header/Header";
+
+// FONTS
+const geist = Geist({
   subsets: ["latin"],
 });
 
 const tajawal = Tajawal({
   subsets: ["latin"],
-  weight: ["300"],
+  weight: ["500"],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = useLocale();
-  console.log(locale);
+
   return (
     <html
       lang={locale}
@@ -36,7 +42,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${openSans.className} ${tajawal.className} antialiased`}
+        className={`${locale === "ar" ? tajawal.className : geist.className}  antialiased`}
       >
         <NextIntlClientProvider>
           <ThemeProvider
@@ -45,6 +51,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <Header />
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>
