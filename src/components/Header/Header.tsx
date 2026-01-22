@@ -11,12 +11,14 @@ const Header = () => {
 
   return (
     <div className="bg-[#1F2937] p-2.5">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-[13px] text-white flex items-center gap-2">
-          <span className="bg-[#111827] py-0.5 px-3 rounded-3xl">
+      <div className="container mx-auto flex justify-between items-center gap-4">
+        <div className="text-[13px] text-white flex items-center gap-2 overflow-hidden">
+          <span className="bg-[#111827] py-0.5 px-3 rounded-3xl overflow-hidden whitespace-nowrap text-ellipsis">
             {t("hot")}
           </span>
-          <p className="hidden sm:block">{t("duration")}</p>
+          <p className="overflow-hidden whitespace-nowrap text-ellipsis">
+            {t("duration")}
+          </p>
         </div>
 
         <div className="flex items-center gap-2 leading-0">

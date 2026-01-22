@@ -21,7 +21,7 @@ export default function ThemeToggler() {
       <DropdownMenuTrigger asChild>
         <Button
           size={"icon-sm"}
-          className="cursor-pointer bg-transparent border-0 text-white p-0 m-0 hover:bg-transparent data-highlighted:bg-transparent outline-0"
+          className="cursor-pointer bg-transparent border-0 text-white p-0 m-0 hover:bg-transparent data-highlighted:bg-transparent outline-0 w-4 h-4"
         >
           <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
           <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
