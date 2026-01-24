@@ -10,7 +10,7 @@ import { Geist, Tajawal } from "next/font/google";
 import "@/styles/globals.css";
 
 // LAYOUT COMPONENTS
-import Header from "@/components/Header/Header";
+import TopLevelHeader from "@/layout/TopLevelHeader";
 
 // FONTS
 const geist = Geist({
@@ -51,7 +51,8 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Header />
+            <TopLevelHeader />
+
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>

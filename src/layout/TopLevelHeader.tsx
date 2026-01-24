@@ -4,9 +4,10 @@ import { useTranslations } from "next-intl";
 
 // THEMING
 import ThemeToggler from "@/components/ThemeToggler";
-import SocialMedia from "./SocialMedia";
 
-const Header = () => {
+import SocialMedia from "@/components/SocialMedia";
+
+const TopLevelHeader = () => {
   const t = useTranslations("Header");
 
   return (
@@ -33,4 +34,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default TopLevelHeader;
