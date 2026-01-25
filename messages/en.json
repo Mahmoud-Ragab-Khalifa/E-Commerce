@@ -3,5 +3,17 @@
     "hot": "HOT",
     "duration": "Free Express Shipping"
   },
-  "Logo": "Market"
+
+  "Logo": "Market",
+
+  "Search": "Searching for....",
+
+  "categories": "Categories",
+
+  "Categories": {
+    "bikes": "Bikes",
+    "electronics": "Electronics",
+    "books": "Books",
+    "games": "Games"
+  }
 }

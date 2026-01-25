@@ -12,6 +12,7 @@ import "@/app/globals.css";
 // LAYOUT COMPONENTS
 import TopLevelHeader from "@/layout/TopLevelHeader";
 import Navbar from "@/layout/Navbar";
+import DesktopCategories from "@/layout/DesktopCategories";
 
 // FONTS
 const geist = Geist({
@@ -54,6 +55,7 @@ export default function RootLayout({
           >
             <TopLevelHeader />
             <Navbar />
+            <DesktopCategories />
 
             {children}
           </ThemeProvider>
