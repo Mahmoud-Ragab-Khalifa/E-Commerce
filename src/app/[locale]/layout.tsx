@@ -11,6 +11,7 @@ import "@/styles/globals.css";
 
 // LAYOUT COMPONENTS
 import TopLevelHeader from "@/layout/TopLevelHeader";
+import Navbar from "@/layout/Navbar";
 
 // FONTS
 const geist = Geist({
@@ -52,6 +53,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <TopLevelHeader />
+            <Navbar />
 
             {children}
           </ThemeProvider>
