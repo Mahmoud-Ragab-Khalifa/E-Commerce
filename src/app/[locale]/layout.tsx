@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 
 import type { Metadata } from "next";
 import { Geist, Tajawal } from "next/font/google";
-import "@/styles/globals.css";
+import "@/app/globals.css";
 
 // LAYOUT COMPONENTS
 import TopLevelHeader from "@/layout/TopLevelHeader";
