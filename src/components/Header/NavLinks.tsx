@@ -5,6 +5,8 @@ import {
 } from "@/components/ui/hover-card";
 import { ChevronDown } from "lucide-react";
 
+import { useTranslations } from "next-intl";
+
 const links = [
   "Home",
   "Mega Menu",
@@ -22,12 +24,14 @@ const links = [
 // ]
 
 const NavLinks = () => {
+  const t = useTranslations("Links");
+
   return (
-    <div className="hidden lg:flex items-center gap-4">
+    <div className="hidden lg:flex ps-16 items-center gap-4">
       {links.map((link, idx) => (
         <HoverCard openDelay={50} closeDelay={50} key={idx}>
           <HoverCardTrigger className="group flex items-center gap-0.5 text-sm cursor-pointer">
-            {link}
+            {t(link)}
             <ChevronDown
               size={15}
               className="chevron mt-0.5 transform transtion duration-300 group-hover:rotate-180"

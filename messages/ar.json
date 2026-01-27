@@ -6,6 +6,15 @@
 
   "Logo": "ماركت",
 
+  "Links": {
+    "Home": "الصفحة الرئيسية",
+    "Mega Menu": "القائمة الكاملة",
+    "Full Screen Menu": "القائمة الرئيسية",
+    "Pages": "الصفحات",
+    "User Account": "حساب المستخدم",
+    "Vendor Account": "حساب البائع"
+  },
+
   "Search": "البحث عن...",
 
   "categories": "التصنيفات",

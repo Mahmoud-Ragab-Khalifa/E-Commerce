@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/drawer";
 import { ChevronDownIcon, TextAlignJustify, X } from "lucide-react";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import {
   Collapsible,
@@ -30,6 +30,7 @@ const links = [
 
 const MobileLinks = () => {
   const locale = useLocale();
+  const t = useTranslations("Links");
 
   return (
     <Drawer direction={locale === "ar" ? "right" : "left"}>
@@ -52,7 +53,7 @@ const MobileLinks = () => {
                   variant="ghost"
                   className="w-full justify-between! hover:bg-transparent!"
                 >
-                  {link}
+                  {t(link)}
                   <ChevronDownIcon className="transition-transform duration-300 group-data-[state=open]:rotate-180" />
                 </Button>
               </CollapsibleTrigger>

@@ -6,6 +6,15 @@
 
   "Logo": "Market",
 
+  "Links": {
+    "Home": "Home",
+    "Mega Menu": "Mega Menu",
+    "Full Screen Menu": "Full Screen Menu",
+    "Pages": "Pages",
+    "User Account": "User Account",
+    "Vendor Account": "Vendor Account"
+  },
+
   "Search": "Searching for....",
 
   "categories": "Categories",
