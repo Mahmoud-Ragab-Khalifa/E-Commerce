@@ -1,6 +1,6 @@
-import Logo from "@/components/Logo";
-import MobileLinks from "@/components/MobileLinks";
-import NavLinks from "@/components/NavLinks";
+import Logo from "@/components/Header/Logo";
+import MobileLinks from "@/components/Header/MobileLinks";
+import NavLinks from "@/components/Header/NavLinks";
 import { Button } from "@/components/ui/button";
 import { CircleUserRound, Search, ShoppingCart } from "lucide-react";
 

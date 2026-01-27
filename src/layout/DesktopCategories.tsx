@@ -4,7 +4,7 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group";
 import { Search } from "lucide-react";
-import Categories from "@/components/Categories";
+import Categories from "@/components/Header/Categories";
 
 import { useTranslations } from "next-intl";
 

@@ -1,11 +1,11 @@
 // LOCALIZATION
-import LanguageToggler from "@/components/LanguageToggler";
+import LanguageToggler from "@/components/Header/LanguageToggler";
 import { useTranslations } from "next-intl";
 
 // THEMING
-import ThemeToggler from "@/components/ThemeToggler";
+import ThemeToggler from "@/components/Header/ThemeToggler";
 
-import SocialMedia from "@/components/SocialMedia";
+import SocialMedia from "@/components/Header/SocialMedia";
 
 const TopLevelHeader = () => {
   const t = useTranslations("Header");

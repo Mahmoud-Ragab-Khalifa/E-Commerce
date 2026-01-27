@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { useLocale } from "next-intl";
 
 // THEMING
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider } from "@/components/Header/ThemeProvider";
 
 import type { Metadata } from "next";
 import { Geist, Tajawal } from "next/font/google";

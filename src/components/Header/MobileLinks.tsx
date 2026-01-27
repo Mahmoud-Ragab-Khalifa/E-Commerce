@@ -17,7 +17,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 const links = [
   "Home",

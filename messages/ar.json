@@ -15,5 +15,17 @@
     "electronics": "الإلكترونيات",
     "books": "الكتب",
     "games": "ألعاب"
+  },
+
+  "Explore Now": "استكشف الآن",
+
+  "SaleBoxOne": {
+    "title": "وصل حديثاً",
+    "offer": "تخفيضات الشتاء ٢٠٪"
+  },
+
+  "SaleBoxTwo": {
+    "title": "إكسسوارات",
+    "offer": "خصم 30% على سماعات AirPods Pro"
   }
 }

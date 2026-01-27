@@ -15,5 +15,17 @@
     "electronics": "Electronics",
     "books": "Books",
     "games": "Games"
+  },
+
+  "Explore Now": "EXPLORE NOW",
+
+  "SaleBoxOne": {
+    "title": "New Arrival",
+    "offer": "Winter Sale 20% OFF"
+  },
+
+  "SaleBoxTwo": {
+    "title": "Accessories",
+    "offer": "Airpods Pro 30% OFF"
   }
 }
