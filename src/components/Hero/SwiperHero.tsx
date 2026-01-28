@@ -1,11 +1,13 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
+import "./style.css";
 
 import SwipperCard from "./SwipperCard";
 
@@ -21,8 +23,11 @@ export default function SwiperHero() {
           delay: 4000,
           disableOnInteraction: false,
         }}
+        pagination={{
+          clickable: true,
+        }}
         speed={800}
-        modules={[Autoplay]}
+        modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
         <SwiperSlide>
