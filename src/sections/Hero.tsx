@@ -1,4 +1,5 @@
 import SaleBox from "@/components/Hero/SaleBox";
+import SwiperHero from "@/components/Hero/SwiperHero";
 
 import { useTranslations } from "next-intl";
 
@@ -20,9 +21,9 @@ const Hero = () => {
 
   return (
     <div className="p-2.5">
-      <div className="container mx-auto flex flex-col gap-4 xl:flex-row">
-        <div className="slider flex-1 bg-accent dark:bg-accent/30 min-h-64 rounded-md p-4">
-          Slider
+      <div className="container mx-auto flex flex-col gap-4 xl:flex-row justify-between transition-all duration-300">
+        <div className="slider flex-1 xl:max-w-[calc(100%-370px)] bg-accent dark:bg-accent/30 rounded-md">
+          <SwiperHero />
         </div>
         <div className="flex flex-col gap-4 md:flex-row xl:flex-col">
           {saleBoxData.map((item, idx) => (
