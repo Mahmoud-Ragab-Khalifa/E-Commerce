@@ -19,6 +19,15 @@
 
   "categories": "التصنيفات",
 
+  "swiperData": {
+    "title": "مجموعة أسلوب الحياة",
+    "Men": "رجال",
+    "Women": "نساء",
+    "Sale": "خصم حتى <span>10٪</span>",
+    "description": "احصل على شحن مجاني للطلبات التي تزيد عن 99.00$",
+    "ButtonContent": "تسوق الآن"
+  },
+
   "Categories": {
     "bikes": "الدراجات",
     "electronics": "الإلكترونيات",

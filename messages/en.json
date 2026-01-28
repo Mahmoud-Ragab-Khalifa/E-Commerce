@@ -19,6 +19,15 @@
 
   "categories": "Categories",
 
+  "swiperData": {
+    "title": "Lifestyle Collection",
+    "Men": "Men",
+    "Women": "Women",
+    "Sale": "Sale Up To <span>10% off</span>",
+    "description": "Get Free Shipping on orders over $99.00",
+    "ButtonContent": "Shop Now"
+  },
+
   "Categories": {
     "bikes": "Bikes",
     "electronics": "Electronics",
