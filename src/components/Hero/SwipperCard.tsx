@@ -14,7 +14,7 @@ const SwipperCard = ({ category, image }: SwiperCardProps) => {
 
   return (
     <div className="card select-none overflow-hidden flex flex-col md:flex-row justify-between items-center">
-      <div className="content text-center md:text-start flex-1 p-4 md:ps-16 xl:ps-24 text-light dark:text-dark min-w-75">
+      <div className="content text-center md:text-start flex-1 p-4 md:ps-16 xl:ps-24 text-light dark:text-dark min-w-80">
         <p className="text-[22px] md:text-[30px] whitespace-nowrap font-medium uppercase">
           {t("title")}
         </p>

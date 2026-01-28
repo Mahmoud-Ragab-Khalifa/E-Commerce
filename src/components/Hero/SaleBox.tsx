@@ -18,11 +18,13 @@ const SaleBox = ({ title, offer, src }: SaleBoxProps) => {
 
   return (
     <div
-      className={`text-light dark:text-dark box-1 flex-1 bg-accent dark:bg-accent/30 flex items-center justify-between p-4 rounded-md`}
+      className={`text-light dark:text-dark box-1 flex-1 bg-card dark:bg-card flex items-center justify-between py-4 px-6 rounded-md overflow-hidden`}
     >
       <div className="flex flex-col gap-2">
         <span className="text-[14px]">{title}</span>
-        <p className="max-w-40 leading-8 text-[24px] font-bold">{offer}</p>
+        <p className="w-37.5 max-w-40 leading-8 text-[24px] font-bold">
+          {offer}
+        </p>
         <Link
           href="/cart"
           className="flex items-center gap-1 max-w-fit transition-colors duration-1000 hover:border-b border-accent-foreground"
