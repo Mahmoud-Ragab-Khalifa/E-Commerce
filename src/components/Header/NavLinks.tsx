@@ -1,3 +1,5 @@
+"use client";
+
 import {
   HoverCard,
   HoverCardContent,
@@ -6,6 +8,8 @@ import {
 import { ChevronDown } from "lucide-react";
 
 import { useTranslations } from "next-intl";
+
+import { useState } from "react";
 
 const links = [
   "Home",
@@ -26,15 +30,25 @@ const links = [
 const NavLinks = () => {
   const t = useTranslations("Links");
 
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <div className="hidden lg:flex ps-16 items-center gap-4">
       {links.map((link, idx) => (
-        <HoverCard openDelay={50} closeDelay={50} key={idx}>
+        <HoverCard
+          openDelay={50}
+          closeDelay={50}
+          key={idx}
+          open={openIndex === idx}
+          onOpenChange={(open) => setOpenIndex(open ? idx : null)}
+        >
           <HoverCardTrigger className="group flex items-center gap-0.5 text-sm cursor-pointer">
             {t(link)}
             <ChevronDown
               size={15}
-              className="chevron mt-0.5 transform transtion duration-300 group-hover:rotate-180"
+              className={`mt-0.5 transition-transform duration-300 ${
+                openIndex === idx ? "rotate-180" : "rotate-0"
+              }`}
             />
           </HoverCardTrigger>
           <HoverCardContent>Content</HoverCardContent>
