@@ -11,6 +11,17 @@ import "./style.css";
 
 import SwipperCard from "./SwipperCard";
 
+const swiperCardData = [
+  {
+    category: "Men",
+    image: "/images/hero-man.png",
+  },
+  {
+    category: "Women",
+    image: "/images/hero-women.png",
+  },
+];
+
 export default function SwiperHero() {
   return (
     <>
@@ -30,12 +41,11 @@ export default function SwiperHero() {
         modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <SwipperCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <SwipperCard />
-        </SwiperSlide>
+        {swiperCardData.map((item, idx) => (
+          <SwiperSlide key={idx}>
+            <SwipperCard category={item.category} image={item.image} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

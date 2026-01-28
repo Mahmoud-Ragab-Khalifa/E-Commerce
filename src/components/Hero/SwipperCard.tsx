@@ -2,7 +2,12 @@ import { Button } from "@/components/ui/button";
 
 import Image from "next/image";
 
-const SwipperCard = () => {
+interface SwiperCardProps {
+  category: string;
+  image: string;
+}
+
+const SwipperCard = ({ category, image }: SwiperCardProps) => {
   return (
     <div className="card select-none overflow-hidden flex flex-col md:flex-row justify-between items-center">
       <div className="content text-center md:text-start flex-1 p-4 md:ps-16 xl:ps-24 text-light dark:text-dark min-w-75">
@@ -10,7 +15,7 @@ const SwipperCard = () => {
           Lifestyle Collection
         </p>
         <h1 className="text-[44px] md:text-[60px] font-bold leading-none">
-          Men
+          {category}
         </h1>
         <p className="text-[24px] md:text-[30px] whitespace-nowrap font-medium">
           Sale Up To <span className="text-[#e94560]">10% Off</span>
@@ -22,7 +27,7 @@ const SwipperCard = () => {
           Shop Now
         </Button>
       </div>
-      <Image src={"/images/hero-man.png"} alt="man" width={500} height={500} />
+      <Image src={image} alt="man" width={500} height={500} />
     </div>
   );
 };
