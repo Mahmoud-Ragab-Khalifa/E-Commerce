@@ -21,3 +21,9 @@
 .dark .swiper-pagination-bullet-active {
   background-color: var(--color-dark);
 }
+
+@media (max-width: 767px) {
+  .swiper-pagination-bullet {
+    display: none;
+  }
+}
