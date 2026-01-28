@@ -1,15 +1,23 @@
 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--color-dark);
   opacity: 1;
   border-radius: 9999px;
   transition: all 0.5s ease;
 }
 
+.dark .swiper-pagination-bullet {
+  background-color: rgba(43, 43, 43, 0.5);
+}
+
 .swiper-pagination-bullet-active {
   width: 24px;
   height: 8px;
-  background-color: #ccc;
+  background-color: var(--color-light);
   border-radius: 9999px;
+}
+
+.dark .swiper-pagination-bullet-active {
+  background-color: var(--color-dark);
 }
