@@ -64,5 +64,14 @@
       "title": "Payment",
       "description": "Secure system"
     }
-  ]
+  ],
+
+  "categoryItems": {
+    "Toys": "Toys",
+    "Sports": "sports",
+    "Gaming": "Gaming",
+    "Furniture": "Furniture",
+    "Fashion": "Fashion",
+    "Cameras": "Cameras"
+  }
 }

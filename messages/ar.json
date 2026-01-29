@@ -64,5 +64,14 @@
       "title": "الدفع",
       "description": "نظام آمن"
     }
-  ]
+  ],
+
+  "categoryItems": {
+    "Toys": "ألعاب",
+    "Sports": "رياضة",
+    "Gaming": "ألعاب إلكترونية",
+    "Furniture": "أثاث",
+    "Fashion": "موضة",
+    "Cameras": "كاميرات"
+  }
 }
