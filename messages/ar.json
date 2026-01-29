@@ -45,5 +45,24 @@
   "SaleBoxTwo": {
     "title": "إكسسوارات",
     "offer": "خصم 30% على سماعات AirPods Pro"
-  }
+  },
+
+  "advantages": [
+    {
+      "title": "توصيل سريع",
+      "description": "يبدأ من 10$"
+    },
+    {
+      "title": "ضمان استرجاع الأموال",
+      "description": "خلال 7 أيام"
+    },
+    {
+      "title": "365 يوم",
+      "description": "إرجاع مجاني"
+    },
+    {
+      "title": "الدفع",
+      "description": "نظام آمن"
+    }
+  ]
 }

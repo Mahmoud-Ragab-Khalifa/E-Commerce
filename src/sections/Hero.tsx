@@ -20,9 +20,9 @@ const Hero = () => {
   const t = useTranslations();
 
   return (
-    <div className="p-2.5">
+    <div className="p-2.5 lg:mt-7">
       <div className="container mx-auto flex flex-col gap-4 xl:flex-row justify-between transition-all duration-300">
-        <div className="slider flex-1 xl:max-w-[calc(100%-400px)] bg-card dark:bg-card rounded-md">
+        <div className="slider flex-1 xl:max-w-[calc(100%-375px)] bg-card dark:bg-card rounded-md">
           <SwiperHero />
         </div>
         <div className="flex flex-col gap-4 md:flex-row xl:flex-col">

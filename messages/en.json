@@ -45,5 +45,24 @@
   "SaleBoxTwo": {
     "title": "Accessories",
     "offer": "Airpods Pro 30% OFF"
-  }
+  },
+
+  "advantages": [
+    {
+      "title": "Fast Delivery",
+      "description": "Start from $10"
+    },
+    {
+      "title": "Money Guarantee",
+      "description": "7 Days Back"
+    },
+    {
+      "title": "365 Days",
+      "description": "For free return"
+    },
+    {
+      "title": "Payment",
+      "description": "Secure system"
+    }
+  ]
 }
