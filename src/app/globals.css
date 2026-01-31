@@ -134,3 +134,33 @@
     cursor: pointer;
   }
 }
+
+/* ANIMATIONS  */
+
+.marquee-en {
+  width: max-content;
+  animation: marquee-en 15s linear infinite;
+}
+
+@keyframes marquee-en {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-ar {
+  width: max-content;
+  animation: marquee-ar 15s linear infinite;
+}
+
+@keyframes marquee-ar {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}

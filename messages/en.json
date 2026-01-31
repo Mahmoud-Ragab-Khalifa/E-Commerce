@@ -73,5 +73,11 @@
     "Furniture": "Furniture",
     "Fashion": "Fashion",
     "Cameras": "Cameras"
+  },
+
+  "blackFriday": {
+    "title": "Black Friday Sale!",
+    "offer": "Pay only for <span>your loving electronics</span>",
+    "btn": "Shop Now"
   }
 }
