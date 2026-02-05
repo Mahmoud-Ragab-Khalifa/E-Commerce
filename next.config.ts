@@ -3,7 +3,18 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
-  devIndicators: false,
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.dummyjson.com",
+        port: "",
+        pathname: "/product-images/**",
+        search: "",
+      },
+    ],
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();

@@ -2,22 +2,42 @@ import Image from "next/image";
 import Rating from "@mui/material/Rating";
 import { Button } from "../ui/button";
 
-const ProductCard = () => {
+import StarIcon from "@mui/icons-material/Star";
+
+interface ProductCardProps {
+  image: string;
+  title: string;
+  price: number;
+  rating: number;
+}
+
+const ProductCard = ({ image, title, price, rating }: ProductCardProps) => {
   return (
     <div className="bg-card dark:bg-card rounded-md select-none text-center">
       <Image
         alt="product"
-        src={"/images/thumbnail.webp"}
+        src={image}
         width={300}
         height={300}
+        className="mx-auto"
       />
-      <div className="p-4 flex flex-col gap-1 items-center text-light dark:text-dark">
-        <h3 className="leading-normal">Essence Mascara Lash Princess</h3>
-        <span className="font-bold">$9.99</span>
-        <Rating size="small" value={3.2} readOnly precision={0.1} />
+      <div className="p-4 flex flex-col items-center text-light dark:text-dark">
+        <h3 className="leading-normal h-12 flex flex-col items-center justify-center">
+          {title}
+        </h3>
+        <span className="font-bold block my-1">${price}</span>
+        <Rating
+          size="small"
+          value={rating}
+          readOnly
+          precision={0.1}
+          emptyIcon={
+            <StarIcon fontSize="inherit" className="dark:text-neutral-950" />
+          }
+        />
         <Button
           variant={"default"}
-          className="w-full mt-4 bg-light hover:bg-light/95 dark:bg-dark dark:hover:bg-dark/80"
+          className="w-full mt-4 bg-light hover:bg-light/95 dark:bg-dark/80 dark:hover:bg-dark/90"
         >
           Add To Cart
         </Button>
