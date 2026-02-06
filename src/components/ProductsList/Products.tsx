@@ -6,7 +6,7 @@ import ProductCardSkeleton from "./ProductCardSkeleton";
 
 const getProducts = async () => {
   const res = await fetch("https://dummyjson.com/products?limit=10", {
-    next: { revalidate: 0 },
+    next: { revalidate: 300 },
   });
 
   if (!res.ok) throw new Error("Failed to fetch products");
