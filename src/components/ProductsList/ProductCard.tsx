@@ -14,6 +14,7 @@ const tajawal = Tajawal({
 
 import StarIcon from "@mui/icons-material/Star";
 import { useLocale, useTranslations } from "next-intl";
+import ProductCardActions from "./ProductCardActions";
 
 interface ProductCardProps {
   image: string;
@@ -28,15 +29,17 @@ const ProductCard = ({ image, title, price, rating }: ProductCardProps) => {
 
   return (
     <div
-      className={`${geist.className} bg-card dark:bg-card rounded-md select-none text-center`}
+      className={`${geist.className} bg-card dark:bg-card rounded-md select-none text-center relative overflow-hidden group transition duration-500 border md:hover:border-main-color md:hover:dark:border-neutral-600`}
       dir="ltr"
     >
+      <ProductCardActions />
+
       <Image
         alt="product"
         src={image}
         width={300}
         height={300}
-        className="mx-auto"
+        className="mx-auto cursor-pointer transition-transform duration-500 group-hover:scale-110"
       />
       <div className="p-4 flex flex-col items-center text-light dark:text-dark">
         <h3 className="leading-normal h-12 flex flex-col items-center justify-center">
