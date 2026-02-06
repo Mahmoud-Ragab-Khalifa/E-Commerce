@@ -26,6 +26,7 @@ const Products = async () => {
         >
           <Suspense fallback={<ProductCardSkeleton />}>
             <ProductCard
+              id={product.id}
               image={product.thumbnail}
               title={product.title}
               price={product.price}

@@ -17,13 +17,14 @@ import { useLocale, useTranslations } from "next-intl";
 import ProductCardActions from "./ProductCardActions";
 
 interface ProductCardProps {
+  id: number;
   image: string;
   title: string;
   price: number;
   rating: number;
 }
 
-const ProductCard = ({ image, title, price, rating }: ProductCardProps) => {
+const ProductCard = ({ id, image, title, price, rating }: ProductCardProps) => {
   const t = useTranslations();
   const locale = useLocale();
 
@@ -32,7 +33,7 @@ const ProductCard = ({ image, title, price, rating }: ProductCardProps) => {
       className={`${geist.className} bg-card dark:bg-card rounded-md select-none text-center relative overflow-hidden group transition duration-500 border md:hover:border-main-color md:hover:dark:border-neutral-600`}
       dir="ltr"
     >
-      <ProductCardActions />
+      <ProductCardActions id={id} />
 
       <Image
         alt="product"
