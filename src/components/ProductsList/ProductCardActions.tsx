@@ -31,6 +31,14 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+
 import Rating from "@mui/material/Rating";
 import Image from "next/image";
 
@@ -64,15 +72,32 @@ const ProductCardActions = ({ id }: { id: number }) => {
         </DialogTrigger>
         <DialogContent
           dir="ltr"
-          className={`${geist.className} max-h-[80vh] overflow-y-auto`}
+          className={`${geist.className} max-h-[80vh] overflow-y-auto overflow-x-hidden`}
         >
-          <Image
-            alt="product"
-            src={data?.images[0]}
-            width={300}
-            height={300}
-            className="mx-auto"
-          />
+          <Carousel>
+            <CarouselContent>
+              {data?.images.map((img: string, idx: number) => (
+                <CarouselItem key={idx}>
+                  <Image
+                    alt="product"
+                    src={img}
+                    width={300}
+                    height={300}
+                    className="mx-auto"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+
+            <CarouselPrevious
+              className="left-0"
+              variant="ghost"
+              size={"icon"}
+            />
+
+            <CarouselNext className="right-0" variant="ghost" size={"icon"} />
+          </Carousel>
+
           <DialogHeader>
             <DialogTitle>
               <span className="leading-normal">{data?.title}</span>

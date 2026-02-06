@@ -19,8 +19,16 @@ const ProductsCarousel = () => {
         <Products />
       </CarouselContent>
 
-      <CarouselPrevious className="ltr:left-4 rtl:right-4 rounded-md bg-main-color! dark:bg-[#253853]! text-white! disabled:opacity-35! rtl:rotate-180" />
-      <CarouselNext className="ltr:right-4 rtl:right-full rtl:-mr-12 rounded-md bg-main-color! dark:bg-[#253853]! text-white! disabled:opacity-35! rtl:rotate-180" />
+      <CarouselPrevious
+        className="ltr:left-2 rtl:right-2 rtl:rotate-180"
+        variant={"ghost"}
+        size={"icon-lg"}
+      />
+      <CarouselNext
+        className="ltr:right-2 rtl:right-full rtl:-mr-10 rtl:rotate-180"
+        variant={"ghost"}
+        size={"icon"}
+      />
     </Carousel>
   );
 };
