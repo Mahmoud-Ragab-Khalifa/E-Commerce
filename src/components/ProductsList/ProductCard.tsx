@@ -1,8 +1,19 @@
 import Image from "next/image";
 import Rating from "@mui/material/Rating";
 import { Button } from "../ui/button";
+import { Geist, Tajawal } from "next/font/google";
+
+const geist = Geist({
+  subsets: ["latin"],
+});
+
+const tajawal = Tajawal({
+  subsets: ["latin"],
+  weight: ["500"],
+});
 
 import StarIcon from "@mui/icons-material/Star";
+import { useLocale, useTranslations } from "next-intl";
 
 interface ProductCardProps {
   image: string;
@@ -12,8 +23,14 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ image, title, price, rating }: ProductCardProps) => {
+  const t = useTranslations();
+  const locale = useLocale();
+
   return (
-    <div className="bg-card dark:bg-card rounded-md select-none text-center">
+    <div
+      className={`${geist.className} bg-card dark:bg-card rounded-md select-none text-center`}
+      dir="ltr"
+    >
       <Image
         alt="product"
         src={image}
@@ -37,9 +54,9 @@ const ProductCard = ({ image, title, price, rating }: ProductCardProps) => {
         />
         <Button
           variant={"default"}
-          className="w-full mt-4 bg-light hover:bg-light/95 dark:bg-dark/80 dark:hover:bg-dark/90"
+          className={`w-full mt-4 bg-light hover:bg-light/95 dark:bg-dark/80 dark:hover:bg-dark/90 ${locale === "ar" ? tajawal.className : geist.className}`}
         >
-          Add To Cart
+          {t("addToCart")}
         </Button>
       </div>
     </div>

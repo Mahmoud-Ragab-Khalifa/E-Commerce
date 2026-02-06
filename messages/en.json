@@ -79,5 +79,9 @@
     "title": "Black Friday Sale!",
     "offer": "Pay only for <span>your loving electronics</span>",
     "btn": "Shop Now"
-  }
+  },
+
+  "dealsOfTheDay": "Deals Of The Day",
+  "moreProducts": "More Products",
+  "addToCart": "Add to Cart"
 }
