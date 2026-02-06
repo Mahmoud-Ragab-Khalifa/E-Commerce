@@ -1,25 +1,46 @@
 "use client";
 
+import { Geist, Tajawal } from "next/font/google";
+import { useLocale, useTranslations } from "next-intl";
+
+const geist = Geist({
+  subsets: ["latin"],
+});
+
+const tajawal = Tajawal({
+  subsets: ["latin"],
+  weight: ["500"],
+});
+
 import { useState } from "react";
 import { Button } from "../ui/button";
-import { Eye } from "lucide-react";
+import { ArrowLeft, ArrowRight, Eye } from "lucide-react";
 
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import StarIcon from "@mui/icons-material/Star";
 
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 
+import Rating from "@mui/material/Rating";
+import Image from "next/image";
+
 import useSWR from "swr";
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 const ProductCardActions = ({ id }: { id: number }) => {
+  const locale = useLocale();
+  const t = useTranslations();
+
   const [active, setactive] = useState(false);
 
   const { data, error, isLoading } = useSWR(
@@ -27,7 +48,10 @@ const ProductCardActions = ({ id }: { id: number }) => {
     fetcher,
   );
 
-  if (isLoading) return;
+  if (isLoading)
+    return (
+      <div className="absolute w-3 h-3 bg-neutral-500 dark:bg-neutral-700 top-2 right-2 animate-pulse rounded-full" />
+    );
   if (error) return <div>Error: {error.message}</div>;
 
   return (
@@ -38,19 +62,52 @@ const ProductCardActions = ({ id }: { id: number }) => {
             <Eye size={20} />
           </div>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent
+          dir="ltr"
+          className={`${geist.className} max-h-[80vh] overflow-y-auto`}
+        >
+          <Image
+            alt="product"
+            src={data?.images[0]}
+            width={300}
+            height={300}
+            className="mx-auto"
+          />
           <DialogHeader>
             <DialogTitle>
-              <span>{id}</span>
-              <span>{data?.title}</span>
-              <span className="font-bold block mt-3">$9.99</span>
+              <span className="leading-normal">{data?.title}</span>
+              <span className="font-bold block my-3">${data?.price}</span>
+              <Rating
+                size="small"
+                value={data?.rating}
+                readOnly
+                precision={0.1}
+                emptyIcon={
+                  <StarIcon
+                    fontSize="inherit"
+                    className="dark:text-neutral-400"
+                  />
+                }
+              />
             </DialogTitle>
-            <DialogDescription>
-              The Essence Mascara Lash Princess is a popular mascara known for
-              its volumizing and lengthening effects. Achieve dramatic lashes
-              with this long-lasting and cruelty-free formula.
-            </DialogDescription>
+            <DialogDescription>{data?.description}</DialogDescription>
           </DialogHeader>
+
+          <DialogFooter
+            className={`flex justify-between! mt-4 ${locale === "ar" ? tajawal.className : geist.className}`}
+            dir={locale === "ar" ? "rtl" : "ltr"}
+          >
+            <Button variant={"link"} className="px-0!">
+              {t("details")}
+              {locale === "ar" ? <ArrowLeft /> : <ArrowRight />}
+            </Button>
+            <div className="flex gap-2">
+              <Button>{t("addToCart")}</Button>
+              <DialogClose asChild>
+                <Button variant="outline">{t("cancel")}</Button>
+              </DialogClose>
+            </div>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
 

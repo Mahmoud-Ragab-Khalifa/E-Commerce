@@ -83,5 +83,8 @@
 
   "dealsOfTheDay": "Deals Of The Day",
   "moreProducts": "More Products",
-  "addToCart": "Add to Cart"
+  "addToCart": "Add to Cart",
+
+  "details": "View Product Details",
+  "cancel": "Cancel"
 }

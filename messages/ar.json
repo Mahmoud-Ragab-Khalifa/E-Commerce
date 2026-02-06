@@ -83,5 +83,8 @@
 
   "dealsOfTheDay": "عروض اليوم",
   "moreProducts": "المزيد من المنتجات",
-  "addToCart": "أضف إلى السلة"
+  "addToCart": "أضف إلى السلة",
+
+  "details": "عرض تفاصيل المنتج",
+  "cancel": "إلغاء"
 }
