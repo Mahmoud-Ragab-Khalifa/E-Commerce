@@ -15,6 +15,7 @@ const tajawal = Tajawal({
 import StarIcon from "@mui/icons-material/Star";
 import { useLocale, useTranslations } from "next-intl";
 import ProductCardActions from "./ProductCardActions";
+import Link from "next/link";
 
 interface ProductCardProps {
   id: number;
@@ -35,13 +36,15 @@ const ProductCard = ({ id, image, title, price, rating }: ProductCardProps) => {
     >
       <ProductCardActions id={id} />
 
-      <Image
-        alt="product"
-        src={image}
-        width={300}
-        height={300}
-        className="mx-auto cursor-pointer transition-transform duration-500 group-hover:scale-110"
-      />
+      <Link href={`/products/${id}`}>
+        <Image
+          alt="product"
+          src={image}
+          width={300}
+          height={300}
+          className="mx-auto cursor-pointer transition-transform duration-500 group-hover:scale-110"
+        />
+      </Link>
       <div className="p-4 flex flex-col items-center text-light dark:text-dark">
         <h3 className="leading-normal h-12 flex flex-col items-center justify-center">
           {title}
@@ -58,7 +61,8 @@ const ProductCard = ({ id, image, title, price, rating }: ProductCardProps) => {
         />
         <Button
           variant={"default"}
-          className={`w-full mt-4 bg-light hover:bg-light/95 dark:bg-dark/80 dark:hover:bg-dark/90 ${locale === "ar" ? tajawal.className : geist.className}`}
+          className={`w-full mt-4 bg-light hover:bg-light/95 dark:bg-dark/80 dark:hover:bg-dark/90 
+            ${locale === "ar" ? tajawal.className : geist.className}`}
         >
           {t("addToCart")}
         </Button>

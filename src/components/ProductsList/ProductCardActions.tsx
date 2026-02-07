@@ -43,6 +43,7 @@ import Rating from "@mui/material/Rating";
 import Image from "next/image";
 
 import useSWR from "swr";
+import Link from "next/link";
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 const ProductCardActions = ({ id }: { id: number }) => {
@@ -122,12 +123,16 @@ const ProductCardActions = ({ id }: { id: number }) => {
             className={`flex justify-between! flex-col! md:flex-row! mt-4 ${locale === "ar" ? tajawal.className : geist.className}`}
             dir={locale === "ar" ? "rtl" : "ltr"}
           >
-            <Button variant={"link"} className="px-0! mb-2 md:mb-0">
-              {t("details")}
-              {locale === "ar" ? <ArrowLeft /> : <ArrowRight />}
-            </Button>
+            <Link href={`/products/${id}`}>
+              <Button variant={"link"} className="px-0! mb-2 md:mb-0">
+                {t("details")}
+                {locale === "ar" ? <ArrowLeft /> : <ArrowRight />}
+              </Button>
+            </Link>
+
             <div className="flex gap-2">
               <Button className="flex-1">{t("addToCart")}</Button>
+
               <DialogClose asChild>
                 <Button variant="outline" className="flex-1">
                   {t("cancel")}
