@@ -2,6 +2,7 @@ import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
 import { Button } from "../ui/button";
 import ImageSelection from "./ImageSelection";
+import OptionAndType from "./OptionAndType";
 
 interface ProductDetailsProbs {
   title: string;
@@ -76,37 +77,7 @@ const ProductDetails = ({
           />
         </div>
 
-        <div className="mt-4 flex flex-col gap-2">
-          <span className="text-[#4b5563]">Option: </span>
-          <div className="flex gap-1 flex-wrap">
-            {Array.from({ length: 4 }).map((_, idx) => (
-              <Button
-                key={idx}
-                variant={"outline"}
-                size={"sm"}
-                className="text-[13px]"
-              >
-                Option {idx + 1}
-              </Button>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-4 flex flex-col gap-2">
-          <span className="text-[#4b5563]">Type: </span>
-          <div className="flex gap-1">
-            {Array.from({ length: 3 }).map((_, idx) => (
-              <Button
-                key={idx}
-                variant={"outline"}
-                size={"sm"}
-                className="text-[13px]"
-              >
-                Type {idx + 1}
-              </Button>
-            ))}
-          </div>
-        </div>
+        <OptionAndType />
 
         <p className="mt-4 text-[#4b5563]">
           Warranty Information:{" "}
