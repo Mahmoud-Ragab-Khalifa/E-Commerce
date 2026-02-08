@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import ProductDescription from "./ProductDescription";
 import ProductReview from "./ProductReview";
+import { Review } from "@/lib/types";
 
 interface ProductDataProbs {
   title: string;
@@ -19,6 +20,7 @@ interface ProductDataProbs {
   barcode: string;
   qrCode: string;
   tags: string[];
+  reviews: Review[];
 }
 
 const ProductData = ({
@@ -35,6 +37,7 @@ const ProductData = ({
   barcode,
   qrCode,
   tags,
+  reviews,
 }: ProductDataProbs) => {
   const [active, setactive] = useState(0);
 
@@ -58,7 +61,7 @@ const ProductData = ({
             }`}
             onClick={() => setactive(1)}
           >
-            Review (3)
+            Review ({reviews.length})
           </h2>
         </div>
       </div>
@@ -81,7 +84,7 @@ const ProductData = ({
             tags={tags}
           />
         ) : (
-          <ProductReview />
+          <ProductReview reviews={reviews} />
         )}
       </div>
     </>

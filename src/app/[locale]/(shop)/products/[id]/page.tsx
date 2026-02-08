@@ -51,6 +51,7 @@ const ProductDetailsPage = async ({
           barcode={product.meta.barcode}
           qrCode={product.meta.qrCode}
           tags={product.tags}
+          reviews={product.reviews}
         />
       </div>
     </div>
