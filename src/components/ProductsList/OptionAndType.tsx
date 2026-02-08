@@ -17,7 +17,7 @@ const OptionAndType = () => {
               key={idx}
               variant={"outline"}
               size={"sm"}
-              className={`text-[13px] transition-colors duration-300 ${activeOption === idx && "bg-main-color!"}`}
+              className={`text-[13px] transition-colors duration-300 ${activeOption === idx && "bg-main-color! text-neutral-200! dark:bg-[#253853]!"}`}
               onClick={() => setactiveOption(idx)}
             >
               Option {idx + 1}
@@ -34,7 +34,7 @@ const OptionAndType = () => {
               key={idx}
               variant={"outline"}
               size={"sm"}
-              className={`text-[13px] transition-colors duration-300 ${activeType === idx && "bg-main-color!"}`}
+              className={`text-[13px] transition-colors duration-300 ${activeType === idx && "bg-main-color! text-neutral-200! dark:bg-[#253853]!"}`}
               onClick={() => setactiveType(idx)}
             >
               Type {idx + 1}

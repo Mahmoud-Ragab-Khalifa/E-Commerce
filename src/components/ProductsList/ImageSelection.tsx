@@ -25,7 +25,7 @@ const ImageSelection = ({ images }: ImageSelectionProbs) => {
           <div
             key={idx}
             className={`p-1 rounded-md border cursor-pointer transition-colors duration-300
-            ${activeImage === idx ? "border-main-color dark:border-neutral-200 animate-pulse" : "border-neutral-300 dark:border-neutral-950"}`}
+            ${activeImage === idx ? "border-main-color dark:border-neutral-200 animate-pulse" : "border-neutral-300 dark:border-neutral-800"}`}
             onClick={() => setActiveImage(idx)}
           >
             <Image
