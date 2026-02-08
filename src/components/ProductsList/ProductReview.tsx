@@ -8,6 +8,12 @@ interface ProductReviewProbs {
   reviews: Review[];
 }
 
+import { Button } from "@/components/ui/button";
+
+import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
+
+import { Textarea } from "@/components/ui/textarea";
+
 const UserCard = ({ reviewerName, rating, comment }: Review) => {
   return (
     <div className="flex flex-col gap-3">
@@ -30,7 +36,7 @@ const UserCard = ({ reviewerName, rating, comment }: Review) => {
                 />
               }
             />
-            <span className="text-xs">{rating}</span>
+            <span className="text-xs">({rating})</span>
           </div>
         </div>
       </div>
@@ -44,15 +50,71 @@ const UserCard = ({ reviewerName, rating, comment }: Review) => {
 
 const ProductReview = ({ reviews }: ProductReviewProbs) => {
   return (
-    <div className="flex flex-col gap-4">
-      {reviews.map((review, idx) => (
-        <UserCard
-          key={idx}
-          reviewerName={review.reviewerName}
-          rating={review.rating}
-          comment={review.comment}
-        />
-      ))}
+    <div className="flex flex-col gap-8 lg:gap-14">
+      <div className="flex flex-col gap-4">
+        {reviews.map((review, idx) => (
+          <UserCard
+            key={idx}
+            reviewerName={review.reviewerName}
+            rating={review.rating}
+            comment={review.comment}
+          />
+        ))}
+      </div>
+
+      <div>
+        <h1 className="text-xl md:text-2xl mb-6">
+          Write a Review for this product
+        </h1>
+
+        <div className="flex items-center gap-5 mb-6">
+          <p className="relative">
+            Your Rating{" "}
+            <span className="absolute -end-3 top-0 text-red-600">*</span>
+          </p>
+
+          <Rating
+            name="half-rating"
+            defaultValue={0.5}
+            precision={0.5}
+            size="small"
+            emptyIcon={
+              <StarIcon fontSize="inherit" className="dark:text-neutral-700" />
+            }
+          />
+        </div>
+
+        <div className="w-full max-w-md">
+          <form>
+            <FieldGroup>
+              <FieldSet>
+                <FieldGroup>
+                  <Field>
+                    <FieldLabel htmlFor="feedback">
+                      <p className="relative">
+                        Your Review{" "}
+                        <span className="absolute -end-3 top-0 text-red-600">
+                          *
+                        </span>
+                      </p>
+                    </FieldLabel>
+                    <Textarea
+                      id="feedback"
+                      placeholder="Write a review here..."
+                      className="resize-none h-36 border-neutral-300 dark:border-accent"
+                    />
+                  </Field>
+                </FieldGroup>
+              </FieldSet>
+              <Field orientation="horizontal">
+                <Button variant={"outline"} size={"lg"} className="-mt-3">
+                  Submit
+                </Button>
+              </Field>
+            </FieldGroup>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

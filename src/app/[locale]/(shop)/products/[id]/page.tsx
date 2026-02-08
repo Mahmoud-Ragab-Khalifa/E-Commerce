@@ -20,7 +20,7 @@ const ProductDetailsPage = async ({
   const product = await getProduct(id);
 
   return (
-    <div className="p-2.5 lg:mt-7">
+    <div className="p-2.5 lg:mt-7" dir="ltr">
       <div className="container mx-auto rounded-md bg-card dark:bg-card p-4">
         <ProductDetails
           images={product.images}

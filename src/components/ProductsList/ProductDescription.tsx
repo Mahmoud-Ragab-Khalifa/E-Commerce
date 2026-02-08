@@ -92,7 +92,7 @@ const ProductDescription = ({
         {tags.map((tag, idx) => (
           <span
             key={idx}
-            className="bg-card dark:bg-card text-light dark:text-dark rounded-2xl py-2 px-4"
+            className="bg-card dark:bg-card text-light dark:text-dark rounded-2xl py-2 px-4 capitalize"
           >
             {tag}
           </span>
