@@ -47,7 +47,9 @@ const ProductDetails = ({
 
         <p className="text-[#4b5563] my-0.5">
           Brand:{" "}
-          <span className="font-bold text-light dark:text-dark">{brand}</span>
+          <span className="font-bold text-light dark:text-dark">
+            {brand || `${title.slice(0)}`}
+          </span>
         </p>
 
         <p className="text-[#4b5563]">
