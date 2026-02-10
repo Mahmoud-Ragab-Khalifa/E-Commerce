@@ -88,11 +88,11 @@ const ProductDescription = ({
         <Image alt="product" src={qrCode} width={232} height={232} />
       </p>
 
-      <div className="flex items-center gap-2 mt-4">
+      <div className="flex items-center gap-2 mt-4 flex-wrap">
         {tags.map((tag, idx) => (
           <span
             key={idx}
-            className="bg-card dark:bg-card text-light dark:text-dark rounded-2xl py-2 px-4 capitalize"
+            className="bg-card dark:bg-card text-light dark:text-dark rounded-2xl py-2 px-4 capitalize whitespace-nowrap"
           >
             {tag}
           </span>
