@@ -31,7 +31,7 @@ const ProductCard = ({ id, image, title, price, rating }: ProductCardProps) => {
 
   return (
     <div
-      className={`${geist.className} bg-card dark:bg-card rounded-md select-none text-center relative overflow-hidden group transition duration-500 border md:hover:border-main-color md:hover:dark:border-neutral-600`}
+      className={`${geist.className} bg-card dark:bg-card rounded-md select-none text-center relative overflow-hidden group transition duration-500 border md:hover:border-main-color md:hover:dark:border-neutral-600 animate-fade-in`}
       dir="ltr"
     >
       <ProductCardActions id={id} />

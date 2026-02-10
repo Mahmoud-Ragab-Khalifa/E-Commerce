@@ -5,9 +5,9 @@ import StarIcon from "@mui/icons-material/Star";
 
 const ProductCardSkeleton = () => {
   return (
-    <div className="bg-card dark:bg-card rounded-md select-none text-center overflow-hidden">
-      <Skeleton className="w-full h-75 md:h-65 lg:h-61 xl:h-65 mx-auto" />
-      <div className="p-4 flex flex-col items-center text-light dark:text-dark">
+    <div className="bg-card dark:bg-card rounded-md select-none text-center overflow-hidden xl:min-w-75">
+      <Skeleton className="w-full h-75 md:h-65 lg:h-61 xl:h-72 mx-auto" />
+      <div className="p-4 flex flex-col items-center">
         <Skeleton className="h-4 w-50" />
         <Skeleton className="h-4 w-2/3 my-4" />
         <Rating
