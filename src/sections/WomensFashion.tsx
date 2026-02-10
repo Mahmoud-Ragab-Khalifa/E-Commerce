@@ -37,7 +37,7 @@ const WomensFashion = () => {
 
   return (
     <div className="p-2.5">
-      <div className="container mx-auto mt-6 md:mt-12.5 mb-56 flex flex-col lg:flex-row gap-4 lg:items-start">
+      <div className="container mx-auto mt-6 md:mt-12.5 flex flex-col lg:flex-row gap-4 lg:items-start">
         <FilterList
           category="Women's Fashion"
           setCategory={setCategory}

@@ -5,6 +5,7 @@ import BlackFridaySale from "@/sections/BlackFridaySale";
 import ProductsList from "@/sections/ProductsList";
 import PromotionalCards from "@/sections/PromotionalCards";
 import WomensFashion from "@/sections/WomensFashion";
+import PricingCards from "@/sections/PricingCards";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <ProductsList />
       <PromotionalCards />
       <WomensFashion />
+      <PricingCards />
     </>
   );
 };

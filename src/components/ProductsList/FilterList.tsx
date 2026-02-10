@@ -61,8 +61,8 @@ const FilterList = ({ category, items, setCategory }: FilterListProbs) => {
         </CarouselContent>
       </Carousel>
 
-      <div className="lg:hidden absolute w-5 h-14 right-0 bottom-0 bg-main-color dark:bg-[#253853] z-50" />
-      <div className="lg:hidden absolute w-5 h-14 left-0 bottom-0 bg-main-color dark:bg-[#253853] z-50" />
+      <div className="lg:hidden absolute w-5 h-11 right-0 bottom-3.5 bg-main-color dark:bg-[#253853] z-50" />
+      <div className="lg:hidden absolute w-5 h-11 left-0 bottom-3.5 bg-main-color dark:bg-[#253853] z-50" />
     </div>
   );
 };
