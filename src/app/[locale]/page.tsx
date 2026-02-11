@@ -8,6 +8,7 @@ import CategoryFashion from "@/sections/CategoryFashion";
 import PricingCards from "@/sections/PricingCards";
 
 import { MENS_CATEGORIES, WOMEN_CATEGORIES } from "@/lib/categories";
+import Gift from "@/sections/Gift";
 
 const Home = () => {
   return (
@@ -30,6 +31,8 @@ const Home = () => {
         title="Men's Fashion"
         categoriesArray={MENS_CATEGORIES}
       />
+
+      <Gift />
     </>
   );
 };
