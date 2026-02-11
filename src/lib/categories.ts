@@ -8,3 +8,5 @@ export const WOMEN_CATEGORIES = [
   "skin-care",
   "beauty",
 ];
+
+export const MENS_CATEGORIES = ["mens-shirts", "mens-shoes", "mens-watches"];

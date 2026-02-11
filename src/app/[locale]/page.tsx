@@ -7,7 +7,7 @@ import PromotionalCards from "@/sections/PromotionalCards";
 import CategoryFashion from "@/sections/CategoryFashion";
 import PricingCards from "@/sections/PricingCards";
 
-import { WOMEN_CATEGORIES } from "@/lib/categories";
+import { MENS_CATEGORIES, WOMEN_CATEGORIES } from "@/lib/categories";
 
 const Home = () => {
   return (
@@ -25,6 +25,11 @@ const Home = () => {
       />
 
       <PricingCards />
+
+      <CategoryFashion
+        title="Men's Fashion"
+        categoriesArray={MENS_CATEGORIES}
+      />
     </>
   );
 };
