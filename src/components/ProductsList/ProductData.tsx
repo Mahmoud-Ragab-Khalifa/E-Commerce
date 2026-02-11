@@ -66,7 +66,7 @@ const ProductData = ({
         </div>
       </div>
 
-      <div className="mt-5 md:mt-7 mb-56 ps-1 sm:px-0">
+      <div className="mt-5 md:mt-7 ps-1 sm:px-0">
         {active === 0 ? (
           <ProductDescription
             title={title}

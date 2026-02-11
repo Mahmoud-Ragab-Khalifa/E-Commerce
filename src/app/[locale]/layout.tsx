@@ -13,6 +13,7 @@ import "@/app/globals.css";
 import TopLevelHeader from "@/layout/TopLevelHeader";
 import Navbar from "@/layout/Navbar";
 import DesktopCategories from "@/layout/DesktopCategories";
+import Footer from "@/layout/Footer";
 
 // FONTS
 const geist = Geist({
@@ -58,6 +59,8 @@ export default function RootLayout({
             <DesktopCategories />
 
             {children}
+
+            <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
