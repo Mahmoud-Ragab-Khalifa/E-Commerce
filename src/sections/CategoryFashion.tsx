@@ -16,14 +16,18 @@ import {
 } from "@/components/ui/carousel";
 
 import { Product } from "@/lib/types";
-import { WOMEN_CATEGORIES } from "@/lib/categories";
 import { fetchProductsByCategories } from "@/services/fetchProductsByCategories";
 
-const WomensFashion = () => {
+interface CategoryFashionProbs {
+  title: string;
+  categoriesArray: string[];
+}
+
+const CategoryFashion = ({ title, categoriesArray }: CategoryFashionProbs) => {
   const [category, setCategory] = useState("view-all");
 
   const categoriesToFetch =
-    category === "view-all" ? WOMEN_CATEGORIES : [category];
+    category === "view-all" ? categoriesArray : [category];
 
   const {
     data: products,
@@ -39,9 +43,9 @@ const WomensFashion = () => {
     <div className="p-2.5">
       <div className="container mx-auto mt-6 md:mt-12.5 flex flex-col lg:flex-row gap-4 lg:items-start">
         <FilterList
-          category="Women's Fashion"
+          category={title}
           setCategory={setCategory}
-          items={["view-all", ...WOMEN_CATEGORIES]}
+          items={["view-all", ...categoriesArray]}
         />
 
         <div className="products-carousel overflow-hidden">
@@ -88,4 +92,4 @@ const WomensFashion = () => {
   );
 };
 
-export default WomensFashion;
+export default CategoryFashion;

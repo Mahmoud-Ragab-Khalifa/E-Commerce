@@ -4,8 +4,10 @@ import Categories from "@/sections/Categories ";
 import BlackFridaySale from "@/sections/BlackFridaySale";
 import ProductsList from "@/sections/ProductsList";
 import PromotionalCards from "@/sections/PromotionalCards";
-import WomensFashion from "@/sections/WomensFashion";
+import CategoryFashion from "@/sections/CategoryFashion";
 import PricingCards from "@/sections/PricingCards";
+
+import { WOMEN_CATEGORIES } from "@/lib/categories";
 
 const Home = () => {
   return (
@@ -16,7 +18,12 @@ const Home = () => {
       <BlackFridaySale />
       <ProductsList />
       <PromotionalCards />
-      <WomensFashion />
+
+      <CategoryFashion
+        title="Women's Fashion"
+        categoriesArray={WOMEN_CATEGORIES}
+      />
+
       <PricingCards />
     </>
   );
