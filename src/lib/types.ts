@@ -12,3 +12,8 @@ export interface Review {
   rating: number;
   comment: string;
 }
+
+export interface ImageProbs {
+  name: string;
+  src: string;
+}
