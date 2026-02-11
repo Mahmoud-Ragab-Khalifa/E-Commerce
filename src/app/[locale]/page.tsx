@@ -7,7 +7,11 @@ import PromotionalCards from "@/sections/PromotionalCards";
 import CategoryFashion from "@/sections/CategoryFashion";
 import PricingCards from "@/sections/PricingCards";
 
-import { MENS_CATEGORIES, WOMEN_CATEGORIES } from "@/lib/categories";
+import {
+  MENS_CATEGORIES,
+  WOMEN_CATEGORIES,
+  ELECTRONICS,
+} from "@/lib/categories";
 import Gift from "@/sections/Gift";
 
 const Home = () => {
@@ -33,6 +37,8 @@ const Home = () => {
       />
 
       <Gift />
+
+      <CategoryFashion title="Electronics" categoriesArray={ELECTRONICS} />
     </>
   );
 };
