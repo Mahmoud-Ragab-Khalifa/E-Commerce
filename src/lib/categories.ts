@@ -18,3 +18,7 @@ export const ELECTRONICS = [
   "smartphones",
   "mobile-accessories",
 ];
+
+export const HOME = ["home-decoration", "furniture", "kitchen-accessories"];
+
+export const AUTOMOTIVE = ["vehicle", "motorcycle"];

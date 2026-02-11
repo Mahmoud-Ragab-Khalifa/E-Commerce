@@ -18,7 +18,7 @@ const Groceries = async () => {
 
   return (
     <div className="p-2.5">
-      <div className="container mx-auto mt-6 md:mt-12.5 flex flex-col gap-4 mb-56">
+      <div className="container mx-auto mt-6 md:mt-12.5 flex flex-col gap-4">
         <ProductsImageCarousel />
         <div>
           <Carousel opts={{ dragFree: true }}>
