@@ -13,6 +13,7 @@ import {
   ELECTRONICS,
 } from "@/lib/categories";
 import Gift from "@/sections/Gift";
+import Groceries from "@/sections/Groceries";
 
 const Home = () => {
   return (
@@ -39,6 +40,8 @@ const Home = () => {
       <Gift />
 
       <CategoryFashion title="Electronics" categoriesArray={ELECTRONICS} />
+
+      <Groceries />
     </>
   );
 };
