@@ -9,7 +9,7 @@ import PricingCards from "@/sections/PricingCards";
 import Gift from "@/sections/Gift";
 import CategoryCarousel from "@/components/ProductsList/CategoryCarousel";
 
-import { groceriesList } from "@/lib/dataLists";
+import { groceriesList, sportsList } from "@/lib/dataLists";
 
 import {
   MENS_CATEGORIES,
@@ -53,6 +53,12 @@ const Home = () => {
 
       <CategoryFashion title="Home" categoriesArray={HOME} />
       <CategoryFashion title="Automotive" categoriesArray={AUTOMOTIVE} />
+
+      <CategoryCarousel
+        category="sports-accessories"
+        arrayOfImages={sportsList}
+        title="Sports Accessories"
+      />
     </>
   );
 };

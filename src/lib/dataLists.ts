@@ -40,3 +40,46 @@ export const groceriesList = [
     src: "/images/food-10.webp",
   },
 ];
+
+export const sportsList = [
+  {
+    name: "volleyball",
+    src: "/images/sports-1.webp",
+  },
+  {
+    name: "tennis-racket",
+    src: "/images/sports-2.webp",
+  },
+  {
+    name: "tennis-ball",
+    src: "/images/sports-3.webp",
+  },
+  {
+    name: "metal-baseball-bat",
+    src: "/images/sports-4.webp",
+  },
+  {
+    name: "iron-golf",
+    src: "/images/sports-5.webp",
+  },
+  {
+    name: "golf-ball",
+    src: "/images/sports-6.webp",
+  },
+  {
+    name: "football",
+    src: "/images/sports-7.webp",
+  },
+  {
+    name: "feather-shuttlecock",
+    src: "/images/sports-8.webp",
+  },
+  {
+    name: "cricket-wicket",
+    src: "/images/sports-9.webp",
+  },
+  {
+    name: "cricket-helmet",
+    src: "/images/sports-10.webp",
+  },
+];
