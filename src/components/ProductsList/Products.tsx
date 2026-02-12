@@ -3,19 +3,10 @@ import ProductCard from "./ProductCard";
 import { Product } from "@/lib/types";
 import { Suspense } from "react";
 import ProductCardSkeleton from "./ProductCardSkeleton";
-
-const getProducts = async () => {
-  const res = await fetch("https://dummyjson.com/products?limit=10", {
-    next: { revalidate: 300 },
-  });
-
-  if (!res.ok) throw new Error("Failed to fetch products");
-
-  return res.json();
-};
+import { getProductsByLimitAndSkip } from "@/services/getProductsByLimitAndSkip";
 
 const Products = async () => {
-  const data = await getProducts();
+  const data = await getProductsByLimitAndSkip(10, 0);
 
   return (
     <>
