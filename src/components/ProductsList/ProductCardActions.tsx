@@ -18,7 +18,6 @@ import { ArrowLeft, ArrowRight, Eye } from "lucide-react";
 
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import StarIcon from "@mui/icons-material/Star";
 
 import {
   Dialog,
@@ -39,11 +38,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import Rating from "@mui/material/Rating";
 import Image from "next/image";
 
 import useSWR from "swr";
 import Link from "next/link";
+import Rating from "./Rating";
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
 const ProductCardActions = ({ id }: { id: number }) => {
@@ -103,18 +102,7 @@ const ProductCardActions = ({ id }: { id: number }) => {
             <DialogTitle>
               <span className="leading-normal">{data?.title}</span>
               <span className="font-bold block my-3">${data?.price}</span>
-              <Rating
-                size="small"
-                value={data?.rating}
-                readOnly
-                precision={0.1}
-                emptyIcon={
-                  <StarIcon
-                    fontSize="inherit"
-                    className="dark:text-neutral-400"
-                  />
-                }
-              />
+              <Rating rating={data?.rating} />
             </DialogTitle>
             <DialogDescription>{data?.description}</DialogDescription>
           </DialogHeader>

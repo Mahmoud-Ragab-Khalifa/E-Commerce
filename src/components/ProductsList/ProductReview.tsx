@@ -1,9 +1,6 @@
 import { Review } from "@/lib/types";
 import { User } from "lucide-react";
 
-import Rating from "@mui/material/Rating";
-import StarIcon from "@mui/icons-material/Star";
-
 interface ProductReviewProbs {
   reviews: Review[];
 }
@@ -13,6 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
 
 import { Textarea } from "@/components/ui/textarea";
+import Rating from "./Rating";
+import SetRating from "./SetRating";
 
 const UserCard = ({ reviewerName, rating, comment }: Review) => {
   return (
@@ -24,18 +23,7 @@ const UserCard = ({ reviewerName, rating, comment }: Review) => {
         <div className="flex flex-col gap-0.5 text-light dark:text-dark">
           <h2>{reviewerName}</h2>
           <div className="flex gap-2 items-end">
-            <Rating
-              size="small"
-              value={rating}
-              readOnly
-              precision={0.1}
-              emptyIcon={
-                <StarIcon
-                  fontSize="inherit"
-                  className="dark:text-neutral-700"
-                />
-              }
-            />
+            <Rating rating={rating} />
             <span className="text-xs">({rating})</span>
           </div>
         </div>
@@ -73,15 +61,7 @@ const ProductReview = ({ reviews }: ProductReviewProbs) => {
             <span className="absolute -end-3 top-0 text-red-600">*</span>
           </p>
 
-          <Rating
-            name="half-rating"
-            defaultValue={0.5}
-            precision={0.5}
-            size="small"
-            emptyIcon={
-              <StarIcon fontSize="inherit" className="dark:text-neutral-700" />
-            }
-          />
+          <SetRating />
         </div>
 
         <div className="w-full max-w-md">

@@ -1,8 +1,7 @@
-import Rating from "@mui/material/Rating";
-import StarIcon from "@mui/icons-material/Star";
 import { Button } from "../ui/button";
 import ImageSelection from "./ImageSelection";
 import OptionAndType from "./OptionAndType";
+import Rating from "./Rating";
 
 interface ProductDetailsProbs {
   title: string;
@@ -68,15 +67,7 @@ const ProductDetails = ({
 
         <div className="mt-4 flex items-center gap-2">
           <span className="text-[#4b5563]">Rated: </span>
-          <Rating
-            size="small"
-            value={rating}
-            readOnly
-            precision={0.1}
-            emptyIcon={
-              <StarIcon fontSize="inherit" className="dark:text-neutral-950" />
-            }
-          />
+          <Rating rating={rating} />
         </div>
 
         <OptionAndType />

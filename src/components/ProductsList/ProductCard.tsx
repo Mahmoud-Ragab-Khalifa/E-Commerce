@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Rating from "@mui/material/Rating";
 import { Button } from "../ui/button";
 import { Geist, Tajawal } from "next/font/google";
 
@@ -12,10 +11,10 @@ const tajawal = Tajawal({
   weight: ["500"],
 });
 
-import StarIcon from "@mui/icons-material/Star";
 import { useLocale, useTranslations } from "next-intl";
 import ProductCardActions from "./ProductCardActions";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import Rating from "./Rating";
 
 interface ProductCardProps {
   id: number;
@@ -50,15 +49,7 @@ const ProductCard = ({ id, image, title, price, rating }: ProductCardProps) => {
           {title}
         </h3>
         <span className="font-bold block my-1">${price}</span>
-        <Rating
-          size="small"
-          value={rating}
-          readOnly
-          precision={0.1}
-          emptyIcon={
-            <StarIcon fontSize="inherit" className="dark:text-neutral-950" />
-          }
-        />
+        <Rating rating={rating} />
         <Button
           variant={"default"}
           className={`w-full mt-4 bg-light hover:bg-light/95 dark:bg-dark/80 dark:hover:bg-dark/90 
