@@ -24,7 +24,7 @@ interface CategoryFashionProbs {
 }
 
 const CategoryFashion = ({ title, categoriesArray }: CategoryFashionProbs) => {
-  const [category, setCategory] = useState("view-all");
+  const [category, setCategory] = useState(categoriesArray[0]);
 
   const categoriesToFetch =
     category === "view-all" ? categoriesArray : [category];
@@ -45,7 +45,7 @@ const CategoryFashion = ({ title, categoriesArray }: CategoryFashionProbs) => {
         <FilterList
           category={title}
           setCategory={setCategory}
-          items={["view-all", ...categoriesArray]}
+          items={[...categoriesArray, "view-all"]}
         />
 
         <div className="products-carousel overflow-hidden">
