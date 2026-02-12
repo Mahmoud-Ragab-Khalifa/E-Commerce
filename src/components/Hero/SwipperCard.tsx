@@ -35,7 +35,7 @@ const SwipperCard = ({ category, image }: SwiperCardProps) => {
           {t("ButtonContent")}
         </Button>
       </div>
-      <Image src={image} alt="man" width={500} height={500} />
+      <Image src={image} alt="man" width={500} height={500} priority />
     </div>
   );
 };

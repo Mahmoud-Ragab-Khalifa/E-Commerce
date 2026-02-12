@@ -3,7 +3,7 @@ import { Pacifico } from "next/font/google";
 
 import { useLocale } from "next-intl";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 const pacifico = Pacifico({
   weight: "400",
