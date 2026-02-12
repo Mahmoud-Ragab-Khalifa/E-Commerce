@@ -1,36 +1,36 @@
 "use client";
 
+import { Twitter, Facebook, Instagram } from "lucide-react";
+
 // SOCIAL MEDIA
-import XIcon from "@mui/icons-material/X";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
 
 const socialMedia = [
   {
     name: "x",
-    icon: XIcon,
+    icon: Twitter,
   },
   {
     name: "facebook",
-    icon: FacebookIcon,
+    icon: Facebook,
   },
   {
     name: "instagram",
-    icon: InstagramIcon,
+    icon: Instagram,
   },
 ];
+
 const SocialMedia = () => {
   return (
     <>
       {socialMedia.map((item) => (
         <a
-          className="text-white"
+          className="text-white fill-white"
           key={item.name}
           href={`http://${item.name}.com`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <item.icon sx={{ fontSize: 16 }} />
+          <item.icon size={16} />
         </a>
       ))}
     </>

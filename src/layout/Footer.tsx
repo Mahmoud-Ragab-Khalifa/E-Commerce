@@ -1,11 +1,7 @@
 import Logo from "@/components/Header/Logo";
 import { Button } from "@/components/ui/button";
 
-import XIcon from "@mui/icons-material/X";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import GoogleIcon from "@mui/icons-material/Google";
+import { Twitter, Facebook, Instagram, Youtube, Chromium } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -176,19 +172,19 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-1">
               <Button variant={"ghost"} size={"icon-sm"}>
-                <XIcon sx={{ fontSize: 15 }} />
+                <Twitter size={15} />
               </Button>
               <Button variant={"ghost"} size={"icon-sm"}>
-                <FacebookIcon sx={{ fontSize: 15 }} />
+                <Facebook size={15} />
               </Button>
               <Button variant={"ghost"} size={"icon-sm"}>
-                <InstagramIcon sx={{ fontSize: 15 }} />
+                <Instagram size={15} />
               </Button>
               <Button variant={"ghost"} size={"icon-sm"}>
-                <YouTubeIcon sx={{ fontSize: 15 }} />
+                <Youtube size={15} />
               </Button>
               <Button variant={"ghost"} size={"icon-sm"}>
-                <GoogleIcon sx={{ fontSize: 15 }} />
+                <Chromium size={15} />
               </Button>
             </div>
           </div>

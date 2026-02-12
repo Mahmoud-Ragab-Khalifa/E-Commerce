@@ -14,10 +14,7 @@ const tajawal = Tajawal({
 
 import { useState } from "react";
 import { Button } from "../ui/button";
-import { ArrowLeft, ArrowRight, Eye } from "lucide-react";
-
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import { ArrowLeft, ArrowRight, Eye, Heart } from "lucide-react";
 
 import {
   Dialog,
@@ -138,9 +135,9 @@ const ProductCardActions = ({ id }: { id: number }) => {
         onClick={() => setactive(!active)}
       >
         {active ? (
-          <FavoriteIcon sx={{ fontSize: 18, color: "#ff6d75" }} />
+          <Heart size={18} className="text-[#ff6d75] fill-[#ff6d75]" />
         ) : (
-          <FavoriteBorderIcon sx={{ fontSize: 18 }} />
+          <Heart size={18} />
         )}
       </Button>
     </>
