@@ -37,33 +37,33 @@ import {
 
 import Image from "next/image";
 
-import useSWR from "swr";
 import Link from "next/link";
 import Rating from "./Rating";
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
+import useSWR from "swr";
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const ProductCardActions = ({ id }: { id: number }) => {
   const locale = useLocale();
   const t = useTranslations();
 
+  const [open, setOpen] = useState(false);
+
   const [active, setactive] = useState(false);
 
-  const { data, error, isLoading } = useSWR(
-    `https://dummyjson.com/products/${id}`,
+  const { data } = useSWR(
+    open ? `/${locale}/api/products/${id}` : null,
     fetcher,
   );
 
-  if (isLoading)
-    return (
-      <div className="absolute w-3 h-3 bg-neutral-500 dark:bg-neutral-700 top-2 right-2 animate-pulse rounded-full" />
-    );
-  if (error) return <div>Error: {error.message}</div>;
-
   return (
     <>
-      <Dialog>
-        <DialogTrigger>
-          <div className="cursor-pointer absolute z-50 right-1 md:-right-full md:group-hover:right-1 transition-all duration-500 top-1 hover:bg-neutral-200 hover:dark:bg-neutral-800/50 rounded-md delay-75 text-[14px] p-1.5">
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogTrigger asChild>
+          <div
+            className="cursor-pointer absolute z-50 right-1 md:-right-full md:group-hover:right-1 transition-all duration-500 top-1 hover:bg-neutral-200 hover:dark:bg-neutral-800/50 rounded-md delay-75 text-[14px] p-1.5"
+            onClick={() => setOpen(true)}
+          >
             <Eye size={20} />
           </div>
         </DialogTrigger>
