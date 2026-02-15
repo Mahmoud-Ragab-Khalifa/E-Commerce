@@ -2,15 +2,13 @@ import Logo from "@/components/Header/Logo";
 import MobileLinks from "@/components/Header/MobileLinks";
 import NavLinks from "@/components/Header/NavLinks";
 import { Button } from "@/components/ui/button";
-import { CircleUserRound, Search, ShoppingCart } from "lucide-react";
+import { CircleUserRound, Search } from "lucide-react";
 
-import { useLocale } from "next-intl";
+import CartIcon from "@/components/ProductsList/CartIcon";
 
 const Navbar = () => {
-  const locale = useLocale();
-
   return (
-    <div className="p-2.5">
+    <div className="p-2.5 sticky top-0 z-50">
       <div className="container mx-auto flex items-center justify-between">
         <div className="logo">
           <div className="lg:hidden">
@@ -37,14 +35,8 @@ const Navbar = () => {
           <Button variant={"ghost"} size={"icon"}>
             <CircleUserRound className="h-5! w-5!" />
           </Button>
-          <Button variant={"ghost"} size={"icon"} className="relative">
-            <ShoppingCart className="h-5! w-5!" />
-            <span
-              className={`absolute -top-1 ${locale === "ar" ? "left-0" : "-right-1"} w-5 h-5 rounded-full bg-main-color text-white`}
-            >
-              5
-            </span>
-          </Button>
+
+          <CartIcon />
         </div>
       </div>
     </div>
