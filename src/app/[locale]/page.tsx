@@ -27,7 +27,7 @@ const Home = () => {
       <Categories />
       <BlackFridaySale />
       <ProductsList />
-      <PromotionalCards />
+      {/* <PromotionalCards />
 
       <CategoryFashion
         title="Women's Fashion"
@@ -58,7 +58,7 @@ const Home = () => {
         category="sports-accessories"
         arrayOfImages={sportsList}
         title="Sports Accessories"
-      />
+      /> */}
     </>
   );
 };

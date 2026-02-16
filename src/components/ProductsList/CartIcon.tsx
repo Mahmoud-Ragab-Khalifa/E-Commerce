@@ -1,22 +1,35 @@
 "use client";
 
+import { useState } from "react";
+
 import { Button } from "../ui/button";
 import { ShoppingCart } from "lucide-react";
-import { useLocale } from "next-intl";
 import { useCartStore } from "@/store/cartStore";
+import MiniCart from "./MiniCart";
 
 const CartIcon = () => {
-  const locale = useLocale();
   const totalCartItems = useCartStore((state) => state.totalItems);
+
+  const [open, setOpen] = useState(false);
+
   return (
-    <Button variant={"ghost"} size={"icon"} className="relative">
-      <ShoppingCart className="h-5! w-5!" />
-      <span
-        className={`absolute -top-1 ${locale === "ar" ? "left-0" : "-right-1"} w-5 h-5 rounded-full bg-main-color text-white`}
+    <>
+      <Button
+        variant={"ghost"}
+        size={"icon"}
+        className="relative"
+        onClick={() => setOpen(!open)}
       >
-        {totalCartItems}
-      </span>
-    </Button>
+        <ShoppingCart strokeWidth={3} />
+        <span
+          className={`absolute -top-1 rtl:left-0 ltr:-right-1 w-5 h-5 rounded-full bg-[#253853] text-white dark:bg-main-color text-xs flex items-center justify-center`}
+        >
+          {totalCartItems}
+        </span>
+      </Button>
+
+      <MiniCart open={open} setOpen={setOpen} />
+    </>
   );
 };
 

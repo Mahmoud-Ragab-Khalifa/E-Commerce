@@ -1,3 +1,5 @@
+"use client";
+
 import Logo from "@/components/Header/Logo";
 import MobileLinks from "@/components/Header/MobileLinks";
 import NavLinks from "@/components/Header/NavLinks";
@@ -5,10 +7,25 @@ import { Button } from "@/components/ui/button";
 import { CircleUserRound, Search } from "lucide-react";
 
 import CartIcon from "@/components/ProductsList/CartIcon";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 43.5);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="p-2.5 sticky top-0 z-50">
+    <div
+      className={`p-2.5 sticky top-0 z-200 transition-all duration-300 
+        ${isSticky ? "bg-main-color dark:bg-[#253853]" : "bg-transparent"}`}
+    >
       <div className="container mx-auto flex items-center justify-between">
         <div className="logo">
           <div className="lg:hidden">
