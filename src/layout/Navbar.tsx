@@ -23,8 +23,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`p-2.5 sticky top-0 z-200 transition-all duration-300 
-        ${isSticky ? "bg-main-color dark:bg-[#253853]" : "bg-transparent"}`}
+      className={`p-2.5 sticky top-0 z-200 transition-all duration-300 ${isSticky ? "bg-main-color dark:bg-[#253853] text-neutral-200" : "bg-transparent"}`}
     >
       <div className="container mx-auto flex items-center justify-between">
         <div className="logo">

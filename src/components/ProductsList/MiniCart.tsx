@@ -29,7 +29,7 @@ const MiniCart = ({ open, setOpen }: MiniCartProbs) => {
         <DrawerHeader className="flex flex-row! justify-between items-center">
           <DrawerTitle className="flex items-center gap-1">
             <DrawerDescription>Your Cart</DrawerDescription>
-            <span className="text-xs">(3)</span>
+            <span className="text-xs">({totalItems})</span>
           </DrawerTitle>
           <DrawerClose asChild>
             <Button variant="outline" size={"icon-sm"}>
@@ -40,7 +40,7 @@ const MiniCart = ({ open, setOpen }: MiniCartProbs) => {
         <div className="overflow-y-auto px-4 flex flex-col gap-2">
           {items.map((item) => (
             <div key={item.id}>
-              <div className="flex items-center gap-1 bg-card text-sm p-3 rounded-sm">
+              <div className="flex items-center gap-1 bg-card text-sm p-3 rounded-sm overflow-hidden">
                 <Image
                   alt={item.title}
                   src={item.image}
@@ -48,25 +48,25 @@ const MiniCart = ({ open, setOpen }: MiniCartProbs) => {
                   height={75}
                 />
                 <div className="flex-1">
-                  <p>{item.title}</p>
+                  <p className="whitespace-nowrap overflow-x-hidden text-ellipsis! w-36.25 md:w-60">
+                    {item.title}
+                  </p>
                   <span className="block mt-0.5 mb-3">${item.price}</span>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1 border text-sm">
-                      <Button
-                        size={"icon-sm"}
-                        variant={"ghost"}
+                    <div className="flex items-center border text-xs rounded-full overflow-hidden">
+                      <button
+                        className="w-8 h-6 md:h-8 flex items-center justify-center hover:bg-neutral-200 hover:dark:bg-neutral-700/30 transition-colors duration-300 cursor-pointer"
                         onClick={() => increase(item.id)}
                       >
                         +
-                      </Button>
-                      <span>{totalItems}</span>
-                      <Button
-                        size={"icon-sm"}
-                        variant={"ghost"}
+                      </button>
+                      <span className="px-2">{item.quantity}</span>
+                      <button
+                        className="w-8 h-6 md:h-8 flex items-center justify-center hover:bg-neutral-200 hover:dark:bg-neutral-700/30 transition-colors duration-300 cursor-pointer"
                         onClick={() => decrease(item.id)}
                       >
                         -
-                      </Button>
+                      </button>
                     </div>
                     <Button
                       className="hover:bg-destructive/50!"
