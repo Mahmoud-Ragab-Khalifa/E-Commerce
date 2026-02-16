@@ -23,6 +23,7 @@ const ProductDetailsPage = async ({
     <div className="p-2.5 lg:mt-7" dir="ltr">
       <div className="container mx-auto rounded-md bg-card dark:bg-card p-4">
         <ProductDetails
+          id={id}
           images={product.images}
           title={product.title}
           category={product.category}

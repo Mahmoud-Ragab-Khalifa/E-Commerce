@@ -40,6 +40,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Rating from "./Rating";
 import useSWR from "swr";
+import AddToCartButton from "./AddToCartButton";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -109,14 +110,28 @@ const ProductCardActions = ({ id }: { id: number }) => {
             dir={locale === "ar" ? "rtl" : "ltr"}
           >
             <Link href={`/products/${id}`}>
-              <Button variant={"link"} className="px-0! mb-2 md:mb-0">
-                {t("details")}
-                {locale === "ar" ? <ArrowLeft /> : <ArrowRight />}
-              </Button>
+              <div className="flex items-center gap-1">
+                <span className="text-sm">{t("details")}</span>
+
+                {locale === "ar" ? (
+                  <ArrowLeft size={15} />
+                ) : (
+                  <ArrowRight size={15} />
+                )}
+              </div>
             </Link>
 
             <div className="flex gap-2">
-              <Button className="flex-1">{t("addToCart")}</Button>
+              <div>
+                <AddToCartButton
+                  product={{
+                    id,
+                    title: data?.title,
+                    price: data?.price,
+                    image: data?.images[0],
+                  }}
+                />
+              </div>
 
               <DialogClose asChild>
                 <Button variant="outline" className="flex-1">

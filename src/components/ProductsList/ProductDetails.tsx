@@ -1,9 +1,10 @@
-import { Button } from "../ui/button";
+import AddToCartButton from "./AddToCartButton";
 import ImageSelection from "./ImageSelection";
 import OptionAndType from "./OptionAndType";
 import Rating from "./Rating";
 
 interface ProductDetailsProbs {
+  id: number;
   title: string;
   images: string[];
   category: string;
@@ -17,6 +18,7 @@ interface ProductDetailsProbs {
 }
 
 const ProductDetails = ({
+  id,
   images,
   title,
   category,
@@ -86,12 +88,16 @@ const ProductDetails = ({
           </span>
         </p>
 
-        <Button
-          variant={"default"}
-          className={`w-full mt-4 sm:max-w-81.25 md:mt-9 xl:mt-11 bg-light hover:bg-light/95 dark:bg-dark/80 dark:hover:bg-dark/90`}
-        >
-          Add To Cart
-        </Button>
+        <div className={`w-full mt-4 sm:max-w-81.25 md:mt-9 xl:mt-11`}>
+          <AddToCartButton
+            product={{
+              id: Number(id),
+              title: title,
+              price: price,
+              image: images[0],
+            }}
+          />
+        </div>
       </div>
     </div>
   );

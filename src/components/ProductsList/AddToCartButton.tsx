@@ -30,7 +30,7 @@ const AddToCartButton = ({
     <Button
       onClick={() => addtoCart(product)}
       variant={"default"}
-      className={`w-full mt-4 bg-light hover:bg-light/95 dark:bg-dark/80 dark:hover:bg-dark/90 
+      className={`w-full bg-light hover:bg-light/95 dark:bg-dark/80 dark:hover:bg-dark/90 
             ${locale === "ar" ? tajawal.className : geist.className}`}
     >
       {t("addToCart")}

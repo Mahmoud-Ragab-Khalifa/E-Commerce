@@ -17,6 +17,8 @@ const Navbar = () => {
       setIsSticky(window.scrollY > 43.5);
     };
 
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

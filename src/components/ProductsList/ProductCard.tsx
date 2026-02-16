@@ -43,7 +43,9 @@ const ProductCard = ({ id, image, title, price, rating }: ProductCardProps) => {
         <span className="font-bold block my-1">${price}</span>
         <Rating rating={rating} />
 
-        <AddToCartButton product={{ id, title, price, image }} />
+        <div className="mt-4 w-full">
+          <AddToCartButton product={{ id, title, price, image }} />
+        </div>
       </div>
     </div>
   );
