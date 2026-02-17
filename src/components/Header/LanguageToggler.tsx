@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Check, ChevronDown } from "lucide-react";
+import { Button } from "../ui/button";
 
 const LanguageToggler = () => {
   const locale = useLocale();
@@ -22,13 +23,19 @@ const LanguageToggler = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <div className="cursor-pointer flex items-center text-[13px] text-white">
-          {selectedLanguage.locale.toUpperCase()}
-          <ChevronDown size={16} />
+        <Button
+          size={"icon-sm"}
+          variant={"ghost"}
+          className="gap-0! items-center!"
+        >
+          <span className="text-sm">
+            {selectedLanguage.locale.toUpperCase()}
+          </span>
+          <ChevronDown size={16} className="mt-0.5" />
           <span className="sr-only">Toggle language</span>
-        </div>
+        </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="z-2000">
         {LANGUAGES.map((language) => (
           <DropdownMenuItem
             className="flex items-center justify-between"

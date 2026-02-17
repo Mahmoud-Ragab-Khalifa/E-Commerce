@@ -24,7 +24,6 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 
 import {
@@ -60,14 +59,15 @@ const ProductCardActions = ({ id }: { id: number }) => {
   return (
     <>
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
-          <div
-            className="cursor-pointer absolute z-50 right-1 md:-right-full md:group-hover:right-1 transition-all duration-500 top-1 hover:bg-neutral-200 hover:dark:bg-neutral-800/50 rounded-md delay-75 text-[14px] p-1.5"
-            onClick={() => setOpen(true)}
-          >
-            <Eye size={20} />
-          </div>
-        </DialogTrigger>
+        <Button
+          onClick={() => setOpen(!open)}
+          aria-label="Mini Product Details Page"
+          variant={"ghost"}
+          size={"icon-sm"}
+          className="cursor-pointer absolute z-50 right-1 md:-right-full md:group-hover:right-1 transition-all duration-500 top-1 hover:bg-neutral-200 hover:dark:bg-neutral-800/50 rounded-md delay-75 text-[14px] p-1.5"
+        >
+          <Eye />
+        </Button>
         <DialogContent
           dir="ltr"
           className={`${geist.className} max-h-[80vh] overflow-y-auto overflow-x-hidden`}
@@ -100,25 +100,28 @@ const ProductCardActions = ({ id }: { id: number }) => {
             <DialogTitle>
               <span className="leading-normal">{data?.title}</span>
               <span className="font-bold block my-3">${data?.price}</span>
-              <Rating rating={data?.rating} />
+              <div className="flex items-center justify-center md:items-start md:justify-start">
+                <Rating rating={data?.rating} />
+              </div>
             </DialogTitle>
             <DialogDescription>{data?.description}</DialogDescription>
           </DialogHeader>
 
           <DialogFooter
-            className={`flex justify-between! flex-col! md:flex-row! mt-4 ${locale === "ar" ? tajawal.className : geist.className}`}
+            className={`flex justify-between! items-center! flex-col! md:flex-row! mt-4 ${locale === "ar" ? tajawal.className : geist.className}`}
             dir={locale === "ar" ? "rtl" : "ltr"}
           >
-            <Link href={`/products/${id}`}>
-              <div className="flex items-center gap-1">
-                <span className="text-sm">{t("details")}</span>
+            <Link
+              href={`/products/${id}`}
+              className="flex items-center gap-1 mb-2 md:m-0 text-sm"
+            >
+              {t("details")}
 
-                {locale === "ar" ? (
-                  <ArrowLeft size={15} />
-                ) : (
-                  <ArrowRight size={15} />
-                )}
-              </div>
+              {locale === "ar" ? (
+                <ArrowLeft size={15} />
+              ) : (
+                <ArrowRight size={15} />
+              )}
             </Link>
 
             <div className="flex gap-2">
@@ -144,15 +147,16 @@ const ProductCardActions = ({ id }: { id: number }) => {
       </Dialog>
 
       <Button
+        aria-label="Add To Favourites"
         className="cursor-pointer absolute z-50 right-1 md:-right-full md:group-hover:right-1 transition-all duration-500 top-8 hover:bg-neutral-200 delay-200 mt-1"
         variant={"ghost"}
         size={"icon-sm"}
         onClick={() => setactive(!active)}
       >
         {active ? (
-          <Heart size={18} className="text-[#ff6d75] fill-[#ff6d75]" />
+          <Heart className="text-[#ff6d75] fill-[#ff6d75]" />
         ) : (
-          <Heart size={18} />
+          <Heart />
         )}
       </Button>
     </>

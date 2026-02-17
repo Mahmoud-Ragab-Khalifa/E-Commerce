@@ -27,13 +27,13 @@ const ProductCard = ({ id, image, title, price, rating }: ProductCardProps) => {
     >
       <ProductCardActions id={id} />
 
-      <Link href={`/products/${id}`}>
+      <Link href={`/products/${id}`} aria-label="Product Image">
         <Image
           alt="product"
           src={image}
           width={300}
           height={300}
-          className="mx-auto cursor-pointer transition-transform duration-500 group-hover:scale-110"
+          className="mx-auto cursor-pointer transition-transform duration-500 group-hover:scale-110 focus:ring"
         />
       </Link>
       <div className="p-4 flex flex-col items-center text-light dark:text-dark">

@@ -1,13 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import Logo from "@/components/Header/Logo";
 import MobileLinks from "@/components/Header/MobileLinks";
 import NavLinks from "@/components/Header/NavLinks";
 import { Button } from "@/components/ui/button";
 import { CircleUserRound, Search } from "lucide-react";
-
-import CartIcon from "@/components/ProductsList/CartIcon";
-import { useEffect, useState } from "react";
+import MiniCart from "@/components/ProductsList/MiniCart";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -25,7 +25,8 @@ const Navbar = () => {
 
   return (
     <div
-      className={`p-2.5 sticky top-0 z-200 transition-all duration-300 ${isSticky ? "bg-main-color dark:bg-[#253853] text-neutral-200" : "bg-transparent"}`}
+      className={`text-neutral-200 p-2.5 sticky top-0 z-100 transition-all duration-300 
+        ${isSticky ? "bg-main-color dark:bg-[#253853]" : "bg-transparent"}`}
     >
       <div className="container mx-auto flex items-center justify-between">
         <div className="logo">
@@ -54,7 +55,7 @@ const Navbar = () => {
             <CircleUserRound className="h-5! w-5!" />
           </Button>
 
-          <CartIcon />
+          <MiniCart />
         </div>
       </div>
     </div>

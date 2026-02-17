@@ -3,6 +3,13 @@ import { Button } from "@/components/ui/button";
 
 import { Twitter, Facebook, Instagram, Youtube, Chromium } from "lucide-react";
 
+const socialButtons = [
+  { icon: Twitter, label: "Follow us on Twitter" },
+  { icon: Facebook, label: "Follow us on Facebook" },
+  { icon: Instagram, label: "Follow us on Instagram" },
+  { icon: Youtube, label: "Follow us on YouTube" },
+  { icon: Chromium, label: "Visit us on Chromium" },
+];
 const Footer = () => {
   return (
     <footer className="bg-main-color dark:bg-[#253853] text-neutral-200 dark:text-dark mt-6 md:mt-12.5">
@@ -171,21 +178,16 @@ const Footer = () => {
               <span className="font-bold">Phone: </span>01067055256
             </p>
             <div className="flex items-center gap-1">
-              <Button variant={"ghost"} size={"icon-sm"}>
-                <Twitter size={15} />
-              </Button>
-              <Button variant={"ghost"} size={"icon-sm"}>
-                <Facebook size={15} />
-              </Button>
-              <Button variant={"ghost"} size={"icon-sm"}>
-                <Instagram size={15} />
-              </Button>
-              <Button variant={"ghost"} size={"icon-sm"}>
-                <Youtube size={15} />
-              </Button>
-              <Button variant={"ghost"} size={"icon-sm"}>
-                <Chromium size={15} />
-              </Button>
+              {socialButtons.map(({ icon: Icon, label }, idx) => (
+                <Button
+                  key={idx}
+                  variant="ghost"
+                  size="icon-sm"
+                  aria-label={label}
+                >
+                  <Icon size={15} />
+                </Button>
+              ))}
             </div>
           </div>
         </div>
