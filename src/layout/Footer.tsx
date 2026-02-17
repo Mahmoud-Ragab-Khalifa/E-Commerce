@@ -16,7 +16,7 @@ const Footer = () => {
       <div className="px-2.5 pt-6">
         <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 border-b pb-6">
           <div className="flex flex-col gap-3">
-            <Logo />
+            <Logo isSticky={true} />
             <p className="capitalize text-sm leading-snug max-w-96 sm:w-full">
               Explore all product categories in our store, from groceries and
               fashion to electronics, beauty, and home essentials. Find

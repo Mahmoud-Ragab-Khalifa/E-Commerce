@@ -28,7 +28,7 @@ export default function ThemeToggler() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent align="end" className="z-2000">
         {thems.map((item, idx) => (
           <DropdownMenuItem
             key={idx}

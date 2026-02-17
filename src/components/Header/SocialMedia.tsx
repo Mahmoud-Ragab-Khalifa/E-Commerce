@@ -22,15 +22,16 @@ const socialMedia = [
 const SocialMedia = () => {
   return (
     <>
-      {socialMedia.map((item) => (
+      {socialMedia.map(({ name, icon: Icon }) => (
         <a
+          aria-label={`Follow Us On ${name.toUpperCase()}`}
           className="text-white fill-white"
-          key={item.name}
-          href={`http://${item.name}.com`}
+          key={name}
+          href={`http://${name}.com`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <item.icon size={16} />
+          <Icon size={16} />
         </a>
       ))}
     </>

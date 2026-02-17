@@ -25,8 +25,8 @@ const Navbar = () => {
 
   return (
     <div
-      className={`text-neutral-200 p-2.5 sticky top-0 z-100 transition-all duration-300 
-        ${isSticky ? "bg-main-color dark:bg-[#253853]" : "bg-transparent"}`}
+      className={`text-light dark:text-dark p-2.5 sticky top-0 z-100 transition-all duration-300 
+        ${isSticky ? "bg-main-color dark:bg-[#253853] text-neutral-200" : "bg-transparent"}`}
     >
       <div className="container mx-auto flex items-center justify-between">
         <div className="logo">
@@ -35,7 +35,7 @@ const Navbar = () => {
           </div>
 
           <span className="hidden lg:flex">
-            <Logo />
+            <Logo isSticky={isSticky} />
           </span>
         </div>
 
@@ -43,15 +43,20 @@ const Navbar = () => {
           <NavLinks />
 
           <span className="lg:hidden">
-            <Logo />
+            <Logo isSticky={isSticky} />
           </span>
         </div>
 
         <div className="icons">
-          <Button variant={"ghost"} size={"icon"} className="lg:hidden">
+          <Button
+            variant={"ghost"}
+            size={"icon"}
+            className="lg:hidden"
+            aria-label="Search For Products"
+          >
             <Search className="h-5! w-5!" />
           </Button>
-          <Button variant={"ghost"} size={"icon"}>
+          <Button variant={"ghost"} size={"icon"} aria-label="User Profile">
             <CircleUserRound className="h-5! w-5!" />
           </Button>
 

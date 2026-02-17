@@ -10,7 +10,7 @@ const pacifico = Pacifico({
   subsets: ["latin"],
 });
 
-const Logo = () => {
+const Logo = ({ isSticky }: { isSticky: boolean }) => {
   const locale = useLocale();
   const t = useTranslations();
 
@@ -24,13 +24,19 @@ const Logo = () => {
             stroke="black"
             strokeWidth="6"
             strokeLinejoin="round"
-            className="fill-transparent stroke-transparent dark:fill-gray-900 dark:stroke-gray-300"
+            className={`${isSticky ? "stroke-white fill-transparent dark:fill-transparent dark:stroke-dark" : "fill-transparent stroke-main-color dark:fill-transparent dark:stroke-dark"}`}
           />
         </svg>
 
-        <Store className="relative text-black dark:text-gray-300" size={20} />
+        <Store
+          className={`relative ${isSticky ? "text-white" : "text-main-color dark:text-gray-300"}`}
+          size={20}
+        />
         <span
-          className={`${locale === "en" ? pacifico.className : ""} absolute ${locale === "ar" ? "right-full" : "left-full"} bg-main-color text-xs py-1 px-2 rounded-full ${locale === "ar" ? "-mr-2" : "-ml-2"} text-white dark:text-gray-300`}
+          className={`absolute text-xs py-1 px-2 rounded-full 
+            ${locale === "ar" ? "right-full -mr-2" : `${pacifico.className} left-full -ml-2`}
+            ${isSticky ? "bg-white text-main-color" : "bg-main-color text-white"} 
+            `}
         >
           {t("Logo")}
         </span>

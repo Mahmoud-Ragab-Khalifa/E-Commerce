@@ -26,12 +26,12 @@ const LanguageToggler = () => {
         <Button
           size={"icon-sm"}
           variant={"ghost"}
-          className="gap-0! items-center!"
+          className="gap-0! items-center! hover:bg-transparent!"
         >
-          <span className="text-sm">
+          <span className="text-sm text-white">
             {selectedLanguage.locale.toUpperCase()}
           </span>
-          <ChevronDown size={16} className="mt-0.5" />
+          <ChevronDown size={16} className="mt-0.5 text-white" />
           <span className="sr-only">Toggle language</span>
         </Button>
       </DropdownMenuTrigger>
