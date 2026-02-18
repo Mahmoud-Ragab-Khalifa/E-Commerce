@@ -6,25 +6,28 @@ import { useCartStore } from "@/store/cartStore";
 import { Trash2 } from "lucide-react";
 import Image from "next/image";
 
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 const Cart = () => {
-  const {
-    items,
-    totalItems,
-    totalPrice,
-    addToCart,
-    removeFromCart,
-    clearCart,
-    increase,
-    decrease,
-  } = useCartStore();
+  const { items, totalPrice, removeFromCart, clearCart, increase, decrease } =
+    useCartStore();
+
   return (
     <div className="px-2.5">
-      <div className="container mx-auto flex flex-col md:flex-row gap-4">
+      <div className="container mx-auto flex flex-col md:flex-row md:items-start gap-4">
         <div className="flex-2 flex flex-col gap-4">
           {items.map(({ id, image, title, price, quantity }) => (
             <div
               key={id}
-              className="bg-card py-2.5 md:p-1 xl:p-4  flex flex-col sm:flex-row items-center justify-around rounded-md"
+              className="bg-card py-2.5 md:p-1 xl:p-4  flex flex-col sm:flex-row items-center justify-around
+              text-light dark:text-dark rounded-md"
             >
               <div className="flex gap-4 items-center justify-around w-full md:max-w-62.5">
                 <Link
@@ -74,14 +77,99 @@ const Cart = () => {
           <Button
             size={"lg"}
             variant={"destructive"}
-            className="ml-auto"
+            className="md:ml-auto"
             onClick={clearCart}
           >
             <Trash2 />
             Clear Cart
           </Button>
         </div>
-        <div className="bg-red-700 flex-1">Check out data</div>
+
+        <div className="flex-1 bg-card p-5 text-light dark:text-dark rounded-md">
+          <div className="flex items-center justify-between font-bold mb-2">
+            <span>Total:</span>
+            <span>${totalPrice.toFixed(2)}</span>
+          </div>
+
+          <div className="flex flex-col gap-4 lg:gap-5 py-4 lg:py-5 border-t border-b">
+            <div className="flex gap-2 items-center">
+              <p className="font-medium text-sm">Additional Comments</p>
+              <span className="py-0.5 px-2 bg-neutral-400/50 text-xs rounded-full">
+                Note
+              </span>
+            </div>
+
+            <textarea
+              aria-label="Enter Your Comment"
+              placeholder="Typing Here..."
+              className="w-full rounded-md ring focus:outline-none hover:ring-2 focus:ring-2 ring-neutral-700 block resize-none h-18.75 placeholder:text-sm text-sm p-2 placeholder:text-neutral-500"
+            />
+
+            <div className="flex items-center gap-2">
+              <input
+                aria-label="Enter Voucher Code"
+                placeholder="Voucher"
+                type="text"
+                name="voucher"
+                id="voucher"
+                className="flex-1 rounded-md s top-0 left-0 ring focus:outline-none hover:ring-2 focus:ring-2 ring-neutral-700 placeholder:text-sm text-sm p-2 placeholder:text-neutral-500"
+              />
+
+              <Button variant={"outline"} className="w-15">
+                Apply
+              </Button>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4 lg:gap-5 pt-4 lg:pt-5">
+            <p className="font-medium text-sm">Shipping Estimates</p>
+
+            <Select>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Country" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="egypt">Egypt</SelectItem>
+                  <SelectItem value="saudiArabia">Saudi Arabia</SelectItem>
+                  <SelectItem value="yemen">Yemen</SelectItem>
+                  <SelectItem value="tunisia">Tunisia</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+
+            <Select>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="State" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="alexandria">Alexandria</SelectItem>
+                  <SelectItem value="cairo">Cairo</SelectItem>
+                  <SelectItem value="giza">Giza</SelectItem>
+                  <SelectItem value="aswan">Aswan</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+
+            <input
+              aria-label="Enter Zip Code"
+              placeholder="Zip Code"
+              type="text"
+              name="zipCode"
+              className="flex-1 rounded-md s top-0 left-0 ring focus:outline-none hover:ring-2 focus:ring-2 ring-neutral-700 placeholder:text-sm text-sm p-2 placeholder:text-neutral-500"
+            />
+
+            <Button variant={"outline"}>Calculate Shipping</Button>
+
+            <Link
+              href={"/details"}
+              className="p-2 text-center w-full bg-[#4CAF50] text-black rounded-md"
+            >
+              Checkout Now
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
