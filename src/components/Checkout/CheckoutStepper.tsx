@@ -29,7 +29,7 @@ const CheckoutStepper = () => {
           className={`z-50 transition-colors duration-300 capitalize rounded-full text-sm lg:text-lg py-1 px-3 md:px-8 
               ${currentIndex >= idx ? "bg-[#4CAF50] text-white" : "bg-card"}`}
         >
-          <span className="text-sm">1.</span>
+          <span className="text-sm">{idx + 1}.</span>
           <span>{item}</span>
         </Link>
       ))}

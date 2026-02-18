@@ -53,56 +53,58 @@ const MiniCart = () => {
           </DrawerClose>
         </DrawerHeader>
 
-        <div className="overflow-y-auto px-4 flex flex-col gap-2">
-          {items.map((item) => (
-            <div
-              className="flex items-center gap-1 bg-card text-sm p-3 rounded-sm overflow-hidden"
-              key={item.id}
-            >
-              <DrawerClose asChild>
-                <Link href={`/products/${item.id}`} aria-label="Product Page">
-                  <Image
-                    alt={item.title}
-                    src={item.image}
-                    width={75}
-                    height={75}
-                  />
-                </Link>
-              </DrawerClose>
-              <div className="flex-1">
-                <p className="whitespace-nowrap overflow-x-hidden text-ellipsis! w-36.25 md:w-60">
-                  {item.title}
-                </p>
-                <span className="block mt-0.5 mb-3">${item.price}</span>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center border text-xs rounded-full overflow-hidden">
-                    <button
-                      className="w-8 h-6 md:h-8 flex items-center justify-center hover:bg-neutral-200 hover:dark:bg-neutral-700/30 transition-colors duration-300 cursor-pointer"
-                      onClick={() => increase(item.id)}
+        <div className="no-scrollbar overflow-y-auto px-4">
+          <div className="flex flex-col gap-2">
+            {items.map((item) => (
+              <div
+                className="flex items-center gap-1 bg-card text-sm p-3 rounded-sm overflow-hidden"
+                key={item.id}
+              >
+                <DrawerClose asChild>
+                  <Link href={`/products/${item.id}`} aria-label="Product Page">
+                    <Image
+                      alt={item.title}
+                      src={item.image}
+                      width={75}
+                      height={75}
+                    />
+                  </Link>
+                </DrawerClose>
+                <div className="flex-1">
+                  <p className="whitespace-nowrap overflow-x-hidden text-ellipsis! w-36.25 md:w-60">
+                    {item.title}
+                  </p>
+                  <span className="block mt-0.5 mb-3">${item.price}</span>
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center border text-xs rounded-full overflow-hidden">
+                      <button
+                        className="w-8 h-6 md:h-8 flex items-center justify-center hover:bg-neutral-200 hover:dark:bg-neutral-700/30 transition-colors duration-300 cursor-pointer"
+                        onClick={() => increase(item.id)}
+                      >
+                        +
+                      </button>
+                      <span className="px-2">{item.quantity}</span>
+                      <button
+                        className="w-8 h-6 md:h-8 flex items-center justify-center hover:bg-neutral-200 hover:dark:bg-neutral-700/30 transition-colors duration-300 cursor-pointer"
+                        onClick={() => decrease(item.id)}
+                      >
+                        -
+                      </button>
+                    </div>
+                    <Button
+                      aria-label="Delete Product"
+                      className="hover:bg-destructive/50!"
+                      size={"icon-sm"}
+                      variant={"ghost"}
+                      onClick={() => removeFromCart(item.id)}
                     >
-                      +
-                    </button>
-                    <span className="px-2">{item.quantity}</span>
-                    <button
-                      className="w-8 h-6 md:h-8 flex items-center justify-center hover:bg-neutral-200 hover:dark:bg-neutral-700/30 transition-colors duration-300 cursor-pointer"
-                      onClick={() => decrease(item.id)}
-                    >
-                      -
-                    </button>
+                      <Trash2 />
+                    </Button>
                   </div>
-                  <Button
-                    aria-label="Delete Product"
-                    className="hover:bg-destructive/50!"
-                    size={"icon-sm"}
-                    variant={"ghost"}
-                    onClick={() => removeFromCart(item.id)}
-                  >
-                    <Trash2 />
-                  </Button>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <DrawerFooter>
