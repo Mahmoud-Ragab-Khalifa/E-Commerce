@@ -29,7 +29,6 @@ const CheckoutStepper = () => {
           className={`z-50 transition-colors duration-300 capitalize rounded-full text-sm lg:text-lg
                       py-1 px-1.5 sm:px-8 text-center
                       ${currentIndex >= idx ? "bg-[#4CAF50] text-white" : "bg-card"}
-                      ${item === "review" && "pointer-events-none"}
                     `}
         >
           <span className="text-sm">{idx + 1}. </span>

@@ -41,7 +41,7 @@ const Cart = () => {
           <p className="text-center px-3 text-sm md:text-xl">{`Looks Like You Haven't Added Any Thing To Your Cart Yet`}</p>
           <Link
             href={"/"}
-            className="py-2 px-4 rounded-md bg-main-color dark:bg-[#253853] mt-5"
+            className="py-2 px-4 rounded-md bg-main-color dark:bg-[#253853] mt-5 text-white"
           >
             Start Shopping
           </Link>
