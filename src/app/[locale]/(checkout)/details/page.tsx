@@ -46,7 +46,7 @@ const Details = () => {
                   placeholder={item}
                   type="text"
                   name={item.toLowerCase().replace(" ", "-")}
-                  className="basis-full md:basis-[calc((100%-16px)/2)] rounded-md s top-0 left-0 ring focus:outline-none hover:ring-2 focus:ring-2 ring-neutral-700 placeholder:text-sm text-sm p-2 placeholder:text-neutral-500"
+                  className="basis-full lg:basis-[calc((100%-16px)/2)] rounded-md s top-0 left-0 ring focus:outline-none hover:ring-2 focus:ring-2 ring-neutral-700 placeholder:text-sm text-sm p-2 placeholder:text-neutral-500"
                 />
               ))}
 
@@ -92,7 +92,7 @@ const Details = () => {
                     placeholder={item}
                     type="text"
                     name={item.toLowerCase().replace(" ", "-")}
-                    className="basis-full md:basis-[calc((100%-16px)/2)] rounded-md s top-0 left-0 ring focus:outline-none hover:ring-2 focus:ring-2 ring-neutral-700 placeholder:text-sm text-sm p-2 placeholder:text-neutral-500"
+                    className="basis-full lg:basis-[calc((100%-16px)/2)] rounded-md s top-0 left-0 ring focus:outline-none hover:ring-2 focus:ring-2 ring-neutral-700 placeholder:text-sm text-sm p-2 placeholder:text-neutral-500"
                   />
                 ))}
 
