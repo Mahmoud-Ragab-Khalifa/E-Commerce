@@ -27,7 +27,7 @@ const ProductCard = ({ id, image, title, price, rating }: ProductCardProps) => {
     >
       <ProductCardActions id={id} />
 
-      <Link href={`/products/${id}`} aria-label="Product Image">
+      <Link href={`/products/${id}`} aria-label="Enter To Show Product Details">
         <Image
           alt="product"
           src={image}

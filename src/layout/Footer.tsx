@@ -129,7 +129,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-3 lg:items-center">
-            <h3 className="font-bold lg:w-50">About Us</h3>
+            <p className="font-bold lg:w-50">About Us</p>
             <ul className="flex flex-col gap-1 lg:w-50">
               <li className="text-sm transition-transform duration-300 hover:translate-x-2.5 cursor-pointer">
                 Careers
@@ -150,7 +150,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-3">
-            <h3 className="font-bold">Customer Care</h3>
+            <p className="font-bold">Customer Care</p>
             <ul className="flex flex-col gap-1">
               <li className="text-sm transition-transform duration-300 hover:translate-x-2.5 cursor-pointer">
                 Help Center
@@ -168,7 +168,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-2 text-sm">
-            <h3 className="font-bold">Contact Us</h3>
+            <p className="font-bold">Contact Us</p>
             <address>Egypt | Alexandria</address>
             <p>
               <span className="font-bold">Email: </span>

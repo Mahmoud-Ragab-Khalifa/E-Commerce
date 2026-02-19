@@ -58,7 +58,7 @@ export default function RootLayout({
             <Navbar />
             <DesktopCategories />
 
-            {children}
+            <main>{children}</main>
 
             <Footer />
           </ThemeProvider>
