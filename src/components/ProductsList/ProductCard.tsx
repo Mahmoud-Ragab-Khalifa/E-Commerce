@@ -36,10 +36,10 @@ const ProductCard = ({ id, image, title, price, rating }: ProductCardProps) => {
           className="mx-auto cursor-pointer transition-transform duration-500 group-hover:scale-110 focus:ring"
         />
       </Link>
-      <div className="p-4 flex flex-col items-center text-light dark:text-dark">
-        <h3 className="leading-normal h-12 flex flex-col items-center justify-center">
+      <div className="px-4 pb-4 flex flex-col items-center text-light dark:text-dark">
+        <p className="px-4 text-center w-64 sm:w-60 whitespace-nowrap overflow-hidden text-ellipsis">
           {title}
-        </h3>
+        </p>
         <span className="font-bold block my-1">${price}</span>
         <Rating rating={rating} />
 

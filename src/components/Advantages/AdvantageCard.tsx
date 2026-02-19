@@ -19,8 +19,12 @@ const AdvantageCard = ({
     >
       <Icon size={45} className="dark:text-[#253853]" />
       <div className="flex flex-col">
-        <span className="font-medium text-[17px]">{title}</span>
-        <span className="text-[14px] text-[#4b5563]">{description}</span>
+        <span className="font-medium text-[17px] dark:text-neutral-200">
+          {title}
+        </span>
+        <span className="text-sm text-neutral-600 dark:text-neutral-300">
+          {description}
+        </span>
       </div>
     </div>
   );
