@@ -11,14 +11,6 @@ import CategoryCarousel from "@/components/ProductsList/CategoryCarousel";
 
 import { groceriesList, sportsList } from "@/lib/dataLists";
 
-import {
-  MENS_CATEGORIES,
-  WOMEN_CATEGORIES,
-  ELECTRONICS,
-  HOME,
-  AUTOMOTIVE,
-} from "@/lib/categories";
-
 const Home = () => {
   return (
     <>
@@ -26,35 +18,44 @@ const Home = () => {
       <Advantages />
       <Categories />
       <BlackFridaySale />
-      <ProductsList />
-      {/* <PromotionalCards />
 
-      <CategoryFashion
+      <ProductsList limit={7} skip={0} category="women" />
+
+      <PromotionalCards />
+
+      <ProductsList limit={7} skip={82} category="men" />
+
+      {/* <CategoryFashion
         title="Women's Fashion"
         categoriesArray={WOMEN_CATEGORIES}
-      />
+      /> */}
 
       <PricingCards />
 
-      <CategoryFashion
+      <ProductsList limit={5} skip={77} category="electronics" />
+
+      {/* <CategoryFashion
         title="Men's Fashion"
         categoriesArray={MENS_CATEGORIES}
-      />
+      /> */}
 
       <Gift />
 
-      <CategoryFashion title="Electronics" categoriesArray={ELECTRONICS} />
+      <ProductsList limit={5} skip={42} category="home" />
 
-      <CategoryCarousel
+      {/* <CategoryFashion title="Electronics" categoriesArray={ELECTRONICS} /> */}
+
+      {/* <CategoryCarousel
         category="groceries"
         arrayOfImages={groceriesList}
         title="All The Foods You Need"
-      />
+      /> */}
 
-      <CategoryFashion title="Home" categoriesArray={HOME} />
-      <CategoryFashion title="Automotive" categoriesArray={AUTOMOTIVE} />
+      {/* <CategoryFashion title="Home" categoriesArray={HOME} /> */}
 
-      <CategoryCarousel
+      {/* <CategoryFashion title="Automotive" categoriesArray={AUTOMOTIVE} /> */}
+
+      {/* <CategoryCarousel
         category="sports-accessories"
         arrayOfImages={sportsList}
         title="Sports Accessories"

@@ -1,12 +1,15 @@
 import { CarouselItem } from "@/components/ui/carousel";
 import ProductCard from "./ProductCard";
-import { Product } from "@/lib/types";
+import { GetProductsProbs, Product } from "@/lib/types";
 import { Suspense } from "react";
 import ProductCardSkeleton from "./ProductCardSkeleton";
 import { getProductsByLimitAndSkip } from "@/services/getProductsByLimitAndSkip";
 
-const Products = async () => {
-  const data = await getProductsByLimitAndSkip(10, 0);
+const Products = async ({
+  limit,
+  skip,
+}: Omit<GetProductsProbs, "category">) => {
+  const data = await getProductsByLimitAndSkip(limit, skip);
 
   return (
     <>

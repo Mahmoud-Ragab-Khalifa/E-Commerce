@@ -8,15 +8,16 @@ import {
 import { useLocale } from "next-intl";
 
 import Products from "./Products";
+import { GetProductsProbs } from "@/lib/types";
 
-const ProductsCarousel = () => {
+const ProductsCarousel = ({ limit, skip }: GetProductsProbs) => {
   const locale = useLocale();
   const dir: "rtl" | "ltr" = locale === "ar" ? "rtl" : "ltr";
 
   return (
     <Carousel dir={dir} opts={{ direction: dir, dragFree: true }}>
       <CarouselContent>
-        <Products />
+        <Products limit={limit} skip={skip} />
       </CarouselContent>
 
       <CarouselPrevious

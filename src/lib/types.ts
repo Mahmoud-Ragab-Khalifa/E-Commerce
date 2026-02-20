@@ -17,3 +17,9 @@ export interface ImageProbs {
   name: string;
   src: string;
 }
+
+export interface GetProductsProbs {
+  limit: number;
+  skip: number;
+  category: string;
+}
