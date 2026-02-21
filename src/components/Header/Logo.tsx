@@ -15,7 +15,7 @@ const Logo = ({ isSticky }: { isSticky: boolean }) => {
   const t = useTranslations();
 
   return (
-    <Link href={"/"}>
+    <Link href={"/"} aria-label="Market E-commerce App">
       <div className="relative h-10 w-10 flex items-center justify-center">
         <svg viewBox="0 0 100 100" className="absolute inset-0">
           <path

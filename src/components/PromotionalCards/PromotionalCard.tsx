@@ -1,6 +1,7 @@
-import { ArrowRight } from "lucide-react";
-import { Button } from "../ui/button";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
+import { useLocale, useTranslations } from "next-intl";
 
 interface PromotionalCardProbs {
   title: string;
@@ -17,6 +18,8 @@ const PromotionalCard = ({
   desc,
   image,
 }: PromotionalCardProbs) => {
+  const t = useTranslations();
+  const locale = useLocale();
   return (
     <div
       className="text-light dark:text-dark bg-card dark:bg-card py-4 px-6 rounded-md flex-1 
@@ -36,9 +39,13 @@ const PromotionalCard = ({
           <span className="block">{desc}</span>
         )}
 
-        <Button variant={"link"} className="gap-1! items-center! p-0! mt-6">
-          Shop Now <ArrowRight />
-        </Button>
+        <Link
+          href={`/products/category/women`}
+          className="flex items-center gap-0.5 text-sm mt-5 w-fit"
+        >
+          {t("moreProducts")}
+          {locale === "ar" ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
+        </Link>
       </div>
 
       <Image alt="image" src={image} width={140} height={140} />

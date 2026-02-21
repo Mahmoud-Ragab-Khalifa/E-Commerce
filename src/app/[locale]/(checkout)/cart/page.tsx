@@ -62,8 +62,10 @@ const Cart = () => {
                   >
                     <Image alt={title} src={image} width={100} height={100} />
                   </Link>
-                  <div className="flex flex-col gap-1 w-37.5 whitespace-nowrap overflow-hidden text-ellipsis">
-                    <p>{title}</p>
+                  <div className="flex flex-col gap-1 w-37.5">
+                    <p className="w-36 whitespace-nowrap overflow-hidden text-ellipsis">
+                      {title}
+                    </p>
                     <span>${price}</span>
                   </div>
                 </div>

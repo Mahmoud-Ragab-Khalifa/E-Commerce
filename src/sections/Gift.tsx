@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
 const Gift = () => {
@@ -7,7 +8,7 @@ const Gift = () => {
       <div className="container mx-auto mt-6 md:mt-12.5 flex flex-col gap-4 md:flex-row items-center justify-center  p-4 lg:p-6 bg-card text-light dark:text-dark rounded-md">
         <Image
           alt="gift"
-          src={"/images/gift.jfif"}
+          src={"/images/gift.jpg"}
           width={192}
           height={128}
           className="rounded-md"
@@ -22,7 +23,12 @@ const Gift = () => {
           </p>
         </div>
 
-        <Button className="mx-auto max-w-50 xl:w-60">Discover Now</Button>
+        <Link
+          href={"/products/category/home"}
+          className="mx-auto max-w-50 xl:w-60 rounded-md py-2 px-4 bg-neutral-200 text-main-color font-medium text-sm ring-1 ring-neutral-300 hover:ring-2 focus:ring-2 transition-all duration-300"
+        >
+          Discover Now
+        </Link>
       </div>
     </div>
   );

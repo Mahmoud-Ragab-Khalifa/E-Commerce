@@ -28,7 +28,9 @@ const PricingCard = ({
           {desc}
         </p>
         <p>
-          <span className="text-[#777] pe-2">{keyPrice}</span>
+          <span className="text-neutral-600 dark:text-neutral-300 pe-2">
+            {keyPrice}
+          </span>
           <span className="font-bold text-xl">${price}</span>
         </p>
       </div>
