@@ -95,7 +95,8 @@ const MiniCart = () => {
                       </button>
                       <span className="px-2">{item.quantity}</span>
                       <button
-                        className="w-8 h-6 md:h-8 flex items-center justify-center hover:bg-neutral-200 hover:dark:bg-neutral-700/30 transition-colors duration-300 cursor-pointer"
+                        disabled={item.quantity === 1}
+                        className="w-8 h-6 md:h-8 flex items-center justify-center hover:bg-neutral-200 hover:dark:bg-neutral-700/30 transition-colors duration-300 cursor-pointer disabled:opacity-30 disabled:cursor-no-drop disabled:hover:bg-transparent"
                         onClick={() => decrease(item.id)}
                       >
                         -
