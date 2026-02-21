@@ -31,7 +31,7 @@ const CategoryCarousel = async ({
       <div className="container mx-auto mt-6 md:mt-12.5 flex flex-col gap-4">
         <ProductsImageCarousel arrayOfImages={arrayOfImages} title={title} />
         <div>
-          <Carousel opts={{ dragFree: true }}>
+          <Carousel dir={"ltr"} opts={{ direction: "ltr", dragFree: true }}>
             <CarouselContent>
               {products.map((product: Product) => (
                 <CarouselItem

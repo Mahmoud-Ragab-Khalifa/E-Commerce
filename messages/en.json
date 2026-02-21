@@ -89,5 +89,74 @@
   "addToCart": "Add to Cart",
 
   "details": "View Product Details",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+
+  "PromotionalCards": {
+    "shopNow": "Shop Now",
+
+    "newArrivals": "New Arrivals",
+    "sportsAccessoriesSale": "Sports Accessories Sale",
+    "upTo15": "Up To 15% Off",
+
+    "bestSeller": "Best Seller",
+    "trendingWomen": "Trending Women",
+    "sunglasses": "Sunglasses",
+
+    "latestBag": "New Latest Bag",
+    "collection": "Collection"
+  },
+
+  "PricingCards": {
+    "finalReduction": "Final Reduction",
+    "weekendSale": "Weekend Sale",
+
+    "sale": "Sale",
+    "fine": "Fine",
+
+    "upTo20Off": "Up To 20% OFF",
+    "smartSpeaker": "Smart Speaker",
+
+    "onlyFrom": "Only From",
+    "startingAt": "Starting at"
+  },
+
+  "gift": {
+    "btn": "Discover Now",
+    "title": "GIFT <span>50% OFF</span> PERFECT STYLES",
+    "desc": "Only until the end of this week. Terms and conditions apply"
+  },
+
+  "productsImages": {
+    "groceriesTitle": "All The Foods You Need",
+    "sportsTitle": "Sports Accessories"
+  },
+
+  "footer": {
+    "desc": "Explore all product categories in our store, from groceries and fashion to electronics, beauty, and home essentials. Find everything you need in one place!",
+
+    "get": "Get It On",
+    "googlePlay": "Google Play",
+    "download": "Download on the",
+    "appStore": "App Store",
+
+    "about": "About Us",
+    "careers": "Careers",
+    "apps": "Our Apps",
+    "cares": "Our Cares",
+    "terms": "Terms & Conditions",
+    "privacyPolicy": "Privacy Policy",
+
+    "customerCare": "Customer Care",
+    "help": "Help Center",
+    "track": "Track Your Order",
+    "corporate": "Corporate & Bulk Purchasing",
+    "returns": "Returns & Refunds",
+
+    "contact": "Contact Us",
+    "address": "Egypt | Alexandria",
+    "mail": "Email:",
+    "phone": "Phone:",
+
+    "copyRight": "© Copyright 2026 <span>Market</span> ,All Right Reserved."
+  }
 }

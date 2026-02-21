@@ -1,5 +1,10 @@
 import ProductDetails from "@/components/ProductsList/ProductDetails";
 import ProductData from "@/components/ProductsList/ProductData";
+import { Geist } from "next/font/google";
+
+const geist = Geist({
+  subsets: ["latin"],
+});
 
 const getProduct = async (id: number) => {
   const res = await fetch(`https://dummyjson.com/products/${id}`, {
@@ -20,7 +25,7 @@ const ProductDetailsPage = async ({
   const product = await getProduct(id);
 
   return (
-    <div className="p-2.5 lg:mt-7" dir="ltr">
+    <div className={`${geist.className} p-2.5 lg:mt-7`} dir="ltr">
       <div className="container mx-auto rounded-md bg-card dark:bg-card p-4">
         <ProductDetails
           id={id}

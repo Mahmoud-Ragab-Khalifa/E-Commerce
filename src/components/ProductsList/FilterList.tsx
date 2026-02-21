@@ -8,6 +8,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { useTranslations } from "next-intl";
 
 interface FilterListProbs {
   category: string;
@@ -16,12 +17,13 @@ interface FilterListProbs {
 }
 
 const FilterList = ({ category, items, setCategory }: FilterListProbs) => {
+  const t = useTranslations();
   const [active, setactive] = useState(0);
 
   return (
     <div className="relative bg-main-color dark:bg-[#253853] text-neutral-200 dark:text-dark min-w-75 rounded-md py-5">
       <div className="mb-5 px-5 flex justify-between items-center">
-        <h2 className="text-2xl font-bold">{category}</h2>
+        <h2 className="text-2xl font-bold">{t(`Categories.${category}`)}</h2>
         <SlidersHorizontal />
       </div>
 

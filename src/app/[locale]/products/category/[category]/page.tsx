@@ -18,13 +18,13 @@ const CategoryPage = async ({
         <CategoryCarousel
           category="groceries"
           arrayOfImages={groceriesList}
-          title="All The Foods You Need"
+          title="groceriesTitle"
         />
       ) : category === "sports" ? (
         <CategoryCarousel
           category="sports-accessories"
           arrayOfImages={sportsList}
-          title="Sports Accessories"
+          title="sportsTitle"
         />
       ) : (
         <CategoryFashion title={category} categoriesArray={categoryArray} />

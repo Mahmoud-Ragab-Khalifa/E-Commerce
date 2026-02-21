@@ -14,7 +14,7 @@ const ProductsList = ({ limit, skip, category }: GetProductsProbs) => {
       <div className="container mx-auto mt-6 md:mt-12.5 flex flex-col gap-6">
         <div className="flex justify-between items-center">
           <h1 className="text-light dark:text-dark text-[27px] md:text-[32px] font-bold capitalize">
-            {category}
+            {t(`Categories.${category}`)}
           </h1>
 
           <Link

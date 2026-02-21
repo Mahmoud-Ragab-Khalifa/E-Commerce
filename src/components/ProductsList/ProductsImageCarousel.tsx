@@ -8,6 +8,7 @@ import {
 import Image from "next/image";
 import { Dancing_Script } from "next/font/google";
 import { ImageProbs } from "@/lib/types";
+import { useLocale, useTranslations } from "next-intl";
 
 const enFont = Dancing_Script({
   subsets: ["latin"],
@@ -23,6 +24,10 @@ const ProductsImageCarousel = ({
   title,
   arrayOfImages,
 }: ProductsImageCarouselProbs) => {
+  const t = useTranslations("productsImages");
+  const locale = useLocale();
+  const dir: "rtl" | "ltr" = locale === "ar" ? "rtl" : "ltr";
+
   return (
     <div className="bg-card rounded-md">
       <h2
@@ -31,10 +36,11 @@ const ProductsImageCarousel = ({
           dark:from-blue-400 dark:via-cyan-400 dark:to-emerald-400
           bg-clip-text text-transparent animate-pulse`}
       >
-        {title}
+        {t(title)}
       </h2>
       <Carousel
-        opts={{ dragFree: true, loop: true }}
+        dir={dir}
+        opts={{ direction: dir, dragFree: true, loop: true }}
         plugins={[
           Autoplay({
             delay: 2000, // time between slides (ms)

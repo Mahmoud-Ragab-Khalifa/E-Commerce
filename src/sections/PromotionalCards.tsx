@@ -2,24 +2,27 @@ import PromotionalCard from "@/components/PromotionalCards/PromotionalCard";
 
 const promotionalCardsList = [
   {
-    title: "New Arrivals",
-    subTitle: "Sports Accessories Sale",
+    category: "sports",
+    title: "newArrivals",
+    subTitle: "sportsAccessoriesSale",
+    desc: "upTo15",
     isSale: true,
-    desc: "Up To 15% Off",
     image: "/images/promotional-card-1.webp",
   },
   {
-    title: "Best Seller",
-    subTitle: "Trending Women",
+    category: "women",
+    title: "bestSeller",
+    subTitle: "trendingWomen",
+    desc: "sunglasses",
     isSale: false,
-    desc: "Sunglasses",
     image: "/images/promotional-card-2.webp",
   },
   {
-    title: "New Arrivals",
-    subTitle: "New Latest Bag",
+    category: "women",
+    title: "newArrivals",
+    subTitle: "latestBag",
+    desc: "collection",
     isSale: false,
-    desc: "Collection",
     image: "/images/promotional-card-3.webp",
   },
 ];
@@ -31,6 +34,7 @@ const PromotionalCards = () => {
         {promotionalCardsList.map((item, idx) => (
           <PromotionalCard
             key={idx}
+            category={item.category}
             title={item.title}
             subTitle={item.subTitle}
             isSale={item.isSale}

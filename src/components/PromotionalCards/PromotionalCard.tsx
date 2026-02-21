@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 
 interface PromotionalCardProbs {
+  category: string;
   title: string;
   subTitle: string;
   isSale: boolean;
@@ -12,13 +13,14 @@ interface PromotionalCardProbs {
 }
 
 const PromotionalCard = ({
+  category,
   title,
   subTitle,
   isSale,
   desc,
   image,
 }: PromotionalCardProbs) => {
-  const t = useTranslations();
+  const t = useTranslations("PromotionalCards");
   const locale = useLocale();
   return (
     <div
@@ -29,22 +31,26 @@ const PromotionalCard = ({
       <div className="absolute bottom-0 left-[50%] -translate-x-[50%] w-0 h-0.5 bg-main-color dark:bg-neutral-500 rounded-b-md group-hover:w-full transition-all duration-500" />
 
       <div className="whitespace-nowrap font-medium">
-        <p className="uppercase font-bold">{title}</p>
+        <p className="uppercase font-bold">{t(title)}</p>
 
-        <p className="my-1">{subTitle}</p>
+        <p className="my-1">{t(subTitle)}</p>
 
         {isSale ? (
-          <p className="text-[#e94560]">{desc}</p>
+          <p className="text-[#e94560]">{t(desc)}</p>
         ) : (
-          <span className="block">{desc}</span>
+          <span className="block">{t(desc)}</span>
         )}
 
         <Link
-          href={`/products/category/women`}
+          href={`/products/category/${category}`}
           className="flex items-center gap-0.5 text-sm mt-5 w-fit"
         >
-          {t("moreProducts")}
-          {locale === "ar" ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
+          {t("shopNow")}
+          {locale === "ar" ? (
+            <ArrowLeft size={14} className="animate-pulse" />
+          ) : (
+            <ArrowRight size={14} className="animate-pulse" />
+          )}
         </Link>
       </div>
 

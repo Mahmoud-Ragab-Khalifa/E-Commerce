@@ -2,6 +2,7 @@ import Logo from "@/components/Header/Logo";
 import { Button } from "@/components/ui/button";
 
 import { Twitter, Facebook, Instagram, Youtube, Chromium } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const socialButtons = [
   { icon: Twitter, label: "Follow us on Twitter" },
@@ -11,6 +12,8 @@ const socialButtons = [
   { icon: Chromium, label: "Visit us on Chromium" },
 ];
 const Footer = () => {
+  const t = useTranslations("footer");
+
   return (
     <footer className="bg-main-color dark:bg-[#253853] text-neutral-200 dark:text-dark mt-6 md:mt-12.5">
       <div className="px-2.5 pt-6">
@@ -18,9 +21,7 @@ const Footer = () => {
           <div className="flex flex-col gap-3">
             <Logo isSticky={true} />
             <p className="capitalize text-sm leading-snug max-w-96 sm:w-full">
-              Explore all product categories in our store, from groceries and
-              fashion to electronics, beauty, and home essentials. Find
-              everything you need in one place!
+              {t("desc")}
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -69,10 +70,10 @@ const Footer = () => {
                 </svg>
                 <div className="flex flex-col gap-0">
                   <span className="text-[10px] whitespace-normal">
-                    Get It On
+                    {t("get")}
                   </span>
                   <span className="font-bold text-[12px] whitespace-normal">
-                    Google Play
+                    {t("googlePlay")}
                   </span>
                 </div>
               </div>
@@ -118,10 +119,10 @@ const Footer = () => {
                 </svg>
                 <div className="flex flex-col gap-0">
                   <span className="text-[10px] whitespace-normal">
-                    Download on the
+                    {t("download")}
                   </span>
                   <span className="font-bold text-[12px] whitespace-normal">
-                    App Store
+                    {t("appStore")}
                   </span>
                 </div>
               </div>
@@ -129,53 +130,53 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col gap-3 lg:items-center">
-            <p className="font-bold lg:w-50">About Us</p>
+            <p className="font-bold lg:w-50">{t("about")}</p>
             <ul className="flex flex-col gap-1 lg:w-50">
               <li className="text-sm transition-transform duration-300 hover:translate-x-2.5 cursor-pointer">
-                Careers
+                {t("careers")}
               </li>
               <li className="text-sm transition-transform duration-300 hover:translate-x-2.5 cursor-pointer">
-                Our Apps
+                {t("apps")}
               </li>
               <li className="text-sm transition-transform duration-300 hover:translate-x-2.5 cursor-pointer">
-                Our Cares
+                {t("cares")}
               </li>
               <li className="text-sm transition-transform duration-300 hover:translate-x-2.5 cursor-pointer">
-                Terms & Conditions
+                {t("terms")}
               </li>
               <li className="text-sm transition-transform duration-300 hover:translate-x-2.5 cursor-pointer">
-                Privacy Policy
+                {t("privacyPolicy")}
               </li>
             </ul>
           </div>
 
           <div className="flex flex-col gap-3">
-            <p className="font-bold">Customer Care</p>
+            <p className="font-bold">{t("customerCare")}</p>
             <ul className="flex flex-col gap-1">
               <li className="text-sm transition-transform duration-300 hover:translate-x-2.5 cursor-pointer">
-                Help Center
+                {t("help")}
               </li>
               <li className="text-sm transition-transform duration-300 hover:translate-x-2.5 cursor-pointer">
-                Track Your Order
+                {t("track")}
               </li>
               <li className="text-sm transition-transform duration-300 hover:translate-x-2.5 cursor-pointer">
-                Corporate & Bulk Purchasing
+                {t("corporate")}
               </li>
               <li className="text-sm transition-transform duration-300 hover:translate-x-2.5 cursor-pointer">
-                Returns & Refunds
+                {t("returns")}
               </li>
             </ul>
           </div>
 
           <div className="flex flex-col gap-2 text-sm">
-            <p className="font-bold">Contact Us</p>
-            <address>Egypt | Alexandria</address>
+            <p className="font-bold">{t("contact")}</p>
+            <address>{t("address")}</address>
             <p>
-              <span className="font-bold">Email: </span>
+              <span className="font-bold">{t("mail")} </span>
               mahmoudragabkhalifaa@gmail.com
             </p>
             <p>
-              <span className="font-bold">Phone: </span>01067055256
+              <span className="font-bold">{t("phone")} </span>01067055256
             </p>
             <div className="flex items-center gap-1">
               {socialButtons.map(({ icon: Icon, label }, idx) => (
@@ -194,9 +195,11 @@ const Footer = () => {
       </div>
 
       <div className="w-full text-center mt-6 pb-6 text-sm">
-        © Copyright 2026{" "}
-        <span className={"italic uppercase font-medium"}>Market</span> , All
-        Right Reserved.
+        {t.rich("copyRight", {
+          span: (chunk) => (
+            <span className={"italic uppercase font-medium"}>{chunk}</span>
+          ),
+        })}
       </div>
     </footer>
   );

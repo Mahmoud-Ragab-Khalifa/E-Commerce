@@ -17,6 +17,7 @@ import {
 
 import { Product } from "@/lib/types";
 import { fetchProductsByCategories } from "@/services/fetchProductsByCategories";
+import { useLocale } from "next-intl";
 
 interface CategoryFashionProbs {
   title: string;
@@ -24,6 +25,9 @@ interface CategoryFashionProbs {
 }
 
 const CategoryFashion = ({ title, categoriesArray }: CategoryFashionProbs) => {
+  const locale = useLocale();
+  const dir: "rtl" | "ltr" = locale === "ar" ? "rtl" : "ltr";
+
   const [category, setCategory] = useState(categoriesArray[0]);
 
   const categoriesToFetch =
@@ -49,7 +53,7 @@ const CategoryFashion = ({ title, categoriesArray }: CategoryFashionProbs) => {
         />
 
         <div className="products-carousel overflow-hidden">
-          <Carousel opts={{ dragFree: true }}>
+          <Carousel dir={dir} opts={{ direction: dir, dragFree: true }}>
             <CarouselContent>
               {isLoading ? (
                 <div className="flex gap-4">

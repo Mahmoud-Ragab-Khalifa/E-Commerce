@@ -18,12 +18,22 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
+import { useLocale } from "next-intl";
+import { Geist } from "next/font/google";
+
+const geist = Geist({
+  subsets: ["latin"],
+});
+
 const MiniCart = () => {
+  const locale = useLocale();
+  const dir: "right" | "left" = locale === "ar" ? "right" : "left";
+
   const { items, totalItems, increase, decrease, removeFromCart } =
     useCartStore();
 
   return (
-    <Drawer direction="right">
+    <Drawer direction={dir}>
       <DrawerTrigger asChild>
         <Button
           variant={"ghost"}
@@ -40,7 +50,7 @@ const MiniCart = () => {
         </Button>
       </DrawerTrigger>
 
-      <DrawerContent className="z-200">
+      <DrawerContent className={`${geist.className} z-200`} dir="ltr">
         <DrawerHeader className="flex flex-row! justify-between items-center">
           <DrawerTitle className="flex items-center gap-1">
             <DrawerDescription>Your Cart</DrawerDescription>

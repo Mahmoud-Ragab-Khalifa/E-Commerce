@@ -22,13 +22,6 @@ const links = [
   "Vendor Account",
 ];
 
-// const links = [
-//   {
-//     name:"Home",
-//     isList:true
-//   }
-// ]
-
 const NavLinks = () => {
   const t = useTranslations();
 
@@ -53,7 +46,7 @@ const NavLinks = () => {
               }`}
             />
           </HoverCardTrigger>
-          <HoverCardContent className="flex flex-col gap-3 p-4">
+          <HoverCardContent className="flex flex-col gap-3 p-4 z-200">
             {categoriesList.map(({ icon: Icon, category }) => (
               <Link
                 key={category}
