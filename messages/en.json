@@ -29,10 +29,13 @@
   },
 
   "Categories": {
-    "bikes": "Bikes",
+    "automotive": "Automotive",
     "electronics": "Electronics",
-    "books": "Books",
-    "games": "Games"
+    "men": "Men",
+    "women": "Women",
+    "home": "Home",
+    "sports": "Sports",
+    "food": "Food"
   },
 
   "Explore Now": "EXPLORE NOW",

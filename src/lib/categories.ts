@@ -1,3 +1,15 @@
+import {
+  Motorbike,
+  Laptop,
+  Shirt,
+  Handbag,
+  Lamp,
+  ChevronDown,
+  Salad,
+  LayoutGrid,
+  Trophy,
+} from "lucide-react";
+
 export const CATEGORIES = {
   men: ["mens-shirts", "mens-shoes", "mens-watches"],
 
@@ -19,3 +31,34 @@ export const CATEGORIES = {
 
   automotive: ["vehicle", "motorcycle"],
 };
+
+export const categoriesList = [
+  {
+    category: "automotive",
+    icon: Motorbike,
+  },
+  {
+    category: "electronics",
+    icon: Laptop,
+  },
+  {
+    category: "men",
+    icon: Shirt,
+  },
+  {
+    category: "women",
+    icon: Handbag,
+  },
+  {
+    category: "home",
+    icon: Lamp,
+  },
+  {
+    category: "sports",
+    icon: Trophy,
+  },
+  {
+    category: "food",
+    icon: Salad,
+  },
+];

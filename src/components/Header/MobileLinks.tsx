@@ -7,219 +7,53 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { ChevronDownIcon, TextAlignJustify, X } from "lucide-react";
-
-import { useLocale, useTranslations } from "next-intl";
-
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-
 import { Button } from "../ui/button";
-
-const links = [
-  "Home",
-  "Mega Menu",
-  "Full Screen Menu",
-  "Pages",
-  "User Account",
-  "Vendor Account",
-];
+import { LayoutGrid, TextAlignJustify } from "lucide-react";
+import { categoriesList } from "@/lib/categories";
+import { Link } from "@/i18n/navigation";
+import { useLocale, useTranslations } from "next-intl";
 
 const MobileLinks = () => {
   const locale = useLocale();
-  const t = useTranslations("Links");
+  const t = useTranslations();
 
   return (
-    <Drawer direction={locale === "ar" ? "right" : "left"}>
-      <DrawerTrigger className="p-2 rounded-md transition duration-300 hover:bg-accent/50">
-        <TextAlignJustify size={22} />
+    <Drawer direction={`${locale === "ar" ? "right" : "left"}`}>
+      <DrawerTrigger asChild>
+        <Button variant={"ghost"} size={"icon-lg"} aria-label="Show Categories">
+          <TextAlignJustify />
+        </Button>
       </DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader>
-          <div className="flex items-center justify-between">
-            <span className="px-3 py-2">Navigation</span>
-            <DrawerClose className="p-2 rounded-md transition duration-300 hover:bg-accent/50">
-              <X size={22} />
-            </DrawerClose>
-          </div>
 
-          {links.map((link, idx) => (
-            <Collapsible key={idx} className="group rounded-md">
-              <CollapsibleTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="w-full justify-between! hover:bg-transparent!"
-                >
-                  {t(link)}
-                  <ChevronDownIcon className="transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                </Button>
-              </CollapsibleTrigger>
-
-              <CollapsibleContent
-                className="px-4 overflow-hidden
-              data-[state=closed]:animate-collapsible-up 
-              data-[state=open]:animate-collapsible-down"
-              >
-                <Collapsible className="group rounded-md">
-                  <CollapsibleTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className="w-full justify-start hover:bg-transparent!"
-                    >
-                      Product details
-                      <ChevronDownIcon className="ml-auto transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                    </Button>
-                  </CollapsibleTrigger>
-
-                  <CollapsibleContent
-                    className="overflow-hidden
-                    data-[state=closed]:animate-collapsible-up 
-                    data-[state=open]:animate-collapsible-down"
-                  >
-                    <div className="flex flex-col items-start gap-2 p-2.5 pt-0 text-sm">
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
-                <Collapsible className="group rounded-md">
-                  <CollapsibleTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className="w-full justify-start hover:bg-transparent!"
-                    >
-                      Product details
-                      <ChevronDownIcon className="ml-auto transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                    </Button>
-                  </CollapsibleTrigger>
-
-                  <CollapsibleContent
-                    className="overflow-hidden
-              data-[state=closed]:animate-collapsible-up 
-              data-[state=open]:animate-collapsible-down"
-                  >
-                    <div className="flex flex-col items-start gap-2 p-2.5 pt-0 text-sm">
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
-                <Collapsible className="group rounded-md">
-                  <CollapsibleTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className="w-full justify-start hover:bg-transparent!"
-                    >
-                      Product details
-                      <ChevronDownIcon className="ml-auto transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                    </Button>
-                  </CollapsibleTrigger>
-
-                  <CollapsibleContent
-                    className="overflow-hidden
-                    data-[state=closed]:animate-collapsible-up 
-                    data-[state=open]:animate-collapsible-down"
-                  >
-                    <div className="flex flex-col items-start gap-2 p-2.5 pt-0 text-sm">
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
-                <Collapsible className="group rounded-md">
-                  <CollapsibleTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className="w-full justify-start hover:bg-transparent!"
-                    >
-                      Product details
-                      <ChevronDownIcon className="ml-auto transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                    </Button>
-                  </CollapsibleTrigger>
-
-                  <CollapsibleContent
-                    className="overflow-hidden
-                    data-[state=closed]:animate-collapsible-up 
-                    data-[state=open]:animate-collapsible-down"
-                  >
-                    <div className="flex flex-col items-start gap-2 p-2.5 pt-0 text-sm">
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
-                <Collapsible className="group rounded-md">
-                  <CollapsibleTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className="w-full justify-start hover:bg-transparent!"
-                    >
-                      Product details
-                      <ChevronDownIcon className="ml-auto transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                    </Button>
-                  </CollapsibleTrigger>
-
-                  <CollapsibleContent
-                    className="overflow-hidden
-                    data-[state=closed]:animate-collapsible-up 
-                    data-[state=open]:animate-collapsible-down"
-                  >
-                    <div className="flex flex-col items-start gap-2 p-2.5 pt-0 text-sm">
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
-                <Collapsible className="group rounded-md">
-                  <CollapsibleTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className="w-full justify-start hover:bg-transparent!"
-                    >
-                      Product details
-                      <ChevronDownIcon className="ml-auto transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                    </Button>
-                  </CollapsibleTrigger>
-
-                  <CollapsibleContent
-                    className="overflow-hidden
-                    data-[state=closed]:animate-collapsible-up 
-                    data-[state=open]:animate-collapsible-down"
-                  >
-                    <div className="flex flex-col items-start gap-2 p-2.5 pt-0 text-sm">
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                      <div>This panel can be expanded or collapsed to</div>
-                    </div>
-                  </CollapsibleContent>
-                </Collapsible>
-              </CollapsibleContent>
-            </Collapsible>
-          ))}
-
-          <DrawerTitle className="hidden"></DrawerTitle>
+      <DrawerContent className="z-200">
+        <DrawerHeader className="flex flex-row! justify-between items-center">
+          <DrawerTitle className="flex items-center gap-1">
+            <div className="flex items-center gap-1">
+              <LayoutGrid size={17} />
+              <span>{t("categories")}</span>
+            </div>
+          </DrawerTitle>
           <DrawerDescription className="hidden"></DrawerDescription>
+          <DrawerClose asChild>
+            <Button variant="outline" size={"icon-sm"} autoFocus>
+              X
+            </Button>
+          </DrawerClose>
         </DrawerHeader>
+
+        <div className="flex flex-col gap-3 px-4">
+          {categoriesList.map(({ icon: Icon, category }) => (
+            <DrawerClose asChild key={category}>
+              <Link
+                href={`/products/category/${category}`}
+                className="flex items-center gap-2 rounded-md py-3 px-4 bg-card text-light dark:text-dark text-sm"
+              >
+                <Icon size={17} />
+                {t("Categories." + category)}
+              </Link>
+            </DrawerClose>
+          ))}
+        </div>
       </DrawerContent>
     </Drawer>
   );

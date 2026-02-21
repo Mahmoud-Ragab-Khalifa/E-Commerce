@@ -8,38 +8,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
-import {
-  LayoutGrid,
-  Motorbike,
-  Laptop,
-  BookOpenText,
-  Gamepad2,
-  ChevronDown,
-} from "lucide-react";
+import { Link } from "@/i18n/navigation";
+import { categoriesList } from "@/lib/categories";
+import { ChevronDown, LayoutGrid } from "lucide-react";
 
 import { useLocale } from "next-intl";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-
-const categories = [
-  {
-    category: "bikes",
-    icon: Motorbike,
-  },
-  {
-    category: "electronics",
-    icon: Laptop,
-  },
-  {
-    category: "books",
-    icon: BookOpenText,
-  },
-  {
-    category: "games",
-    icon: Gamepad2,
-  },
-];
 
 const Categories = () => {
   const [open, setOpen] = useState(false);
@@ -70,11 +45,16 @@ const Categories = () => {
         align="start"
         className="w-(--radix-dropdown-menu-trigger-width)"
       >
-        {categories.map((item, idx) => (
-          <DropdownMenuItem key={idx} dir={locale === "ar" ? "rtl" : "ltr"}>
-            <item.icon />
-            {t("Categories." + item.category)}
-          </DropdownMenuItem>
+        {categoriesList.map(({ icon: Icon, category }) => (
+          <Link key={category} href={`/products/category/${category}`}>
+            <DropdownMenuItem
+              dir={locale === "ar" ? "rtl" : "ltr"}
+              className="cursor-pointer"
+            >
+              <Icon />
+              {t("Categories." + category)}
+            </DropdownMenuItem>
+          </Link>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
