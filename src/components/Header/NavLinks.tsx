@@ -5,6 +5,8 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { Link } from "@/i18n/navigation";
+import { categoriesList } from "@/lib/categories";
 import { ChevronDown } from "lucide-react";
 
 import { useTranslations } from "next-intl";
@@ -28,7 +30,7 @@ const links = [
 // ]
 
 const NavLinks = () => {
-  const t = useTranslations("Links");
+  const t = useTranslations();
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -43,7 +45,7 @@ const NavLinks = () => {
           onOpenChange={(open) => setOpenIndex(open ? idx : null)}
         >
           <HoverCardTrigger className="group flex items-center gap-0.5 text-sm cursor-pointer">
-            {t(link)}
+            {t("Links" + "." + link)}
             <ChevronDown
               size={15}
               className={`mt-0.5 transition-transform duration-300 ${
@@ -51,7 +53,18 @@ const NavLinks = () => {
               }`}
             />
           </HoverCardTrigger>
-          <HoverCardContent>Content</HoverCardContent>
+          <HoverCardContent className="flex flex-col gap-3 p-4">
+            {categoriesList.map(({ icon: Icon, category }) => (
+              <Link
+                key={category}
+                href={`/products/category/${category}`}
+                className="flex items-center gap-2 text-light dark:text-dark text-sm"
+              >
+                <Icon size={17} />
+                {t("Categories." + category)}
+              </Link>
+            ))}
+          </HoverCardContent>
         </HoverCard>
       ))}
     </div>

@@ -5,11 +5,13 @@ import { useTranslations } from "next-intl";
 
 const saleBoxData = [
   {
+    category: "men",
     title: "SaleBoxOne.title",
     offer: "SaleBoxOne.offer",
     src: "/images/shoes.webp",
   },
   {
+    category: "electronics",
     title: "SaleBoxTwo.title",
     offer: "SaleBoxTwo.offer",
     src: "/images/airpods.webp",
@@ -26,12 +28,13 @@ const Hero = () => {
           <SwiperHero />
         </div>
         <div className="flex flex-col gap-4 md:flex-row xl:flex-col">
-          {saleBoxData.map((item, idx) => (
+          {saleBoxData.map(({ category, title, offer, src }) => (
             <SaleBox
-              key={idx}
-              title={t(item.title)}
-              offer={t(item.offer)}
-              src={item.src}
+              category={category}
+              key={category}
+              title={t(title)}
+              offer={t(offer)}
+              src={src}
             />
           ))}
         </div>

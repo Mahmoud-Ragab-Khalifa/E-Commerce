@@ -1,8 +1,7 @@
-import { Button } from "@/components/ui/button";
-
 import Image from "next/image";
 
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 interface SwiperCardProps {
   category: string;
@@ -27,15 +26,23 @@ const SwipperCard = ({ category, image }: SwiperCardProps) => {
           })}
         </p>
         <p className="text-[15px] mb-4 mt-2">{t("description")}</p>
-        <Button
-          variant={"default"}
-          size={"lg"}
-          className="bg-light hover:bg-light/95 dark:bg-dark dark:hover:bg-dark/80"
+
+        <Link
+          href={`/products/category/${category.toLowerCase()}`}
+          className="mx-auto max-w-50 xl:w-60 rounded-md py-2 px-4 bg-neutral-200 text-main-color font-medium text-sm ring-1 ring-neutral-300 hover:ring-2 focus:ring-2 transition-all duration-300"
         >
           {t("ButtonContent")}
-        </Button>
+        </Link>
       </div>
-      <Image src={image} alt="man" width={500} height={500} priority />
+      <Image
+        src={image}
+        alt={category}
+        width={500}
+        height={500}
+        priority
+        fetchPriority="high"
+        aria-label="All About Fasion"
+      />
     </div>
   );
 };

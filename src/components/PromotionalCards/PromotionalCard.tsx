@@ -29,7 +29,7 @@ const PromotionalCard = ({
       <div className="absolute bottom-0 left-[50%] -translate-x-[50%] w-0 h-0.5 bg-main-color dark:bg-neutral-500 rounded-b-md group-hover:w-full transition-all duration-500" />
 
       <div className="whitespace-nowrap font-medium">
-        <h3 className="uppercase font-bold">{title}</h3>
+        <p className="uppercase font-bold">{title}</p>
 
         <p className="my-1">{subTitle}</p>
 

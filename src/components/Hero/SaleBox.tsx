@@ -7,12 +7,13 @@ import { useTranslations, useLocale } from "next-intl";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 interface SaleBoxProps {
+  category: string;
   title: string;
   offer: string;
   src: string;
 }
 
-const SaleBox = ({ title, offer, src }: SaleBoxProps) => {
+const SaleBox = ({ category, title, offer, src }: SaleBoxProps) => {
   const locale = useLocale();
   const t = useTranslations();
 
@@ -25,15 +26,23 @@ const SaleBox = ({ title, offer, src }: SaleBoxProps) => {
         <p className="w-37.5 max-w-40 leading-8 text-[24px] font-bold">
           {offer}
         </p>
+
         <Link
-          href="/cart"
-          className="flex items-center gap-1 max-w-fit transition-colors duration-1000 hover:border-b border-accent-foreground"
+          href={`/products/category/${category}`}
+          className="flex items-center gap-0.5 text-sm relative group py-0.5 w-fit"
         >
-          <span className="text-[12px]">{t("Explore Now")}</span>
-          {locale === "ar" ? <ArrowLeft size={15} /> : <ArrowRight size={15} />}
+          <span className="absolute bottom-0 start-0 rounded-full w-0 h-0.5 group-hover:w-full bg-light dark:bg-dark transition-all duration-300"></span>
+          {t("Explore Now")}
+          {locale === "ar" ? <ArrowLeft size={14} /> : <ArrowRight size={14} />}
         </Link>
       </div>
-      <Image src={src} alt="sale-image" width={177} height={188} />
+      <Image
+        src={src}
+        alt="sale-image"
+        width={177}
+        height={188}
+        aria-label="Shooping all you need"
+      />
     </div>
   );
 };
