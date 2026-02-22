@@ -19,8 +19,7 @@ import DeleteCartItem from "@/components/ProductsList/DeleteCartItem";
 import ClearCart from "@/components/ProductsList/ClearCart";
 
 const Cart = () => {
-  const { items, totalItems, totalPrice, clearCart, increase, decrease } =
-    useCartStore();
+  const { items, totalItems, totalPrice, increase, decrease } = useCartStore();
 
   const [isEmptyCart, setIsEmptyCart] = useState(false);
 
@@ -42,7 +41,10 @@ const Cart = () => {
           </Link>
         </div>
       ) : (
-        <div className="container mx-auto flex flex-col md:flex-row md:items-start gap-4">
+        <div
+          className="container mx-auto flex flex-col md:flex-row md:items-start gap-4"
+          dir="ltr"
+        >
           <div className="flex-2 flex flex-col gap-4">
             {items.map(({ id, image, title, price, quantity }) => (
               <div
