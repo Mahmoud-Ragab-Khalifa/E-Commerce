@@ -15,6 +15,7 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Trash2Icon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const DeleteCartItem = ({
   itemId,
@@ -24,6 +25,8 @@ const DeleteCartItem = ({
   title: string;
 }) => {
   const { removeFromCart } = useCartStore();
+
+  const t = useTranslations("deleteDialog");
 
   return (
     <AlertDialog>
@@ -42,18 +45,20 @@ const DeleteCartItem = ({
           <AlertDialogMedia className="bg-destructive/10 text-destructive dark:bg-destructive/20 dark:text-destructive">
             <Trash2Icon />
           </AlertDialogMedia>
-          <AlertDialogTitle>Delete This Product?</AlertDialogTitle>
+          <AlertDialogTitle>{t("title")}</AlertDialogTitle>
           <AlertDialogDescription>
-            Are You Sure You Need To Remove {title} From Your Cart
+            {t("desc", { product: title })}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel variant="outline">Cancel</AlertDialogCancel>
+          <AlertDialogCancel variant="outline">
+            {t("cancelBtn")}
+          </AlertDialogCancel>
           <AlertDialogAction
             variant="destructive"
             onClick={() => removeFromCart(itemId)}
           >
-            Delete
+            {t("deleteBtn")}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

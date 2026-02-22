@@ -162,5 +162,19 @@
 
   "toast": {
     "add": "Product Added To Cart"
+  },
+
+  "clearDialog": {
+    "clearBtn": "Clear Cart",
+    "cancelBtn": "Cancel",
+    "title": "Clear Your Cart?",
+    "desc": "Are you sure you want to clear your cart and start a fresh shopping journey?"
+  },
+
+  "deleteDialog": {
+    "deleteBtn": "Delete",
+    "cancelBtn": "Cancel",
+    "title": "Delete This Product?",
+    "desc": "Are you sure you Need to Remove {product} From Your Cart?"
   }
 }
