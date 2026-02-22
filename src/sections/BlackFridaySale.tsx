@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 
 import { useLocale, useTranslations } from "next-intl";
 
@@ -37,12 +37,12 @@ const BlackFridaySale = () => {
           </div>
         </div>
 
-        <Button
-          variant={"link"}
-          className="mb-6 lg:p-6 xl:pe-24 xl:ps-32 lg:m-0 z-50 w-fit mx-auto text-neutral-200"
+        <Link
+          href={`/products/category/electronics`}
+          className="mb-6 lg:p-6 xl:pe-24 xl:ps-32 lg:m-0 z-50 w-fit mx-auto text-neutral-200 text-sm block whitespace-nowrap hover:underline transition-all duration-300"
         >
           {t("btn")}
-        </Button>
+        </Link>
       </div>
     </div>
   );

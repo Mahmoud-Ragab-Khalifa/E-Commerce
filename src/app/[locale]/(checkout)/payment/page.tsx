@@ -8,16 +8,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useLocale, useTranslations } from "next-intl";
 import TotalComponent from "@/components/Checkout/TotalComponent";
-import { Geist, Tajawal } from "next/font/google";
-
-const geist = Geist({
-  subsets: ["latin"],
-});
-
-const tajawal = Tajawal({
-  subsets: ["latin"],
-  weight: ["500"],
-});
 
 const Payment = () => {
   const [selected, setSelected] = useState("credit-card");
