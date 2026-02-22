@@ -176,5 +176,78 @@
     "cancelBtn": "Cancel",
     "title": "Delete This Product?",
     "desc": "Are you sure you Need to Remove {product} From Your Cart?"
-  }
+  },
+
+  "checkoutSteps": {
+    "cart": "cart",
+    "details": "details",
+    "payment": "payment",
+    "review": "review"
+  },
+
+  "checkoutPages": {
+    "total": "Total",
+    "additionalComments": "Additional Comments",
+    "note": "Note",
+    "textareaLabel": "Typing Here...",
+    "voucher": "Voucher",
+    "apply": "Apply",
+    "Shippingestimates": "Shipping Estimates",
+
+    "code": "Zip Code",
+    "calc": "Calculate Shipping",
+    "checkout": "Checkout Now",
+
+    "shippingaddress": "Shipping Address",
+    "billingAddress": "Billing Address",
+    "same": " Same As Shipping Address",
+    "cart": "Back To Cart",
+    "payment": "Proceed To Payment",
+
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "tax": "tax",
+    "discount": "Discount",
+
+    "creditCard": "Pay With Credit Card",
+    "paypal": "Pay With Paypal",
+    "cash": "Cash On Delivery",
+
+    "cardNumber": "Card Number",
+    "expDate": "Exp Date",
+    "nameOnCard": "Name On Card",
+    "zipCode": "Zip Code",
+
+    "backToCheckout": "Back To Checkout",
+    "review": "Review",
+
+    "submit": "Submit"
+  },
+
+  "country": "Country",
+  "state": "State",
+
+  "countries": [
+    { "value": "egypt", "label": "Egypt" },
+    { "value": "saudiArabia", "label": "Saudi Arabia" },
+    { "value": "yemen", "label": "Yemen" },
+    { "value": "tunisia", "label": "Tunisia" }
+  ],
+
+  "states": [
+    { "value": "alexandria", "label": "Alexandria" },
+    { "value": "cairo", "label": "Cairo" },
+    { "value": "giza", "label": "Giza" },
+    { "value": "aswan", "label": "Aswan" }
+  ],
+
+  "addressList": [
+    "Full Name",
+    "Phone Number",
+    "Email Address",
+    "Company",
+    "Address 1",
+    "Address 2",
+    "Zip Code"
+  ]
 }

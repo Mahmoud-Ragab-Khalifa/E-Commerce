@@ -15,7 +15,18 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Trash2Icon } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+
+import { Geist, Tajawal } from "next/font/google";
+
+const geist = Geist({
+  subsets: ["latin"],
+});
+
+const tajawal = Tajawal({
+  subsets: ["latin"],
+  weight: ["500"],
+});
 
 interface ClearCartProbs {
   isEmptyCart: boolean;
@@ -27,10 +38,16 @@ const ClearCart = ({ isEmptyCart, setIsEmptyCart }: ClearCartProbs) => {
 
   const t = useTranslations("clearDialog");
 
+  const locale = useLocale();
+
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button size={"lg"} variant={"destructive"} className="ml-auto">
+        <Button
+          size={"lg"}
+          variant={"destructive"}
+          className={`ml-auto ${locale === "ar" ? tajawal.className : geist.className}`}
+        >
           <Trash2 />
           {t("clearBtn")}
         </Button>

@@ -176,5 +176,78 @@
     "cancelBtn": "إلغاء",
     "title": "حذف هذا المنتج؟",
     "desc": "هل أنت متأكد أنك تريد إزالة {product} من سلة التسوق؟"
-  }
+  },
+
+  "checkoutSteps": {
+    "cart": "سلة التسوق",
+    "details": "بيانات الشحن",
+    "payment": "الدفع",
+    "review": "مراجعة الطلب"
+  },
+
+  "checkoutPages": {
+    "total": "إجمالي الطلب",
+    "additionalComments": "ملاحظات على الطلب",
+    "note": "ملاحظة",
+    "textareaLabel": "اكتب ملاحظتك هنا...",
+    "voucher": "كود الخصم",
+    "apply": "تطبيق",
+    "Shippingestimates": "حساب تكلفة الشحن",
+
+    "code": "الرمز البريدي",
+    "calc": "حساب الشحن",
+    "checkout": "المتابعة للدفع",
+
+    "shippingaddress": "عنوان الشحن",
+    "billingAddress": "عنوان الفاتورة",
+    "same": "نفس عنوان الشحن",
+    "cart": "العودة إلى السلة",
+    "payment": "المتابعة إلى الدفع",
+
+    "subtotal": "المجموع الفرعي",
+    "shipping": "الشحن",
+    "tax": "الضريبة",
+    "discount": "الخصم",
+
+    "creditCard": "الدفع بالبطاقة الائتمانية",
+    "paypal": "الدفع عبر باي بال",
+    "cash": "الدفع عند الاستلام",
+
+    "cardNumber": "رقم البطاقة",
+    "expDate": "تاريخ الانتهاء",
+    "nameOnCard": "الاسم على البطاقة",
+    "zipCode": "الرمز البريدي",
+
+    "backToCheckout": "العودة إلى إتمام الطلب",
+    "review": "مراجعة الطلب",
+
+    "submit": "إرسال"
+  },
+
+  "country": "البلد",
+  "state": "المحافظه",
+
+  "countries": [
+    { "value": "egypt", "label": "مصر" },
+    { "value": "saudiArabia", "label": "المملكة العربية السعودية" },
+    { "value": "yemen", "label": "اليمن" },
+    { "value": "tunisia", "label": "تونس" }
+  ],
+
+  "states": [
+    { "value": "alexandria", "label": "الإسكندرية" },
+    { "value": "cairo", "label": "القاهرة" },
+    { "value": "giza", "label": "الجيزة" },
+    { "value": "aswan", "label": "أسوان" }
+  ],
+
+  "addressList": [
+    "الاسم الكامل",
+    "رقم الهاتف",
+    "البريد الإلكتروني",
+    "الشركة",
+    "العنوان 1",
+    "العنوان 2",
+    "الرمز البريدي"
+  ]
 }

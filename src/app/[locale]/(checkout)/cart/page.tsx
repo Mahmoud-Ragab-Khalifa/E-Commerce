@@ -6,22 +6,25 @@ import { useCartStore } from "@/store/cartStore";
 import { Trash2 } from "lucide-react";
 import Image from "next/image";
 
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { useState } from "react";
 import DeleteCartItem from "@/components/ProductsList/DeleteCartItem";
 import ClearCart from "@/components/ProductsList/ClearCart";
+import { useLocale, useTranslations } from "next-intl";
+import { Geist } from "next/font/google";
+import SelectComponent from "@/components/Checkout/SelectComponent";
+
+const geist = Geist({
+  subsets: ["latin"],
+});
 
 const Cart = () => {
   const { items, totalItems, totalPrice, increase, decrease } = useCartStore();
 
   const [isEmptyCart, setIsEmptyCart] = useState(false);
+
+  const locale = useLocale();
+
+  const t = useTranslations();
 
   return (
     <div className="px-2.5">
@@ -41,11 +44,8 @@ const Cart = () => {
           </Link>
         </div>
       ) : (
-        <div
-          className="container mx-auto flex flex-col md:flex-row md:items-start gap-4"
-          dir="ltr"
-        >
-          <div className="flex-2 flex flex-col gap-4">
+        <div className="container mx-auto flex flex-col md:flex-row md:items-start gap-4">
+          <div className={`${geist.className} flex-2 flex flex-col gap-4`}>
             {items.map(({ id, image, title, price, quantity }) => (
               <div
                 key={id}
@@ -60,7 +60,10 @@ const Cart = () => {
                     <Image alt={title} src={image} width={100} height={100} />
                   </Link>
                   <div className="flex flex-col gap-1 w-37.5">
-                    <p className="w-36 whitespace-nowrap overflow-hidden text-ellipsis">
+                    <p
+                      className={`w-36 whitespace-nowrap overflow-hidden text-ellipsis ${locale === "ar" && "text-right"}`}
+                      dir="ltr"
+                    >
                       {title}
                     </p>
                     <span>${price}</span>
@@ -101,28 +104,30 @@ const Cart = () => {
 
           <div className="flex-1 bg-card p-5 text-light dark:text-dark rounded-md">
             <div className="flex items-center justify-between font-bold mb-2">
-              <span>Total:</span>
-              <span>${totalPrice.toFixed(2)}</span>
+              <span>{t("checkoutPages.total")}:</span>
+              <span className={geist.className}>${totalPrice.toFixed(2)}</span>
             </div>
 
             <div className="flex flex-col gap-4 lg:gap-5 py-4 lg:py-5 border-t border-b">
               <div className="flex gap-2 items-center">
-                <p className="font-medium text-sm">Additional Comments</p>
+                <p className="font-medium text-sm">
+                  {t("checkoutPages.additionalComments")}
+                </p>
                 <span className="py-0.5 px-2 bg-neutral-400/50 text-xs rounded-full">
-                  Note
+                  {t("checkoutPages.note")}
                 </span>
               </div>
 
               <textarea
                 aria-label="Enter Your Comment"
-                placeholder="Typing Here..."
+                placeholder={t("checkoutPages.textareaLabel")}
                 className="w-full rounded-md ring focus:outline-none hover:ring-2 focus:ring-2 ring-neutral-700 block resize-none h-18.75 placeholder:text-sm text-sm p-2 placeholder:text-neutral-500"
               />
 
               <div className="flex items-center gap-2">
                 <input
                   aria-label="Enter Voucher Code"
-                  placeholder="Voucher"
+                  placeholder={t("checkoutPages.voucher")}
                   type="text"
                   name="voucher"
                   id="voucher"
@@ -130,57 +135,35 @@ const Cart = () => {
                 />
 
                 <Button variant={"outline"} className="w-15">
-                  Apply
+                  {t("checkoutPages.apply")}
                 </Button>
               </div>
             </div>
 
             <div className="flex flex-col gap-4 lg:gap-5 pt-4 lg:pt-5">
-              <p className="font-medium text-sm">Shipping Estimates</p>
+              <p className="font-medium text-sm">
+                {t("checkoutPages.Shippingestimates")}
+              </p>
 
-              <Select>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Country" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectItem value="egypt">Egypt</SelectItem>
-                    <SelectItem value="saudiArabia">Saudi Arabia</SelectItem>
-                    <SelectItem value="yemen">Yemen</SelectItem>
-                    <SelectItem value="tunisia">Tunisia</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+              <SelectComponent title="country" items={t.raw("countries")} />
 
-              <Select>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="State" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectItem value="alexandria">Alexandria</SelectItem>
-                    <SelectItem value="cairo">Cairo</SelectItem>
-                    <SelectItem value="giza">Giza</SelectItem>
-                    <SelectItem value="aswan">Aswan</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+              <SelectComponent title="state" items={t.raw("states")} />
 
               <input
                 aria-label="Enter Zip Code"
-                placeholder="Zip Code"
+                placeholder={t("checkoutPages.code")}
                 type="text"
                 name="zipCode"
                 className="flex-1 rounded-md s top-0 left-0 ring focus:outline-none hover:ring-2 focus:ring-2 ring-neutral-700 placeholder:text-sm text-sm p-2 placeholder:text-neutral-500"
               />
 
-              <Button variant={"outline"}>Calculate Shipping</Button>
+              <Button variant={"outline"}>{t("checkoutPages.calc")}</Button>
 
               <Link
                 href={"/details"}
                 className="p-2 text-center w-full bg-[#4CAF50] text-black rounded-md"
               >
-                Checkout Now
+                {t("checkoutPages.checkout")}
               </Link>
             </div>
           </div>
