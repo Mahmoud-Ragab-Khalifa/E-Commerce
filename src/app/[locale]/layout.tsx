@@ -31,6 +31,8 @@ export const metadata: Metadata = {
     "A modern e-commerce application for browsing products and shopping online.",
 };
 
+import { Toaster } from "@/components/ui/sonner";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,6 +61,8 @@ export default function RootLayout({
             <DesktopCategories />
 
             <main>{children}</main>
+
+            <Toaster />
 
             <Footer />
           </ThemeProvider>

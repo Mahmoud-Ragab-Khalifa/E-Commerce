@@ -158,5 +158,9 @@
     "phone": "Phone:",
 
     "copyRight": "© Copyright 2026 <span>Market</span> ,All Right Reserved."
+  },
+
+  "toast": {
+    "add": "Product Added To Cart"
   }
 }

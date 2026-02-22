@@ -16,6 +16,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { Geist, Tajawal } from "next/font/google";
 import { CartItem } from "@/lib/cart";
 
+import { toast } from "sonner";
+
 const AddToCartButton = ({
   product,
 }: {
@@ -28,7 +30,12 @@ const AddToCartButton = ({
 
   return (
     <Button
-      onClick={() => addtoCart(product)}
+      onClick={() => {
+        addtoCart(product);
+        toast.success(t("toast.add"), {
+          position: "bottom-left",
+        });
+      }}
       variant={"default"}
       className={`w-full bg-light hover:bg-light/95 dark:bg-dark/80 dark:hover:bg-dark/90 
             ${locale === "ar" ? tajawal.className : geist.className}`}
