@@ -16,17 +16,11 @@ import {
 } from "@/components/ui/select";
 import { useState } from "react";
 import DeleteCartItem from "@/components/ProductsList/DeleteCartItem";
+import ClearCart from "@/components/ProductsList/ClearCart";
 
 const Cart = () => {
-  const {
-    items,
-    totalItems,
-    totalPrice,
-    removeFromCart,
-    clearCart,
-    increase,
-    decrease,
-  } = useCartStore();
+  const { items, totalItems, totalPrice, clearCart, increase, decrease } =
+    useCartStore();
 
   const [isEmptyCart, setIsEmptyCart] = useState(false);
 
@@ -97,18 +91,10 @@ const Cart = () => {
               </div>
             ))}
 
-            <Button
-              size={"lg"}
-              variant={"destructive"}
-              className="md:ml-auto"
-              onClick={() => {
-                clearCart();
-                setIsEmptyCart(!isEmptyCart);
-              }}
-            >
-              <Trash2 />
-              Clear Cart
-            </Button>
+            <ClearCart
+              isEmptyCart={isEmptyCart}
+              setIsEmptyCart={setIsEmptyCart}
+            />
           </div>
 
           <div className="flex-1 bg-card p-5 text-light dark:text-dark rounded-md">
