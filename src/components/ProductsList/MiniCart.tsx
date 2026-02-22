@@ -3,9 +3,10 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { useCartStore } from "@/store/cartStore";
-import { Trash2 } from "lucide-react";
 import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
+
+import DeleteCartItem from "@/components/ProductsList/DeleteCartItem";
 
 import {
   Drawer,
@@ -29,8 +30,7 @@ const MiniCart = () => {
   const locale = useLocale();
   const dir: "right" | "left" = locale === "ar" ? "right" : "left";
 
-  const { items, totalItems, increase, decrease, removeFromCart } =
-    useCartStore();
+  const { items, totalItems, increase, decrease } = useCartStore();
 
   return (
     <Drawer direction={dir}>
@@ -102,15 +102,8 @@ const MiniCart = () => {
                         -
                       </button>
                     </div>
-                    <Button
-                      aria-label="Delete Product"
-                      className="hover:bg-destructive/50!"
-                      size={"icon-sm"}
-                      variant={"ghost"}
-                      onClick={() => removeFromCart(item.id)}
-                    >
-                      <Trash2 />
-                    </Button>
+
+                    <DeleteCartItem itemId={item.id} title={item.title} />
                   </div>
                 </div>
               </div>

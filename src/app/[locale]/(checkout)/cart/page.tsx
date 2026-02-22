@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
+import DeleteCartItem from "@/components/ProductsList/DeleteCartItem";
 
 const Cart = () => {
   const {
@@ -79,8 +80,10 @@ const Cart = () => {
                       +
                     </button>
                     <span className="px-2">{quantity}</span>
+
                     <button
-                      className="w-8 h-6 md:h-8 flex items-center justify-center hover:bg-neutral-200 hover:dark:bg-neutral-700/30 transition-colors duration-300 cursor-pointer"
+                      disabled={quantity === 1}
+                      className="w-8 h-6 md:h-8 flex items-center justify-center hover:bg-neutral-200 hover:dark:bg-neutral-700/30 transition-colors duration-300 cursor-pointer disabled:opacity-30 disabled:cursor-no-drop disabled:hover:bg-transparent"
                       onClick={() => decrease(id)}
                     >
                       -
@@ -89,15 +92,7 @@ const Cart = () => {
 
                   <div>${(quantity * price).toFixed(2)}</div>
 
-                  <Button
-                    aria-label="Delete Product"
-                    className="hover:bg-destructive/50!"
-                    size={"icon-sm"}
-                    variant={"ghost"}
-                    onClick={() => removeFromCart(id)}
-                  >
-                    <Trash2 />
-                  </Button>
+                  <DeleteCartItem itemId={id} title={title} />
                 </div>
               </div>
             ))}
