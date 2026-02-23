@@ -18,8 +18,8 @@ const CategoryPage = async ({
         <CategoryCarousel
           arrayOfImages={groceriesList}
           title="groceriesTitle"
-          limit={15}
-          skip={27}
+          limit={27}
+          skip={15}
         />
       ) : category === "sports" ? (
         <CategoryCarousel

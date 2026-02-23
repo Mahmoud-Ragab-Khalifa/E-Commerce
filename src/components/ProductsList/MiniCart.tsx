@@ -43,7 +43,7 @@ const MiniCart = () => {
         >
           <ShoppingCart strokeWidth={3} />
           <span
-            className={`absolute -top-1 rtl:left-0 ltr:-right-1 w-5 h-5 rounded-full bg-[#253853] text-white dark:bg-main-color text-xs flex items-center justify-center`}
+            className={`${geist.className} absolute -top-1 rtl:left-0 ltr:-right-1 w-5 h-5 rounded-full bg-[#253853] text-white dark:bg-main-color text-xs flex items-center justify-center`}
           >
             {totalItems}
           </span>
