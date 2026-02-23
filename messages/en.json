@@ -249,5 +249,11 @@
     "Address 1",
     "Address 2",
     "Zip Code"
-  ]
+  ],
+
+  "emptyCart": {
+    "title": "Your Cart Is Empty",
+    "desc": "Looks Like You Haven't Added Any Thing To Your Cart Yet",
+    "btn": "Start Shopping"
+  }
 }

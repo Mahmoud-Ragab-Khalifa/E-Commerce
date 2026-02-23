@@ -34,13 +34,17 @@ const Cart = () => {
             size={50}
             className="p-4 bg-card rounded-md ring-2 ring-neutral-300 dark:ring-neutral-700"
           />
-          <p className="font-medium text-2xl md:text-4xl">Your Cart Is Empty</p>
-          <p className="text-center px-3 text-sm md:text-xl">{`Looks Like You Haven't Added Any Thing To Your Cart Yet`}</p>
+          <p className="font-medium text-2xl md:text-4xl">
+            {t("emptyCart.title")}
+          </p>
+          <p className="text-center px-3 text-sm md:text-xl">
+            {t("emptyCart.desc")}
+          </p>
           <Link
             href={"/"}
             className="py-2 px-4 rounded-md bg-main-color dark:bg-[#253853] mt-5 text-white"
           >
-            Start Shopping
+            {t("emptyCart.btn")}
           </Link>
         </div>
       ) : (
