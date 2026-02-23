@@ -114,21 +114,21 @@ const ProductCardActions = ({ id }: { id: number }) => {
                   data?.title
                 )}
               </span>
-              <span className="font-bold block my-3">
+              <div className="font-bold my-3">
                 {isLoading ? (
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 justify-center md:justify-start">
                     <span className="text-neutral-200 dark:text-neutral-800 animate-pulse">
                       $
                     </span>
                     <Skeleton className="w-12 h-6 bg-neutral-200 dark:bg-neutral-800" />
                   </div>
                 ) : (
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-1 justify-center md:justify-start w-full mx-auto md:m-0">
                     <span>$</span>
                     <span>{data?.price}</span>
                   </div>
                 )}
-              </span>
+              </div>
               <div className="flex items-center justify-center md:items-start md:justify-start">
                 {isLoading ? (
                   Array.from({ length: 5 }).map((_, idx) => (
@@ -145,7 +145,7 @@ const ProductCardActions = ({ id }: { id: number }) => {
             </DialogTitle>
             <DialogDescription asChild>
               {isLoading ? (
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 items-center justify-center md:items-start md:justify-start">
                   <Skeleton className="w-full h-4 bg-neutral-200 dark:bg-neutral-800" />
                   <Skeleton className="w-3/4 h-4 bg-neutral-200 dark:bg-neutral-800" />
                   <Skeleton className="w-1/2 h-4 bg-neutral-200 dark:bg-neutral-800" />

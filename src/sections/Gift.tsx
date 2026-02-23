@@ -26,7 +26,7 @@ const Gift = () => {
 
         <Link
           href={"/products/category/home"}
-          className="mx-auto max-w-50 xl:w-60 rounded-md py-2 px-4 bg-neutral-200 text-main-color font-medium text-sm ring-1 ring-neutral-300 hover:ring-2 focus:ring-2 transition-all duration-300"
+          className="mx-auto max-w-50 xl:w-60 rounded-md py-2 px-4 bg-neutral-200 text-main-color font-bold text-sm ring-1 ring-neutral-300 hover:ring-2 focus:ring-2 transition-all duration-300 text-center"
         >
           {t("btn")}
         </Link>
