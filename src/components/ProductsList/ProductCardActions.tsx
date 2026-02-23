@@ -77,7 +77,9 @@ const ProductCardActions = ({ id }: { id: number }) => {
             <CarouselContent>
               {isLoading ? (
                 <CarouselItem>
-                  <Skeleton className="w-72 h-72 mx-auto bg-neutral-300/60 dark:bg-neutral-800/50" />
+                  <div className="w-full max-w-75 mx-auto">
+                    <Skeleton className="w-full aspect-square" />
+                  </div>
                 </CarouselItem>
               ) : (
                 data?.images.map((img: string, idx: number) => (
