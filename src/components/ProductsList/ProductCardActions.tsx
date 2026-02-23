@@ -14,7 +14,7 @@ const tajawal = Tajawal({
 
 import { useState } from "react";
 import { Button } from "../ui/button";
-import { ArrowLeft, ArrowRight, Eye, Heart } from "lucide-react";
+import { ArrowLeft, ArrowRight, Eye, Heart, Star } from "lucide-react";
 
 import {
   Dialog,
@@ -107,13 +107,53 @@ const ProductCardActions = ({ id }: { id: number }) => {
 
           <DialogHeader>
             <DialogTitle>
-              <span className="leading-normal">{data?.title}</span>
-              <span className="font-bold block my-3">${data?.price}</span>
+              <span className="leading-normal">
+                {isLoading ? (
+                  <Skeleton className="w-44 h-6.25 bg-neutral-200 dark:bg-neutral-800" />
+                ) : (
+                  data?.title
+                )}
+              </span>
+              <span className="font-bold block my-3">
+                {isLoading ? (
+                  <div className="flex items-center gap-1">
+                    <span className="text-neutral-200 dark:text-neutral-800 animate-pulse">
+                      $
+                    </span>
+                    <Skeleton className="w-12 h-6 bg-neutral-200 dark:bg-neutral-800" />
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-1">
+                    <span>$</span>
+                    <span>{data?.price}</span>
+                  </div>
+                )}
+              </span>
               <div className="flex items-center justify-center md:items-start md:justify-start">
-                <Rating rating={data?.rating} />
+                {isLoading ? (
+                  Array.from({ length: 5 }).map((_, idx) => (
+                    <Star
+                      key={idx}
+                      className="fill-neutral-200 dark:fill-neutral-800 inline-flex me-1 text-neutral-200 dark:text-neutral-800"
+                      size={15}
+                    />
+                  ))
+                ) : (
+                  <Rating rating={data?.rating} />
+                )}
               </div>
             </DialogTitle>
-            <DialogDescription>{data?.description}</DialogDescription>
+            <DialogDescription asChild>
+              {isLoading ? (
+                <div className="flex flex-col gap-2">
+                  <Skeleton className="w-full h-4 bg-neutral-200 dark:bg-neutral-800" />
+                  <Skeleton className="w-3/4 h-4 bg-neutral-200 dark:bg-neutral-800" />
+                  <Skeleton className="w-1/2 h-4 bg-neutral-200 dark:bg-neutral-800" />
+                </div>
+              ) : (
+                <span>{data?.description}</span>
+              )}
+            </DialogDescription>
           </DialogHeader>
 
           <DialogFooter
