@@ -40,6 +40,7 @@ import Link from "next/link";
 import Rating from "./Rating";
 import useSWR from "swr";
 import AddToCartButton from "./AddToCartButton";
+import { Skeleton } from "../ui/skeleton";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -51,7 +52,7 @@ const ProductCardActions = ({ id }: { id: number }) => {
 
   const [active, setactive] = useState(false);
 
-  const { data } = useSWR(
+  const { data, isLoading } = useSWR(
     open ? `/${locale}/api/products/${id}` : null,
     fetcher,
   );
@@ -74,17 +75,23 @@ const ProductCardActions = ({ id }: { id: number }) => {
         >
           <Carousel>
             <CarouselContent>
-              {data?.images.map((img: string, idx: number) => (
-                <CarouselItem key={idx}>
-                  <Image
-                    alt="product"
-                    src={img}
-                    width={300}
-                    height={300}
-                    className="mx-auto"
-                  />
+              {isLoading ? (
+                <CarouselItem>
+                  <Skeleton className="w-72 h-72 mx-auto bg-neutral-300/60 dark:bg-neutral-800/50" />
                 </CarouselItem>
-              ))}
+              ) : (
+                data?.images.map((img: string, idx: number) => (
+                  <CarouselItem key={idx}>
+                    <Image
+                      alt="product"
+                      src={img}
+                      width={300}
+                      height={300}
+                      className="mx-auto animate-fade-in-small"
+                    />
+                  </CarouselItem>
+                ))
+              )}
             </CarouselContent>
 
             <CarouselPrevious
