@@ -31,7 +31,7 @@ const ProductsList = ({ limit, skip, category }: GetProductsProbs) => {
           </Link>
         </div>
 
-        <ProductsCarousel limit={limit} skip={skip} category={category} />
+        <ProductsCarousel limit={limit} skip={skip} />
       </div>
     </div>
   );

@@ -13,6 +13,12 @@ import {
 import { Check, ChevronDown } from "lucide-react";
 import { Button } from "../ui/button";
 
+import { Geist } from "next/font/google";
+
+const geist = Geist({
+  subsets: ["latin"],
+});
+
 const LanguageToggler = () => {
   const locale = useLocale();
   const router = useRouter();
@@ -21,21 +27,21 @@ const LanguageToggler = () => {
     (language) => language.locale === locale,
   )!;
   return (
-    <DropdownMenu>
+    <DropdownMenu dir="ltr">
       <DropdownMenuTrigger asChild>
         <Button
           size={"icon-sm"}
           variant={"ghost"}
-          className="gap-0! items-center! hover:bg-transparent!"
+          className={`${geist.className} gap-0! items-center! justify-center! hover:bg-transparent!`}
         >
           <span className="text-sm text-white">
             {selectedLanguage.locale.toUpperCase()}
           </span>
-          <ChevronDown size={16} className="mt-0.5 text-white" />
+          <ChevronDown size={16} className="text-white" />
           <span className="sr-only">Toggle language</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="z-2000">
+      <DropdownMenuContent align="end" className={`z-2000`}>
         {LANGUAGES.map((language) => (
           <DropdownMenuItem
             className="flex items-center justify-between"

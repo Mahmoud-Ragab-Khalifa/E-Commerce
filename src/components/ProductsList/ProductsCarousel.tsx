@@ -10,7 +10,10 @@ import { useLocale } from "next-intl";
 import Products from "./Products";
 import { GetProductsProbs } from "@/lib/types";
 
-const ProductsCarousel = ({ limit, skip }: GetProductsProbs) => {
+const ProductsCarousel = ({
+  limit,
+  skip,
+}: Omit<GetProductsProbs, "category">) => {
   const locale = useLocale();
   const dir: "rtl" | "ltr" = locale === "ar" ? "rtl" : "ltr";
 

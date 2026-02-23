@@ -16,15 +16,17 @@ const CategoryPage = async ({
     <>
       {category === "food" ? (
         <CategoryCarousel
-          category="groceries"
           arrayOfImages={groceriesList}
           title="groceriesTitle"
+          limit={15}
+          skip={27}
         />
       ) : category === "sports" ? (
         <CategoryCarousel
-          category="sports-accessories"
           arrayOfImages={sportsList}
           title="sportsTitle"
+          limit={17}
+          skip={136}
         />
       ) : (
         <CategoryFashion title={category} categoriesArray={categoryArray} />
