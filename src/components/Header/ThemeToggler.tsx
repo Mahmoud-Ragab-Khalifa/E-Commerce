@@ -10,14 +10,21 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLocale, useTranslations } from "next-intl";
 
 const thems = ["light", "dark", "system"];
 
 export default function ThemeToggler() {
   const { theme, setTheme } = useTheme();
 
+  const t = useTranslations("theme");
+
+  const locale = useLocale();
+
+  const dir: "rtl" | "ltr" = locale === "ar" ? "rtl" : "ltr";
+
   return (
-    <DropdownMenu>
+    <DropdownMenu dir={dir}>
       <DropdownMenuTrigger asChild>
         <Button
           size={"icon-sm"}
@@ -35,7 +42,7 @@ export default function ThemeToggler() {
             className="flex items-center justify-between cursor-pointer"
             onClick={() => setTheme(item)}
           >
-            <span className="capitalize">{item}</span>
+            <span>{t(item)}</span>
             {theme === item && (
               <span>
                 <Check />

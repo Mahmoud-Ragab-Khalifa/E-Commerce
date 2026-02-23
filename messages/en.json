@@ -255,5 +255,11 @@
     "title": "Your Cart Is Empty",
     "desc": "Looks Like You Haven't Added Any Thing To Your Cart Yet",
     "btn": "Start Shopping"
+  },
+
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
   }
 }
