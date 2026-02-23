@@ -109,7 +109,7 @@ const ProductCardActions = ({ id }: { id: number }) => {
             <DialogTitle>
               <span className="leading-normal">
                 {isLoading ? (
-                  <Skeleton className="w-44 h-6.25 bg-neutral-200 dark:bg-neutral-800" />
+                  <Skeleton className="w-44 h-6.25 bg-neutral-200 dark:bg-neutral-800 mx-auto md:m-0" />
                 ) : (
                   data?.title
                 )}

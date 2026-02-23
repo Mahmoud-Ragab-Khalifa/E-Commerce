@@ -8,7 +8,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 interface FilterListProbs {
   category: string;
@@ -19,6 +19,9 @@ interface FilterListProbs {
 const FilterList = ({ category, items, setCategory }: FilterListProbs) => {
   const t = useTranslations();
   const [active, setactive] = useState(0);
+
+  const locale = useLocale();
+  const dir: "rtl" | "ltr" = locale === "ar" ? "rtl" : "ltr";
 
   return (
     <div className="relative bg-main-color dark:bg-[#253853] text-neutral-200 dark:text-dark min-w-75 rounded-md py-5">
@@ -42,7 +45,11 @@ const FilterList = ({ category, items, setCategory }: FilterListProbs) => {
         ))}
       </ul>
 
-      <Carousel opts={{ dragFree: true }} className="lg:hidden">
+      <Carousel
+        dir={dir}
+        opts={{ direction: dir, dragFree: true }}
+        className="lg:hidden"
+      >
         <CarouselContent className="mx-5">
           {items.map((item, idx) => (
             <CarouselItem
