@@ -3,6 +3,18 @@ import CategoryFashion from "@/components/ProductsList/CategoryFashion";
 import { CATEGORIES } from "@/lib/categories";
 import { groceriesList, sportsList } from "@/lib/dataLists";
 
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ category: string }>;
+}) => {
+  const { category } = await params;
+
+  return {
+    title: category[0].toUpperCase() + category.slice(1) + " Category",
+  };
+};
+
 const CategoryPage = async ({
   params,
 }: {
