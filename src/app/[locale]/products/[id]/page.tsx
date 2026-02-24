@@ -16,6 +16,20 @@ const getProduct = async (id: number) => {
   return res.json();
 };
 
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ id: number }>;
+}) => {
+  const { id } = await params;
+  const product = await getProduct(id);
+
+  return {
+    title: product.title,
+    description: product.description,
+  };
+};
+
 const ProductDetailsPage = async ({
   params,
 }: {

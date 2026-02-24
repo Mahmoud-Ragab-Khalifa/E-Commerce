@@ -26,9 +26,9 @@ const tajawal = Tajawal({
 });
 
 export const metadata: Metadata = {
-  title: "E-Commerce",
+  title: "Market E-Commerce",
   description:
-    "A modern e-commerce application for browsing products and shopping online.",
+    "Explore all product categories in our store, from groceries and fashion to electronics, beauty, and home essentials. Find everything you need in one place.",
 };
 
 import { Toaster } from "@/components/ui/sonner";
