@@ -5,6 +5,7 @@ import { useState } from "react";
 import ProductDescription from "./ProductDescription";
 import ProductReview from "./ProductReview";
 import { Review } from "@/lib/types";
+import { useTranslations } from "next-intl";
 
 interface ProductDataProbs {
   title: string;
@@ -41,6 +42,8 @@ const ProductData = ({
 }: ProductDataProbs) => {
   const [active, setactive] = useState(0);
 
+  const t = useTranslations("productDetails");
+
   return (
     <>
       <div className="border-b border-neutral-200 dark:border-neutral-700">
@@ -52,7 +55,7 @@ const ProductData = ({
             }`}
             onClick={() => setactive(0)}
           >
-            Description
+            {t("description")}
           </h2>
           <h2
             className={`text-neutral-500 dark:text-neutral-400 font-bold p-4 cursor-pointer transition-all duration-300 ${
@@ -61,7 +64,7 @@ const ProductData = ({
             }`}
             onClick={() => setactive(1)}
           >
-            Review ({reviews.length})
+            {t("review")} ({reviews.length})
           </h2>
         </div>
       </div>

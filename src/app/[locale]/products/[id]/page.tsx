@@ -39,7 +39,7 @@ const ProductDetailsPage = async ({
   const product = await getProduct(id);
 
   return (
-    <div className={`${geist.className} p-2.5 lg:mt-7`} dir="ltr">
+    <div className={`p-2.5 lg:mt-7`}>
       <div className="container mx-auto rounded-md bg-card dark:bg-card p-4">
         <ProductDetails
           id={id}

@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import AddToCartButton from "./AddToCartButton";
 import ImageSelection from "./ImageSelection";
 import OptionAndType from "./OptionAndType";
@@ -30,6 +31,8 @@ const ProductDetails = ({
   availabilityStatus,
   brand,
 }: ProductDetailsProbs) => {
+  const t = useTranslations("productDetails");
+
   return (
     <div className="flex flex-col gap-8 md:flex-row md-gap-4 lg:gap-10 md:items-center">
       <ImageSelection images={images} />
@@ -40,26 +43,26 @@ const ProductDetails = ({
         </h2>
 
         <p className="text-[#4b5563] mt-3">
-          Category:{" "}
+          {t("category")}:{" "}
           <span className="font-bold text-light dark:text-dark capitalize">
             {category}
           </span>
         </p>
 
         <p className="text-[#4b5563] my-0.5">
-          Brand:{" "}
+          {t("brand")}:{" "}
           <span className="font-bold text-light dark:text-dark">
             {brand || `${title.slice(0)}`}
           </span>
         </p>
 
         <p className="text-[#4b5563]">
-          Product Code:{" "}
+          {t("code")}:{" "}
           <span className="font-bold text-light dark:text-dark">{barcode}</span>
         </p>
 
-        <div className="mt-4">
-          <span className="font-bold text-3xl text-light dark:text-dark me-2.5">
+        <div className="mt-4 flex items-center gap-2">
+          <span className="font-bold text-3xl text-light dark:text-dark">
             ${Number((price - (price * discountPercentage) / 100).toFixed(2))}
           </span>
           <span className="font-normal line-through text-xl text-[#e94560]">
@@ -68,21 +71,21 @@ const ProductDetails = ({
         </div>
 
         <div className="mt-4 flex items-center gap-2">
-          <span className="text-[#4b5563]">Rated: </span>
+          <span className="text-[#4b5563]">{t("rated")}: </span>
           <Rating rating={rating} />
         </div>
 
         <OptionAndType />
 
         <p className="mt-4 text-[#4b5563]">
-          Warranty Information:{" "}
+          {t("warranty")}:{" "}
           <span className="font-bold text-light dark:text-dark capitalize">
             {warrantyInformation}
           </span>
         </p>
 
         <p className="mt-1 text-[#4b5563]">
-          Availability Status:{" "}
+          {t("availability")}:{" "}
           <span className="font-bold text-light dark:text-dark capitalize">
             {availabilityStatus}
           </span>

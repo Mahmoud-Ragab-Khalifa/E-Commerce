@@ -12,6 +12,7 @@ import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
 import { Textarea } from "@/components/ui/textarea";
 import Rating from "./Rating";
 import SetRating from "./SetRating";
+import { useTranslations } from "next-intl";
 
 const UserCard = ({ reviewerName, rating, comment }: Review) => {
   return (
@@ -37,6 +38,8 @@ const UserCard = ({ reviewerName, rating, comment }: Review) => {
 };
 
 const ProductReview = ({ reviews }: ProductReviewProbs) => {
+  const t = useTranslations("productDetails");
+
   return (
     <div className="flex flex-col gap-8 lg:gap-14">
       <div className="flex flex-col gap-4">
@@ -51,13 +54,11 @@ const ProductReview = ({ reviews }: ProductReviewProbs) => {
       </div>
 
       <div>
-        <h1 className="text-xl md:text-2xl mb-6">
-          Write a Review for this product
-        </h1>
+        <h1 className="text-xl md:text-2xl mb-6">{t("writeAReview")}</h1>
 
         <div className="flex items-center gap-5 mb-6">
           <p className="relative">
-            Your Rating{" "}
+            {t("yourRating")}{" "}
             <span className="absolute -end-3 top-0 text-red-600">*</span>
           </p>
 
@@ -72,7 +73,7 @@ const ProductReview = ({ reviews }: ProductReviewProbs) => {
                   <Field>
                     <FieldLabel htmlFor="feedback">
                       <p className="relative">
-                        Your Review{" "}
+                        {t("yourReview")}{" "}
                         <span className="absolute -end-3 top-0 text-red-600">
                           *
                         </span>
@@ -80,7 +81,7 @@ const ProductReview = ({ reviews }: ProductReviewProbs) => {
                     </FieldLabel>
                     <Textarea
                       id="feedback"
-                      placeholder="Write a review here..."
+                      placeholder={t("textarea")}
                       className="resize-none h-36 border-neutral-300 dark:border-accent"
                     />
                   </Field>
@@ -88,7 +89,7 @@ const ProductReview = ({ reviews }: ProductReviewProbs) => {
               </FieldSet>
               <Field orientation="horizontal">
                 <Button variant={"outline"} size={"lg"} className="-mt-3">
-                  Submit
+                  {t("submit")}
                 </Button>
               </Field>
             </FieldGroup>

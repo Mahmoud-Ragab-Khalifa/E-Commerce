@@ -267,5 +267,33 @@
     "cart": "Your Cart",
     "checkout": "Proceed To Checkout",
     "view": "View Cart"
+  },
+
+  "productDetails": {
+    "category": "Category",
+    "brand": "Brand",
+    "code": "Product Code",
+    "rated": "Rated",
+    "warranty": "Warranty Information",
+    "shipping": "Shipping Information",
+    "availability": "Availability Status",
+    "description": "Description",
+    "review": "Review",
+    "name": "Product Name",
+    "productCategory": "Product Category",
+    "about": "About Product",
+    "stock": "Pieces In Stock",
+    "sku": "Product Sku",
+    "returnPolicy": "Return Policy",
+    "order": "Minimum Order Quantity",
+    "barcode": "Barcode",
+    "qrCode": "QrCode",
+    "writeAReview": "Write a Review for this product",
+    "yourRating": "Your Rating",
+    "yourReview": "Your Review",
+    "textarea": "Write a review here...",
+    "submit": "Submit",
+    "option": "Option",
+    "type": "Type"
   }
 }

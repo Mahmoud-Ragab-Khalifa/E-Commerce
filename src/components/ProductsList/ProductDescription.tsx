@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 interface ProductDescriptionProbs {
@@ -30,61 +31,63 @@ const ProductDescription = ({
   qrCode,
   tags,
 }: ProductDescriptionProbs) => {
+  const t = useTranslations("productDetails");
+
   return (
     <div className="text-[15px] md:text-[16px] text-light dark:text-dark font-medium flex flex-col gap-2.5">
       <p>
-        <span className="font-bold text-[#777]">Product Name:</span> {title}
+        <span className="font-bold text-[#777]">{t("name")}:</span> {title}
       </p>
 
       <p className="capitalize">
-        <span className="font-bold text-[#777]">Product Category:</span>{" "}
+        <span className="font-bold text-[#777]">{t("productCategory")}:</span>{" "}
         {category}
       </p>
 
       <p className="md:max-w-2/3 xl:max-w-1/2 leading-relaxed">
-        <span className="font-bold text-[#777]">About Product:</span>{" "}
+        <span className="font-bold text-[#777]">{t("about")}:</span>{" "}
         {description}
       </p>
 
       <p>
-        <span className="font-bold text-[#777]">Pieces In Stock:</span> {stock}
+        <span className="font-bold text-[#777]">{t("stock")}:</span> {stock}
       </p>
 
       <p>
-        <span className="font-bold text-[#777]">Product Sku:</span> {sku}
+        <span className="font-bold text-[#777]">{t("sku")}:</span> {sku}
       </p>
 
       <p>
-        <span className="font-bold text-[#777]">Warranty Information:</span>{" "}
+        <span className="font-bold text-[#777]">{t("warranty")}:</span>{" "}
         {warrantyInformation}
       </p>
 
       <p>
-        <span className="font-bold text-[#777]">shipping Information:</span>{" "}
+        <span className="font-bold text-[#777]">{t("shipping")}:</span>{" "}
         {shippingInformation}
       </p>
 
       <p>
-        <span className="font-bold text-[#777]">Availability Status:</span>{" "}
+        <span className="font-bold text-[#777]">{t("availability")}:</span>{" "}
         {availabilityStatus}
       </p>
 
       <p>
-        <span className="font-bold text-[#777]">Return Policy:</span>{" "}
+        <span className="font-bold text-[#777]">{t("returnPolicy")}:</span>{" "}
         {returnPolicy}
       </p>
 
       <p>
-        <span className="font-bold text-[#777]">Minimum Order Quantity:</span>{" "}
+        <span className="font-bold text-[#777]">{t("order")}:</span>{" "}
         {minimumOrderQuantity}
       </p>
 
       <p>
-        <span className="font-bold text-[#777]">Barcode:</span> {barcode}
+        <span className="font-bold text-[#777]">{t("barcode")}:</span> {barcode}
       </p>
 
       <p>
-        <span className="font-bold text-[#777] block mb-2">QrCode:</span>{" "}
+        <span className="font-bold text-[#777] block mb-2">{t("qrCode")}:</span>{" "}
         <Image alt="product" src={qrCode} width={232} height={232} />
       </p>
 
