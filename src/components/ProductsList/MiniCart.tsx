@@ -19,7 +19,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Geist } from "next/font/google";
 
 const geist = Geist({
@@ -29,6 +29,8 @@ const geist = Geist({
 const MiniCart = () => {
   const locale = useLocale();
   const dir: "right" | "left" = locale === "ar" ? "right" : "left";
+
+  const t = useTranslations("miniCart");
 
   const { items, totalItems, increase, decrease } = useCartStore();
 
@@ -50,20 +52,28 @@ const MiniCart = () => {
         </Button>
       </DrawerTrigger>
 
-      <DrawerContent className={`${geist.className} z-200`} dir="ltr">
+      <DrawerContent className={`z-200`}>
         <DrawerHeader className="flex flex-row! justify-between items-center">
           <DrawerTitle className="flex items-center gap-1">
-            <DrawerDescription>Your Cart</DrawerDescription>
+            <DrawerDescription>{t("cart")}</DrawerDescription>
             <span className="text-xs">({totalItems})</span>
           </DrawerTitle>
           <DrawerClose asChild>
-            <Button variant="outline" size={"icon-sm"} autoFocus>
+            <Button
+              variant="outline"
+              size={"icon-sm"}
+              autoFocus
+              aria-label="Close The Mini Cart"
+            >
               X
             </Button>
           </DrawerClose>
         </DrawerHeader>
 
-        <div className="no-scrollbar overflow-y-auto px-4">
+        <div
+          className={`${geist.className} no-scrollbar overflow-y-auto px-4`}
+          dir="ltr"
+        >
           <div className="flex flex-col gap-2">
             {items.map((item) => (
               <div
@@ -113,14 +123,20 @@ const MiniCart = () => {
 
         <DrawerFooter>
           <DrawerClose asChild>
-            <Button>Proceed To Checkout</Button>
+            <Link
+              href={"/cart"}
+              className="rounded-md w-full block py-2 px-4 bg-neutral-300 text-neutral-900 text-sm font-medium text-center ring-1 ring-neutral-400 transition-all duration-300 hover:ring-2"
+            >
+              {t("checkout")}
+            </Link>
           </DrawerClose>
 
           <DrawerClose asChild>
-            <Link href={"/cart"}>
-              <Button variant="outline" className="w-full">
-                View Cart
-              </Button>
+            <Link
+              href={"/cart"}
+              className="rounded-md w-full block py-2 px-4 bg-neutral-800 text-neutral-50 text-sm font-medium text-center ring-1 ring-neutral-700 transition-all duration-300 hover:ring-2"
+            >
+              {t("view")}
             </Link>
           </DrawerClose>
         </DrawerFooter>

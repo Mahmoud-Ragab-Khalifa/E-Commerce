@@ -261,5 +261,11 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
+  },
+
+  "miniCart": {
+    "cart": "Your Cart",
+    "checkout": "Proceed To Checkout",
+    "view": "View Cart"
   }
 }
