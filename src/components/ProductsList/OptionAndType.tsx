@@ -13,7 +13,7 @@ const OptionAndType = () => {
   return (
     <>
       <div className="mt-4 flex flex-col gap-2">
-        <span className="text-[#4b5563]">{t("option")}: </span>
+        <span className="font-bold text-[#0aa2b5]">{t("option")}</span>
         <div className="flex gap-1 flex-wrap">
           {Array.from({ length: 4 }).map((_, idx) => (
             <Button
@@ -29,8 +29,8 @@ const OptionAndType = () => {
         </div>
       </div>
 
-      <div className="mt-4 flex flex-col gap-2">
-        <span className="text-[#4b5563]">{t("type")}: </span>
+      <div className="mt-4 mb-4 flex flex-col gap-2">
+        <span className="font-bold text-[#0aa2b5]">{t("type")}</span>
         <div className="flex gap-1">
           {Array.from({ length: 3 }).map((_, idx) => (
             <Button

@@ -5,6 +5,10 @@ interface ProductReviewProbs {
   reviews: Review[];
 }
 
+const geist = Geist({
+  subsets: ["latin"],
+});
+
 import { Button } from "@/components/ui/button";
 
 import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
@@ -13,6 +17,7 @@ import { Textarea } from "@/components/ui/textarea";
 import Rating from "./Rating";
 import SetRating from "./SetRating";
 import { useTranslations } from "next-intl";
+import { Geist } from "next/font/google";
 
 const UserCard = ({ reviewerName, rating, comment }: Review) => {
   return (
@@ -41,8 +46,8 @@ const ProductReview = ({ reviews }: ProductReviewProbs) => {
   const t = useTranslations("productDetails");
 
   return (
-    <div className="flex flex-col gap-8 lg:gap-14">
-      <div className="flex flex-col gap-4">
+    <div className="animate-fade-in-small flex flex-col gap-8 lg:gap-14">
+      <div className={`${geist.className} flex flex-col gap-4`}>
         {reviews.map((review, idx) => (
           <UserCard
             key={idx}
