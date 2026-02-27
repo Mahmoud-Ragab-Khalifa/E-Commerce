@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,23 +13,78 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useAuthStore, User } from "@/store/authStore";
+import { useRouter } from "@/i18n/navigation";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const router = useRouter();
 
-  const handleLogin = () => {
-    fetch("https://dummyjson.com/user/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+  const token = useAuthStore((state) => state.token);
+
+  useEffect(() => {
+    if (token) router.back();
+  }, [router, token]);
+
+  const setAuth = useAuthStore((state) => state.setAuth);
+
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch("https://dummyjson.com/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        throw new Error("Invalid credentials");
+      }
+
+      const data = await res.json();
+
+      const { id, username, email, firstName, lastName, gender, image } = data;
+
+      const user: User = {
+        id,
         username,
-        password,
-      }),
-    })
-      .then((res) => res.json())
-      .then(console.log);
+        email,
+        firstName,
+        lastName,
+        gender,
+        image,
+      };
+
+      setAuth(data.accessToken, user);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Something went wrong");
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -40,46 +96,61 @@ const Login = () => {
             Enter your username below to login to your account
           </CardDescription>
           <CardAction>
-            <Button variant="link">Sign Up</Button>
+            <Button variant="link" type="button">
+              Sign Up
+            </Button>
           </CardAction>
         </CardHeader>
+
         <CardContent>
-          <form>
-            <div className="flex flex-col gap-6">
-              <div className="grid gap-2">
-                <Label htmlFor="username">Username</Label>
-                <Input
-                  id="username"
-                  type="text"
-                  required
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </div>
-              <div className="grid gap-2">
-                <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
-                  <a
-                    href="#"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                  >
-                    Forgot your password?
-                  </a>
-                </div>
-                <Input
-                  id="password"
-                  type="text"
-                  required
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            <div className="grid gap-2">
+              <Label htmlFor="username">Username</Label>
+              <Input
+                id="username"
+                type="text"
+                required
+                value={form.username}
+                onChange={handleChange}
+                disabled={loading}
+              />
             </div>
+
+            <div className="grid gap-2">
+              <div className="flex items-center">
+                <Label htmlFor="password">Password</Label>
+                <button
+                  type="button"
+                  className="ml-auto text-sm underline-offset-4 hover:underline"
+                >
+                  Forgot your password?
+                </button>
+              </div>
+
+              <Input
+                id="password"
+                type="password"
+                required
+                value={form.password}
+                onChange={handleChange}
+                disabled={loading}
+              />
+            </div>
+
+            {error && (
+              <p className="text-sm text-red-500" role="alert">
+                {error}
+              </p>
+            )}
+
+            <Button type="submit" className="w-full" disabled={loading}>
+              {loading ? "Logging in..." : "Login"}
+            </Button>
           </form>
         </CardContent>
-        <CardFooter className="flex-col gap-2">
-          <Button type="submit" className="w-full" onClick={handleLogin}>
-            Login
-          </Button>
-          <Button variant="outline" className="w-full">
+
+        <CardFooter>
+          <Button variant="outline" className="w-full" disabled={loading}>
             Login with Google
           </Button>
         </CardFooter>
