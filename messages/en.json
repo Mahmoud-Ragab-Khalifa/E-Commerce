@@ -295,5 +295,19 @@
     "submit": "Submit :",
     "option": "Option",
     "type": "Type"
+  },
+
+  "profile": {
+    "dashboard": "Dashboard",
+    "orders": "Orders",
+    "wishlist": "Wishlist",
+    "support": "Support Tickets",
+
+    "settings": "Account Settings",
+    "profileInfo": "Profile Info",
+    "addresses": "Addresses",
+    "payment": "Payment Methods",
+
+    "logout": "Logout"
   }
 }
