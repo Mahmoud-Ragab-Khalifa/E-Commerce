@@ -18,11 +18,14 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "next-intl";
+import { useActiveProfileTabStore } from "@/store/activeProfileTabStore";
 
 const Profile = () => {
   const token = useAuthStore((state) => state.token);
 
   const router = useRouter();
+
+  const active = useActiveProfileTabStore((state) => state.active);
 
   useEffect(() => {
     if (!token) router.replace("/login");
@@ -39,7 +42,7 @@ const Profile = () => {
         </div>
 
         <div className="content bg-blue-600/10 w-full flex-1 flex items-center justify-between">
-          <div>content</div>
+          <div>content of {active}</div>
 
           <div className="lg:hidden">
             <Drawer direction={dir}>
