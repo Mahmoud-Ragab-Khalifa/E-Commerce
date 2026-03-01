@@ -19,6 +19,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useLocale } from "next-intl";
 import { useActiveProfileTabStore } from "@/store/activeProfileTabStore";
+import ProfileInfo from "@/components/Profile/ProfileInfo";
 
 const Profile = () => {
   const token = useAuthStore((state) => state.token);
@@ -36,15 +37,20 @@ const Profile = () => {
 
   return (
     <div className="p-2.5 lg:mt-7">
-      <div className="container mx-auto flex gap-4 items-start">
+      <div className="container mx-auto flex gap-6 items-start">
         <div className="w-75 py-6 rounded-md bg-card hidden lg:block">
           <Dashboard />
         </div>
 
-        <div className="content bg-blue-600/10 w-full flex-1 flex items-center justify-between">
-          <div>content of {active}</div>
+        <div className="content w-full flex-1 flex items-start justify-between relative">
+          {active === "orders" && <ProfileInfo />}
+          {active === "wishlist" && <ProfileInfo />}
+          {active === "support" && <ProfileInfo />}
+          {active === "profileInfo" && <ProfileInfo />}
+          {active === "addresses" && <ProfileInfo />}
+          {active === "payment" && <ProfileInfo />}
 
-          <div className="lg:hidden">
+          <div className="lg:hidden absolute end-0 top-0">
             <Drawer direction={dir}>
               <DrawerTrigger asChild>
                 <Button

@@ -22,7 +22,7 @@ const DashboardList = ({ title }: DashboardListProbs) => {
 
   return (
     <div>
-      <h1 className="title font-medium mb-3 uppercase text-xs px-5">
+      <h1 className="title font-bold mb-3 uppercase text-xs px-5">
         {t(title)}
       </h1>
       <div className="flex flex-col">
@@ -39,7 +39,9 @@ const DashboardList = ({ title }: DashboardListProbs) => {
             <Icon size={18} />
             <div className="data flex flex-1 justify-between items-center">
               <span className="text-sm">{t(title)}</span>
-              <span className={`${geist.className} text-sm`}>{number}</span>
+              {number !== 0 && (
+                <span className={`${geist.className} text-sm`}>{number}</span>
+              )}
             </div>
           </button>
         ))}

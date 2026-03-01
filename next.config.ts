@@ -13,6 +13,14 @@ const nextConfig: NextConfig = {
         pathname: "/**",
         search: "",
       },
+
+      {
+        protocol: "https",
+        hostname: "dummyjson.com",
+        port: "",
+        pathname: "/**",
+        search: "",
+      },
     ],
   },
 };

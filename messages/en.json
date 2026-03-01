@@ -308,6 +308,21 @@
     "addresses": "Addresses",
     "payment": "Payment Methods",
 
-    "logout": "Logout"
+    "logout": "Logout",
+
+    "profile": "My Profile",
+    "balance": "Balance",
+    "user": "Silver User",
+
+    "allOrders": "All Orders",
+    "payments": "Awaiting Payments",
+    "shipment": "Awaiting Shipment",
+    "delivery": "Awaiting Delivery",
+
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "bDate": "Birth date"
   }
 }
