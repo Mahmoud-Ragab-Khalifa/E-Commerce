@@ -9,6 +9,9 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { useLocale, useTranslations } from "next-intl";
+import { Geist } from "next/font/google";
+
+const geist = Geist({ subsets: ["latin"] });
 
 interface FilterListProbs {
   category: string;
@@ -38,7 +41,7 @@ const FilterList = ({ category, items, setCategory }: FilterListProbs) => {
               setactive(idx);
               setCategory(item);
             }}
-            className={`capitalize select-none whitespace-nowrap cursor-pointer py-1 px-4 rounded-md transition-colors duration-500 hover:bg-[#253853] hover:dark:bg-main-color ${active === idx ? "bg-[#253853] dark:bg-main-color" : "bg-neutral-600/40 dark:bg-neutral-500/25"}`}
+            className={`${geist.className} capitalize select-none whitespace-nowrap cursor-pointer py-1 px-4 rounded-md transition-colors duration-500 hover:bg-[#253853] hover:dark:bg-main-color ${active === idx ? "bg-[#253853] dark:bg-main-color" : "bg-neutral-600/40 dark:bg-neutral-500/25"}`}
           >
             {item.replaceAll("-", " ")}
           </li>
@@ -61,7 +64,7 @@ const FilterList = ({ category, items, setCategory }: FilterListProbs) => {
               }}
             >
               <li
-                className={`text-sm block list-none capitalize select-none whitespace-nowrap cursor-pointer py-1 px-3 rounded-full transition-colors duration-500 hover:bg-[#253853] hover:dark:bg-main-color ${active === idx ? "bg-[#253853] dark:bg-main-color" : "bg-neutral-600/40 dark:bg-neutral-500/25"}`}
+                className={`${geist.className} text-sm block list-none capitalize select-none whitespace-nowrap cursor-pointer py-1 px-3 rounded-full transition-colors duration-500 hover:bg-[#253853] hover:dark:bg-main-color ${active === idx ? "bg-[#253853] dark:bg-main-color" : "bg-neutral-600/40 dark:bg-neutral-500/25"}`}
               >
                 {item.replaceAll("-", " ")}
               </li>
