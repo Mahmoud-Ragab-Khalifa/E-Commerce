@@ -11,7 +11,6 @@ import { FirebaseError } from "firebase/app";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardHeader,
@@ -55,11 +54,12 @@ export default function Login() {
         position: "bottom-left",
       });
     } catch (err) {
+      let message = "Something went wrong. Please try again.";
       if (err instanceof FirebaseError) {
-        setError(err.code);
-      } else {
-        setError("unknown-error");
+        message = getAuthErrorMessage(err.code || err.message);
       }
+
+      setError(message);
     } finally {
       setLoading(false);
     }
@@ -73,11 +73,6 @@ export default function Login() {
           <CardDescription>
             Enter your email below to login to your account
           </CardDescription>
-          <CardAction>
-            <Link href={"/register"} className="text-sm underline">
-              Sign Up
-            </Link>
-          </CardAction>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
@@ -104,6 +99,7 @@ export default function Login() {
                 <Input
                   value={password}
                   id="password"
+                  placeholder="At least 6 characters"
                   type="password"
                   onChange={(e) => {
                     setPassword(e.target.value);
@@ -126,6 +122,13 @@ export default function Login() {
               >
                 {loading ? "Logging in..." : "Login"}
               </Button>
+
+              <Link
+                href={"/register"}
+                className="text-sm underline w-full text-center"
+              >
+                {"Don't have an account? Sign Up"}
+              </Link>
             </div>
           </form>
         </CardContent>
