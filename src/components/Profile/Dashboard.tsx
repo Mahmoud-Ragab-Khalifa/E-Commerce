@@ -1,13 +1,23 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import DashboardList from "./DashboardList";
-import { useAuthStore } from "@/store/authStore";
+import { useRouter } from "@/i18n/navigation";
 
 const Dashboard = () => {
   const t = useTranslations("profile");
 
-  const logout = useAuthStore((state) => state.logout);
+  const router = useRouter();
+
+  const locale = useLocale();
+
+  const logout = async () => {
+    await fetch(`/${locale}/api/auth/logout`, {
+      method: "POST",
+    });
+
+    router.push("/login");
+  };
 
   return (
     <div className="flex flex-col gap-6">

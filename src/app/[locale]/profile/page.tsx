@@ -1,10 +1,7 @@
 "use client";
 
 import Dashboard from "@/components/Profile/Dashboard";
-import { useRouter } from "@/i18n/navigation";
-import { useAuthStore } from "@/store/authStore";
 import { TextAlignJustify } from "lucide-react";
-import { useEffect } from "react";
 
 import {
   Drawer,
@@ -22,15 +19,7 @@ import { useActiveProfileTabStore } from "@/store/activeProfileTabStore";
 import ProfileInfo from "@/components/Profile/ProfileInfo";
 
 const Profile = () => {
-  const token = useAuthStore((state) => state.token);
-
-  const router = useRouter();
-
   const active = useActiveProfileTabStore((state) => state.active);
-
-  useEffect(() => {
-    if (!token) router.replace("/login");
-  }, [router, token]);
 
   const locale = useLocale();
   const dir: "right" | "left" = locale === "ar" ? "right" : "left";

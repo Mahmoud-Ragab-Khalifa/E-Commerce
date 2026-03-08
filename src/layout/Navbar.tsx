@@ -10,14 +10,11 @@ import { CircleUserRound, Search } from "lucide-react";
 import MiniCart from "@/components/ProductsList/MiniCart";
 
 import { useRouter } from "@/i18n/navigation";
-import { useAuthStore } from "@/store/authStore";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
 
   const router = useRouter();
-
-  const token = useAuthStore((state) => state.token);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +28,7 @@ const Navbar = () => {
   }, []);
 
   const handleUserClick = () => {
-    router.push(token ? "/profile" : "/login");
+    router.push("/profile");
   };
 
   return (
