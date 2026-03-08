@@ -71,7 +71,7 @@ export default function Register() {
   };
 
   return (
-    <div className="container mx-auto min-h-screen flex items-center justify-center px-4">
+    <div className="container mx-auto min-h-[calc(100vh-112px)] lg:min-h-[calc(100vh-168px)] flex items-center justify-center px-4">
       <Card className="w-full max-w-sm">
         <CardHeader>
           <CardTitle>Create your account</CardTitle>
