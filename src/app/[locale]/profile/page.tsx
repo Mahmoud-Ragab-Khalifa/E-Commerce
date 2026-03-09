@@ -39,7 +39,7 @@ const Profile = () => {
           {active === "addresses" && <ProfileInfo />}
           {active === "payment" && <ProfileInfo />}
 
-          <div className="lg:hidden absolute end-0 top-0">
+          <div className="lg:hidden absolute inset-e-0 top-0">
             <Drawer direction={dir}>
               <DrawerTrigger asChild>
                 <Button

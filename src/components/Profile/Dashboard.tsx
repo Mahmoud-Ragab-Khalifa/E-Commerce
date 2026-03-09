@@ -30,7 +30,7 @@ const Dashboard = () => {
       >
         <span>{t("logout")}</span>
 
-        <span className="absolute start-0 top-0 h-full w-0 group-hover:w-full bg-destructive transition-all duration-300 -z-10 group-focus:w-full" />
+        <span className="absolute inset-s-0 top-0 h-full w-0 group-hover:w-full bg-destructive transition-all duration-300 -z-10 group-focus:w-full" />
       </button>
     </div>
   );
