@@ -2,7 +2,7 @@
 
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebaseClient";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { getAuthErrorMessage } from "@/lib/getAuthErrorMessage";
@@ -36,6 +36,9 @@ export default function Login() {
 
   const t = useTranslations("auth");
 
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get("redirect");
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -52,7 +55,7 @@ export default function Login() {
         body: JSON.stringify({ idToken }),
       });
 
-      router.push("/profile");
+      router.replace(redirect || `/${locale}/profile`);
 
       toast.success("Login Successful, Welcome back!", {
         position: "bottom-left",
@@ -125,7 +128,7 @@ export default function Login() {
               </Button>
 
               <Link
-                href={"/register"}
+                href={redirect ? `/register?redirect=${redirect}` : "/register"}
                 className="text-sm underline w-full text-center"
               >
                 {t("loginLink")}

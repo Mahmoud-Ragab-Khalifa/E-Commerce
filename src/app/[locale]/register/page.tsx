@@ -2,7 +2,7 @@
 
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "@/lib/firebaseClient";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { getAuthErrorMessage } from "@/lib/getAuthErrorMessage";
@@ -37,6 +37,9 @@ export default function Register() {
   const [error, setError] = useState<null | string>(null);
   const [loading, setLoading] = useState(false);
 
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get("redirect");
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -63,7 +66,7 @@ export default function Register() {
         body: JSON.stringify({ idToken }),
       });
 
-      router.push("/profile");
+      router.replace(redirect || `/${locale}/profile`);
 
       toast.success("Account created successfully! Welcome!", {
         position: "bottom-left",
@@ -165,7 +168,7 @@ export default function Register() {
               </Button>
 
               <Link
-                href={"/login"}
+                href={redirect ? `/login?redirect=${redirect}` : "/login"}
                 className="text-sm underline w-full text-center"
               >
                 {t("registerLink")}

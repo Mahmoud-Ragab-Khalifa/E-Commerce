@@ -1,32 +1,56 @@
 import createMiddleware from "next-intl/middleware";
-import { NextRequest, NextResponse } from "next/server";
 import { routing } from "@/i18n/routing";
+import { NextRequest, NextResponse } from "next/server";
 
 const intlMiddleware = createMiddleware(routing);
 
-export default function middleware(req: NextRequest) {
+export default async function proxy(req: NextRequest) {
+  const response = intlMiddleware(req);
+
   const session = req.cookies.get("session")?.value;
 
-  const pathname = req.nextUrl.pathname;
+  const { pathname, searchParams } = req.nextUrl;
 
-  const segments = pathname.split("/");
-  const locale = segments[1];
-  const route = "/" + segments.slice(2).join("/");
+  const locale = pathname.split("/")[1];
+  const route = pathname.replace(`/${locale}`, "") || "/";
 
   const isAuthPage = route === "/login" || route === "/register";
-  const isProfile = route === "/profile";
 
-  if (!session && isProfile) {
-    return NextResponse.redirect(new URL(`/${locale}/login`, req.url));
+  const protectedRoutes = [
+    "/profile",
+    "/cart",
+    "/details",
+    "/payment",
+    "/review",
+  ];
+
+  const isProtected = protectedRoutes.some((r) => route.startsWith(r));
+
+  /* ---------------- protected pages ---------------- */
+
+  if (!session && isProtected) {
+    const loginUrl = new URL(`/${locale}/login`, req.url);
+
+    loginUrl.searchParams.set("redirect", pathname);
+
+    return NextResponse.redirect(loginUrl);
   }
+
+  /* ---------------- auth pages ---------------- */
 
   if (session && isAuthPage) {
-    return NextResponse.redirect(new URL(`/${locale}/profile`, req.url));
+    const redirect = searchParams.get("redirect");
+
+    const target = redirect
+      ? new URL(redirect, req.url)
+      : new URL(`/${locale}/profile`, req.url);
+
+    return NextResponse.redirect(target);
   }
 
-  return intlMiddleware(req);
+  return response;
 }
 
 export const config = {
-  matcher: "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
+  matcher: ["/((?!api|_next|.*\\..*).*)"],
 };

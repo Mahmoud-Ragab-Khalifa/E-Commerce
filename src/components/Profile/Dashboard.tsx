@@ -16,7 +16,7 @@ const Dashboard = () => {
       method: "POST",
     });
 
-    router.push("/login");
+    router.replace("/login");
   };
 
   return (
