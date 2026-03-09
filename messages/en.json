@@ -324,5 +324,27 @@
     "email": "Email",
     "phone": "Phone",
     "bDate": "Birth date"
+  },
+
+  "auth": {
+    "login": "Login",
+    "loginLoader": "Logging in...",
+    "loginTitle": "Login to your account",
+    "loginDescription": "Enter your email below to login to your account",
+    "email": "Email",
+    "emailPlacholder": "m@example.com",
+    "pass": "Password",
+    "passPlacholder": "At least 6 characters",
+    "loginLink": "Don't have an account? Sign Up",
+
+    "register": "Register",
+    "registerTitle": "Create your account",
+    "registerdescription": "Enter your email and password to register",
+    "registerLoader": "Registering...",
+    "username": "UserName",
+    "usernamePlacholder": "Enter Your User Name",
+    "passConfirmation": "Confirm Password",
+    "passConfirmationPlacholder": "Re-enter your password",
+    "registerLink": "Already have an account? Login"
   }
 }

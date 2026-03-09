@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "@/lib/firebaseClient";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { getAuthErrorMessage } from "@/lib/getAuthErrorMessage";
 import { FirebaseError } from "firebase/app";
 
@@ -23,7 +23,12 @@ import { toast } from "sonner";
 
 export default function Register() {
   const router = useRouter();
+
   const locale = useLocale();
+
+  const dir: "rtl" | "ltr" = locale === "ar" ? "rtl" : "ltr";
+
+  const t = useTranslations("auth");
 
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -76,20 +81,21 @@ export default function Register() {
   };
 
   return (
-    <div className="container mx-auto min-h-[calc(100vh-112px)] lg:min-h-[calc(100vh-168px)] flex items-center justify-center px-4">
-      <Card className="w-full max-w-sm">
+    <div
+      className="container mx-auto min-h-[calc(100vh-112px)] lg:min-h-[calc(100vh-168px)] flex items-center justify-center px-4"
+      dir={dir}
+    >
+      <Card className="w-full max-w-sm" dir={dir}>
         <CardHeader>
-          <CardTitle>Create your account</CardTitle>
-          <CardDescription>
-            Enter your email and password to register
-          </CardDescription>
+          <CardTitle>{t("registerTitle")}</CardTitle>
+          <CardDescription>{t("registerdescription")}</CardDescription>
         </CardHeader>
 
         <CardContent>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="username">UserName</Label>
+                <Label htmlFor="username">{t("username")}</Label>
                 <Input
                   value={username}
                   onChange={(e) => {
@@ -98,13 +104,13 @@ export default function Register() {
                   }}
                   id="username"
                   type="text"
-                  placeholder="Enter Your User Name"
+                  placeholder={t("usernamePlacholder")}
                   required
                 />
               </div>
 
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{t("email")}</Label>
                 <Input
                   value={email}
                   onChange={(e) => {
@@ -113,13 +119,13 @@ export default function Register() {
                   }}
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder={t("emailPlacholder")}
                   required
                 />
               </div>
 
               <div className="grid gap-2">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">{t("pass")}</Label>
                 <Input
                   value={password}
                   onChange={(e) => {
@@ -128,13 +134,13 @@ export default function Register() {
                   }}
                   id="password"
                   type="password"
-                  placeholder="At least 6 characters"
+                  placeholder={t("passPlacholder")}
                   required
                 />
               </div>
 
               <div className="grid gap-2">
-                <Label htmlFor="confirmPassword">Confirm Password</Label>
+                <Label htmlFor="confirmPassword">{t("passConfirmation")}</Label>
                 <Input
                   value={confirmPassword}
                   onChange={(e) => {
@@ -143,7 +149,7 @@ export default function Register() {
                   }}
                   id="confirmPassword"
                   type="password"
-                  placeholder="Re-enter your password"
+                  placeholder={t("passConfirmationPlacholder")}
                   required
                 />
               </div>
@@ -152,17 +158,17 @@ export default function Register() {
 
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full font-medium text-md"
                 disabled={loading || !email || !password || !confirmPassword}
               >
-                {loading ? "Registering..." : "Register"}
+                {loading ? t("registerLoader") : t("register")}
               </Button>
 
               <Link
                 href={"/login"}
                 className="text-sm underline w-full text-center"
               >
-                Already have an account? Login
+                {t("registerLink")}
               </Link>
             </div>
           </form>

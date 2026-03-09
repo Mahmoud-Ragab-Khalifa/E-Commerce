@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/lib/firebaseClient";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { getAuthErrorMessage } from "@/lib/getAuthErrorMessage";
 import { FirebaseError } from "firebase/app";
 
@@ -31,6 +31,10 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
 
   const locale = useLocale();
+
+  const dir: "rtl" | "ltr" = locale === "ar" ? "rtl" : "ltr";
+
+  const t = useTranslations("auth");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -66,19 +70,20 @@ export default function Login() {
   };
 
   return (
-    <div className="container mx-auto min-h-[calc(100vh-112px)] lg:min-h-[calc(100vh-168px)] flex items-center justify-center px-4">
-      <Card className="w-full max-w-sm">
+    <div
+      className="container mx-auto min-h-[calc(100vh-112px)] lg:min-h-[calc(100vh-168px)] flex items-center justify-center px-4"
+      dir={dir}
+    >
+      <Card className="w-full max-w-sm" dir={dir}>
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
-          <CardDescription>
-            Enter your email below to login to your account
-          </CardDescription>
+          <CardTitle>{t("loginTitle")}</CardTitle>
+          <CardDescription>{t("loginDescription")}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{t("email")}</Label>
                 <Input
                   value={email}
                   onChange={(e) => {
@@ -87,19 +92,19 @@ export default function Login() {
                   }}
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder={t("emailPlacholder")}
                   required
                 />
               </div>
 
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="password">Password</Label>
+                  <Label htmlFor="password">{t("pass")}</Label>
                 </div>
                 <Input
                   value={password}
                   id="password"
-                  placeholder="At least 6 characters"
+                  placeholder={t("passPlacholder")}
                   type="password"
                   onChange={(e) => {
                     setPassword(e.target.value);
@@ -117,17 +122,17 @@ export default function Login() {
 
               <Button
                 type="submit"
-                className="w-full"
+                className="w-full font-medium text-md"
                 disabled={loading || !email || !password}
               >
-                {loading ? "Logging in..." : "Login"}
+                {loading ? t("loginLoader") : t("login")}
               </Button>
 
               <Link
                 href={"/register"}
                 className="text-sm underline w-full text-center"
               >
-                {"Don't have an account? Sign Up"}
+                {t("loginLink")}
               </Link>
             </div>
           </form>

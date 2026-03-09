@@ -324,5 +324,27 @@
     "email": "البريد الإلكتروني",
     "phone": "رقم الهاتف",
     "bDate": "تاريخ الميلاد"
+  },
+
+  "auth": {
+    "login": "تسجيل الدخول",
+    "loginLoader": "جاري تسجيل الدخول...",
+    "loginTitle": "تسجيل الدخول إلى حسابك",
+    "loginDescription": "أدخل بريدك الإلكتروني أدناه لتسجيل الدخول إلى حسابك",
+    "email": "البريد الإلكتروني",
+    "emailPlacholder": "example@email.com",
+    "pass": "كلمة المرور",
+    "passPlacholder": "6 أحرف على الأقل",
+    "loginLink": "ليس لديك حساب؟ إنشاء حساب",
+
+    "register": "إنشاء حساب",
+    "registerTitle": "إنشاء حساب جديد",
+    "registerdescription": "أدخل بريدك الإلكتروني وكلمة المرور لإنشاء حساب",
+    "registerLoader": "جاري إنشاء الحساب...",
+    "username": "اسم المستخدم",
+    "usernamePlacholder": "أدخل اسم المستخدم",
+    "passConfirmation": "تأكيد كلمة المرور",
+    "passConfirmationPlacholder": "أعد إدخال كلمة المرور",
+    "registerLink": "لديك حساب بالفعل؟ تسجيل الدخول"
   }
 }
