@@ -68,7 +68,7 @@ export default function Register() {
 
       router.replace(redirect || `/${locale}/profile`);
 
-      toast.success("Account created successfully! Welcome!", {
+      toast.success(t("registerMessage"), {
         position: "bottom-left",
       });
     } catch (err) {

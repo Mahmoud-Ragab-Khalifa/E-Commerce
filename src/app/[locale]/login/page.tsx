@@ -57,7 +57,7 @@ export default function Login() {
 
       router.replace(redirect || `/${locale}/profile`);
 
-      toast.success("Login Successful, Welcome back!", {
+      toast.success(t("loginMessage"), {
         position: "bottom-left",
       });
     } catch (err) {

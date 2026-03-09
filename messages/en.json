@@ -354,6 +354,9 @@
     "weakPassword": "Password should be at least 6 characters.",
     "invalidEmail": "Please enter a valid email.",
     "notMatch": "Passwords do not match",
-    "default": "Something went wrong. Please try again."
+    "default": "Something went wrong. Please try again.",
+
+    "loginMessage": "Login Successfully, Welcome back!",
+    "registerMessage": "Account created successfully! Welcome!"
   }
 }
