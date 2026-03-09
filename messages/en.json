@@ -358,5 +358,12 @@
 
     "loginMessage": "Login Successfully, Welcome back!",
     "registerMessage": "Account created successfully! Welcome!"
+  },
+
+  "logoutButton": {
+    "logoutBtn": "Logout",
+    "cancelBtn": "Cancel",
+    "title": "Confirm Logout",
+    "desc": "Are you sure you want to log out of your account? You will need to log in again to continue."
   }
 }
