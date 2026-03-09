@@ -1,6 +1,6 @@
 "use client";
 
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "@/lib/firebaseClient";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -26,6 +26,7 @@ export default function Register() {
   const locale = useLocale();
 
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState<null | string>(null);
@@ -44,6 +45,10 @@ export default function Register() {
       setError(null);
 
       const cred = await createUserWithEmailAndPassword(auth, email, password);
+
+      await updateProfile(cred.user, {
+        displayName: username,
+      });
 
       const idToken = await cred.user.getIdToken();
 
@@ -83,6 +88,21 @@ export default function Register() {
         <CardContent>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-6">
+              <div className="grid gap-2">
+                <Label htmlFor="username">UserName</Label>
+                <Input
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                    setError(null);
+                  }}
+                  id="username"
+                  type="text"
+                  placeholder="Enter Your User Name"
+                  required
+                />
+              </div>
+
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
