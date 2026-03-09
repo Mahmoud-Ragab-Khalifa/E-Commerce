@@ -41,7 +41,7 @@ export default function Register() {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      setError("notMatch");
       return;
     }
 
@@ -69,7 +69,7 @@ export default function Register() {
         position: "bottom-left",
       });
     } catch (err) {
-      let message = "Something went wrong. Please try again.";
+      let message = "default";
       if (err instanceof FirebaseError) {
         message = getAuthErrorMessage(err.code || err.message);
       }
@@ -154,7 +154,7 @@ export default function Register() {
                 />
               </div>
 
-              {error && <p className="text-red-500 text-sm">{error}</p>}
+              {error && <p className="text-red-500 text-sm">{t(error)}</p>}
 
               <Button
                 type="submit"

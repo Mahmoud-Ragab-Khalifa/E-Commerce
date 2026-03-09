@@ -58,7 +58,7 @@ export default function Login() {
         position: "bottom-left",
       });
     } catch (err) {
-      let message = "Something went wrong. Please try again.";
+      let message = "default";
       if (err instanceof FirebaseError) {
         message = getAuthErrorMessage(err.code || err.message);
       }
@@ -114,11 +114,7 @@ export default function Login() {
                 />
               </div>
 
-              {error && (
-                <p className="text-red-500 text-sm">
-                  {getAuthErrorMessage(error)}
-                </p>
-              )}
+              {error && <p className="text-red-500 text-sm">{t(error)}</p>}
 
               <Button
                 type="submit"

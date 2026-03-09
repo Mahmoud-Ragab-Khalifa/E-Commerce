@@ -345,6 +345,15 @@
     "usernamePlacholder": "Enter Your User Name",
     "passConfirmation": "Confirm Password",
     "passConfirmationPlacholder": "Re-enter your password",
-    "registerLink": "Already have an account? Login"
+    "registerLink": "Already have an account? Login",
+
+    "invalidCredentials": "Invalid email or password.",
+    "userNotFound": "No account found with this email.",
+    "wrongPassword": "Incorrect password.",
+    "emailAlreadyInUse": "This email is already registered.",
+    "weakPassword": "Password should be at least 6 characters.",
+    "invalidEmail": "Please enter a valid email.",
+    "notMatch": "Passwords do not match",
+    "default": "Something went wrong. Please try again."
   }
 }

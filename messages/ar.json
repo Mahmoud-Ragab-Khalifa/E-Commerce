@@ -345,6 +345,15 @@
     "usernamePlacholder": "أدخل اسم المستخدم",
     "passConfirmation": "تأكيد كلمة المرور",
     "passConfirmationPlacholder": "أعد إدخال كلمة المرور",
-    "registerLink": "لديك حساب بالفعل؟ تسجيل الدخول"
+    "registerLink": "لديك حساب بالفعل؟ تسجيل الدخول",
+
+    "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+    "userNotFound": "لا يوجد حساب بهذا البريد الإلكتروني",
+    "wrongPassword": "كلمة المرور غير صحيحة",
+    "emailAlreadyInUse": "البريد الإلكتروني مستخدم بالفعل",
+    "weakPassword": "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+    "invalidEmail": "يرجى إدخال بريد إلكتروني صحيح",
+    "notMatch": "كلمتا المرور غير متطابقتين",
+    "default": "حدث خطأ ما، حاول مرة أخرى"
   }
 }
